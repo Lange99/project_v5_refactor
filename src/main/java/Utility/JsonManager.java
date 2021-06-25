@@ -1,7 +1,7 @@
 package main.java.Utility;
 
-import main.java.Project_v3.Net;
-import main.java.Project_v3.PetriNet;
+import main.java.Project_v4.Net;
+import main.java.Project_v4.PetriNet;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,6 +1,4 @@
-package main.java.Project_v3;
-
-import java.util.ArrayList;
+package main.java.Project_v4;
 
 public class Pair {
     private Place place;

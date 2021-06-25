@@ -1,4 +1,4 @@
-package main.java.Project_v3;
+package main.java.Project_v4;
 
 import java.util.*;
 
@@ -68,7 +68,7 @@ public class Net {
     }
 
     /**
-     * constructor for duplicate a net net
+     * constructor for duplicate a net
      *
      * @param _net to duplicate
      */

@@ -1,4 +1,4 @@
-package main.java.Project_v3;
+package main.java.Project_v4;
 
 
 import main.java.Utility.IO;
@@ -13,8 +13,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class NetManager {
     private final ArrayList<Net> netList = new ArrayList<>();
