@@ -410,7 +410,8 @@ public class NetManager {
 
     public void createPriorityPetriNet(PetriNet pN){
         PriorityPetriNet newNet = new PriorityPetriNet(pN);
-        Boolean exit;
+        String name = IO.ReadString("What is the Priority Petri's net called?");
+        newNet.setName(name);
         while(IO.yesOrNo("Do you want add priorities")){
             assignPriority(newNet);
         }
