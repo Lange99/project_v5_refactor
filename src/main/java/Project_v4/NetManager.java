@@ -15,8 +15,9 @@ import java.security.MessageDigest;
 import java.util.ArrayList;
 
 public class NetManager {
-    private final ArrayList<Net> netList = new ArrayList<>();
-    private final ArrayList<PetriNet> petriNetList = new ArrayList<>();
+    private ArrayList<Net> netList = new ArrayList<>();
+    private ArrayList<PetriNet> petriNetList = new ArrayList<>();
+    private ArrayList<PriorityPetriNet> priorityPetriNetsList = new ArrayList<>();
 
     /**
      * this method handles the interface with the user
@@ -70,6 +71,12 @@ public class NetManager {
                         addPetriNet();
                     }
                     break;
+
+                case 4:
+                    PetriNet newNet = JsonManager.loadPetriNet();
+                    createPriorityPetriNet(newNet);
+
+
             }
         } while (check);
 
@@ -400,4 +407,27 @@ public class NetManager {
     public ArrayList<Net> getNetList(){
         return netList;
     }
+
+    public void createPriorityPetriNet(PetriNet pN){
+        PriorityPetriNet newNet = new PriorityPetriNet(pN);
+        Boolean exit;
+        while(IO.yesOrNo("Do you want add priorities")){
+            assignPriority(newNet);
+        }
+        priorityPetriNetsList.add(newNet);
+
+    }
+
+    public void assignPriority(PriorityPetriNet pnp){
+        ArrayList<Transition> tempArr = new ArrayList<>(pnp.getSetOfTrans());
+        int i=0;
+        for(i=0; i< tempArr.size(); i++){
+            IO.print(i + ") " + tempArr.get(i).getName());
+        }
+        int choise = IO.readInteger("Which transition do you want to prioritize?", 0, i);
+        int priorityNumber = IO.readNumber("What priority do you want to assign?\n" +
+                "(the higher the number, the higher the priority of the transition)");
+        pnp.addPriority(tempArr.get(choise).getName(), priorityNumber);
+    }
+
 }
