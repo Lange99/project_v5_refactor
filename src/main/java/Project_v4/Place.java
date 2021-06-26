@@ -58,7 +58,10 @@ public class Place {
         }
         return false;
     }
+    public  void updateToken(){
+        this.numberOfToken++;
 
+    }
     public void differenceToken(int weight) {
         setToken(numberOfToken-weight);
     }
