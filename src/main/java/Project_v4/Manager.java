@@ -20,12 +20,12 @@ public class Manager {
                     break;
                 case 1:
                     user.operation(manager);
-                    check = IO.yesOrNo("Do you want close the program?\n");
+                    check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
                     break;
 
                 case 2:
                     config.operation(manager);
-                    check = IO.yesOrNo("Do you want close the program?\n");
+                    check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
                     break;
             }
         } while (!check);

@@ -46,7 +46,7 @@ public class User {
                      } while (IO.yesOrNo(IO.DO_YOU_WANT_TO_LOAD_OTHER_NETS));
 
                      IO.printPetriNets(loadNetPetri);
-                     check = IO.yesOrNo("Do you want close the program?\n");
+                     check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
 
                      //simulazione(selected, selected.getInitialMark());
                      // } while (IO.yesOrNo(IO.DO_YOU_WANT_TO_MAKE_AN_OTHER_SIMULATION));
@@ -70,9 +70,9 @@ public class User {
 
                              startSimulation(selected, selected.getInitialMark());
 
-                         }while (IO.yesOrNo("Do you want to stop the simulation?"));
+                         }while (IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
                      }
-                     check = IO.yesOrNo("Do you want close the program?\n");
+                     check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
 
                      break;
 
@@ -97,17 +97,17 @@ public class User {
 
                          //we shows the net
                          //dobbiamo mostrare le reti anche con le priorità
-                         //IO.showPetriNet(selected);
+                         IO.showPriorityPetriNet(sel);
                          sel.saveInitialMark();
                          //we start the simulation
                           do{
 
                                 startSimulationPriority(sel, sel.getInitialMark());
 
-                          }while (IO.yesOrNo("Do you want to stop the simulation?"));
+                          }while (IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
 
                      }
-                     check = IO.yesOrNo("Do you want close the program?\n");
+                     check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
 
                      break;
 
@@ -160,55 +160,6 @@ public class User {
             IO.showPetriNet(pN);
         }
     }
-  /*  /**
-     * this method allows to simulate the actions of the Petri's net
-     * @param pN this is the net that the user had choose
-     * @param initialMark this is the initial mark or in the case of recursive option is the initial situazion in that time
-     */
-
-    /*public void simulation(HashMap<Transition, ArrayList<Pair>> finalTrans) {
-
-        assert initialMark!=null;
-
-        //in the we put the transition that can be chosen
-        ArrayList<Transition> transitionThatCanWork = new ArrayList<Transition>();
-        //visit avoid to check elements that we have already checked
-
-        ArrayList<Pair> pairInTheTrans = new ArrayList<>();
-        HashMap<Transition, ArrayList<Pair>> finalTrans= new HashMap<>();
-        pN.initialSituationInTheNet(initialMark, transitionThatCanWork, finalTrans);
-
-        //we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
-        //ho fatto i controlli possibili in pairInTheTrans ho le transazioni che possono scattare
-        if (transitionThatCanWork.size() == 0) {
-            //In this case there aren't any transitions avaible
-            IO.print(IO.THERE_AREN_T_ANY_TRANSITION_AVAILABLE);
-
-        } else {
-
-
-            //we ask to the user which transition he wants to use
-            int risp = whichPostisChosen(transitionThatCanWork);
-            //if the answer is negative that means that the user want to stop the simulation
-            if(risp<0){
-                IO.showPetriNet(pN);
-                return;
-            }
-            //we have to change the token in the post transition
-            int weightTotal = getWeightTotal( finalTrans.get(transitionThatCanWork.get(risp)));
-            setPreandPost(pN, transitionThatCanWork.get(risp));
-            modifyThePrePair(finalTrans.get(transitionThatCanWork.get(risp)));
-            //we have to remove the token in the pre pairs
-            ArrayList<Pair> newInit=new ArrayList<>();
-            //we have to calculate the new situation
-            calculateNewInitialSituation(pN, newInit);
-            IO.showPetriNet(pN);
-            //we start a new simulation
-            simulation(pN, newInit);
-        }
-
-
-    }
 
     /**
      * this method ask to the user which transition he want to use
@@ -222,7 +173,7 @@ public class User {
         IO.printTransition(temp);
        // IO.print(IO.STOP);
 //the user inserts the number of the transition that he wants to use
-      int choise=IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_TRANSITION_YOU_WANT_TO_USE, 0, temp.size()) - 1;
+      int choise=IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_TRANSITION_YOU_WANT_TO_USE, 1, temp.size()) - 1;
      int i=0;
       for(Transition t: temp){
           if(i==choise){

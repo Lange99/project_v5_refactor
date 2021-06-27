@@ -12,6 +12,7 @@ public class IO {
     public static final String DO_YOU_WANT_CLOSE_THE_PROGRAM = "Do you want close the program?\n";
     public static final String STOP = "If you want to stop the simulatoin press 0";
     public static final String THIS_TRANSITIONS_WILL_BE_UPDATED = "This transition will move the token to this place";
+    public static final String DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION = "Do you want to continue the simulation?";
 
     public static final String CHOOSE_THE_ELEMENT = "choose the mode:\n0) Exit \n1) User mode \n2) Configurator mode";
     public static final String MARKING_WITH_TOKEN = "The first marking is given by:";

@@ -21,6 +21,10 @@ public class PetriNet extends Net implements  Simulation{
         saveInitialMark();
     }
 
+    public PetriNet(String name){
+        super(name);
+
+    }
     /**
      * this method allows to add the weight to the pair
      * @param nameTrans name of the trans
@@ -261,12 +265,6 @@ public class PetriNet extends Net implements  Simulation{
             IO.print(IO.THIS_TRANSITIONS_WILL_BE_UPDATED);
             IO.printString(transitionThatWeHaveToModify.getIdPost());
 
-
-            /*   System.out.println("This transition can move the tokens in different places");
-            for(int i = 0; i< transitionThatWeHaveToModify.get(risp -1).sizePost(); i++){
-                System.out.println(i+1+") " + transitionThatWeHaveToModify.get(risp).getIdPost().get(i));
-
-            }*/
             //elemento è il post che devo modificare
             //int elem=IO.readInteger(IO.WHERE_DO_YOU_WANT_TO_PUT_THE_TOKEN, 1, transitionThatWeHaveToModify.get(risp).sizePost() )-1;
             for (int i = 0; i < transitionThatWeHaveToModify.getIdPost().size(); i++) {
