@@ -1,5 +1,7 @@
 package main.java.Project_v4;
 
+import main.java.Utility.IO;
+
 import java.util.*;
 
 public class PetriNet extends Net implements  Simulation{
@@ -235,5 +237,60 @@ public class PetriNet extends Net implements  Simulation{
         return false;
     }
 
+    public HashMap<Transition, ArrayList<Pair>> simulation(){
+
+        //in the we put the transition that can be chosen
+        ArrayList<Transition> transitionThatCanWork = new ArrayList<Transition>();
+        //visit avoid to check elements that we have already checked
+
+        ArrayList<Pair> pairInTheTrans = new ArrayList<>();
+        HashMap<Transition, ArrayList<Pair>> finalTrans= new HashMap<>();
+        initialSituationInTheNet(initialMark, transitionThatCanWork, finalTrans);
+    return finalTrans;
+    }
+
+    public void setPreandPost( Transition transitionThatWeHaveToModify) {
+        //aggiorno tutti i post della transizione modificando il valore dei loro pesi
+        if (transitionThatWeHaveToModify.sizePost() == 1) {
+            //al post ci metto la somma degli elementi dei pesi dei pre, è nelle coppie
+
+            getPair(getPlace(transitionThatWeHaveToModify.getIdPost().get(0)), transitionThatWeHaveToModify).getPlace().updateToken();
+        } else {
+
+
+            IO.print(IO.THIS_TRANSITIONS_WILL_BE_UPDATED);
+            IO.printString(transitionThatWeHaveToModify.getIdPost());
+
+
+            /*   System.out.println("This transition can move the tokens in different places");
+            for(int i = 0; i< transitionThatWeHaveToModify.get(risp -1).sizePost(); i++){
+                System.out.println(i+1+") " + transitionThatWeHaveToModify.get(risp).getIdPost().get(i));
+
+            }*/
+            //elemento è il post che devo modificare
+            //int elem=IO.readInteger(IO.WHERE_DO_YOU_WANT_TO_PUT_THE_TOKEN, 1, transitionThatWeHaveToModify.get(risp).sizePost() )-1;
+            for (int i = 0; i < transitionThatWeHaveToModify.getIdPost().size(); i++) {
+                getPair(getPlace(transitionThatWeHaveToModify.getIdPost().get(i)), transitionThatWeHaveToModify).getPlace().updateToken();
+            }
+        }
+    }
+
+    /**
+     * this method allows us to calculate the new situation
+
+     * @param newInit the array where we put the element
+     */
+    public void calculateNewInitialSituation(ArrayList<Pair> newInit) {
+
+        assert newInit!=null;
+        ArrayList<Place> temporaryPlace= new ArrayList<>();
+        for (Pair p: getPairs()){
+            //ew check if the place has some tokens and we don't want to add place more than once
+            if(p.getPlace().getNumberOfToken()!=0 ){
+                newInit.add(p);
+                temporaryPlace.add(p.getPlace());
+            }
+        }
+    }
 }
 

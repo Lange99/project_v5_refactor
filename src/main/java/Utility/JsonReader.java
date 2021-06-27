@@ -144,7 +144,7 @@ public class JsonReader {
         return net;
     }
 
-    public static PriorityPetriNet readPriorityPetriNet(String pathname) throws FileNotFoundException {
+ /*   public static PriorityPetriNet readPriorityPetriNet(String pathname) throws FileNotFoundException {
         //initialize String object that contains absolute pathname of Json directory
         String path = new File(pathname).getAbsolutePath();
 
@@ -207,5 +207,5 @@ public class JsonReader {
         }
         //the net is built and return
         return net;
-    }
+    }*/
 }

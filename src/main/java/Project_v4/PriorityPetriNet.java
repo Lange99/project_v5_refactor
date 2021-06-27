@@ -83,6 +83,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
             }
 
             //if the transition has a priority lower than the highest that will be not checked because that will not added
+            var var=priorityMap.get(initialMark.get(i).getTrans());
             if(priorityMap.get(initialMark.get(i).getTrans())<maxPriority){
                 continue;
             }else {
@@ -92,7 +93,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
                     finalTrans.clear();
                 }
             }
-
+            maxPriority=priorityMap.get(initialMark.get(i).getTrans());
             //if there is only and there are enough token the transition is add to temp and to th other elemet
             //se si ha un unico pre e si hanno abbastanza token la transizione viene subito aggiunta
             if (initialMark.get(i).getTrans().sizePre() == 1 && initialMark.get(i).getWeight() <= initialMark.get(i).getPlace().getNumberOfToken()) {
