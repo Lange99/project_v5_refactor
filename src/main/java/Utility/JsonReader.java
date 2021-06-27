@@ -144,4 +144,68 @@ public class JsonReader {
         return net;
     }
 
+    public static PriorityPetriNet readPriorityPetriNet(String pathname) throws FileNotFoundException {
+        //initialize String object that contains absolute pathname of Json directory
+        String path = new File(pathname).getAbsolutePath();
+
+        //initialize StringBuilder object
+        StringBuilder sb = new StringBuilder();
+        //initialize Scanner object
+        Scanner sc = new Scanner(new File(path));
+
+        //while Scanner detect new line append to StringBuilder object the line of json file
+        while (sc.hasNextLine()) {
+            sb.append(sc.nextLine()).append("\n");
+        }
+        //System.out.println(sb.toString());
+        //initialize JsonObject that contains the file Json
+        JSONObject objectJson = new JSONObject(sb.toString());
+        //parsing the name and id of the Json file net
+        String netName = objectJson.getString("@name");
+
+        //initialize the JsonArray that contains the pairs of the net
+        JSONArray pairsNet = objectJson.getJSONArray("@pairs");
+        //initialize new net
+        PetriNet netToConvert = new PetriNet(netName);
+        PriorityPetriNet net = new PriorityPetriNet(netToConvert);
+
+        //for every pair in the net build JsonObject composed by place and transition
+        for (int i = 0; i < pairsNet.length(); i++) {
+            JSONObject obj = (JSONObject) pairsNet.get(i);
+            JSONObject placeJson = obj.getJSONObject("@place");
+            String placeName = placeJson.getString("@name");
+            int token = placeJson.getInt("@token");
+            int direction = obj.getInt("@direction");
+            int priority = obj.getInt("@priority");
+            Place placeIneed;
+            if (net.getPlace(placeName) == null) {
+                placeIneed = new Place(placeName, token);
+                net.addSetOfPlace(placeIneed);
+            }
+            else {
+                placeIneed = net.getPlace(placeName);
+            }
+
+            String transName = obj.getString("@transition");
+            Transition transitionIneed;
+            if (net.getTrans(transName) == null) {
+                transitionIneed = new Transition(transName);
+                net.addSetOfTransition(transitionIneed);
+            }
+            else {
+                transitionIneed = net.getTrans(transName);
+            }
+            transitionIneed.addPreOrPost(placeName, direction);
+            net.addPriorityToNetList(transitionIneed, priority);
+
+            int weight = obj.getInt("@weight");
+            //initialize new Pair object and add it to the net
+            Pair pairToAdd = new Pair(placeIneed, transitionIneed, weight);
+            //Pair pair = new Pair(placeName, token, trans, direction, weight);
+
+            net.addPair(pairToAdd);
+        }
+        //the net is built and return
+        return net;
+    }
 }
