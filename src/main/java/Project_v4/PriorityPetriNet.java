@@ -20,10 +20,37 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
         initMap();
     }
 
-    public void addPriority(String tName, int n){
-        priorityMap.put(super.getTrans(tName), n);
+    /**
+     * method to add priority
+     * @param nameTransitionToAddPriority
+     * @param priorityValue
+     * @return
+     */
+    public boolean addPriority(String nameTransitionToAddPriority, int priorityValue) {
+        Transition transitionToAddPriority = researchTrans(nameTransitionToAddPriority);
+        if (transitionToAddPriority == null) {
+            return false;
+        }
+        else {
+            addPriorityToNetList(transitionToAddPriority, priorityValue);
+            return true;
+        }
     }
 
+    public PriorityPetriNet(PriorityPetriNet genericNet) {
+        super(genericNet);
+        saveInitialMark();
+    }
+    public void addPriorityToNetList(Transition transition, Integer priorityValue) {
+        priorityMap.put(transition, priorityValue);
+    }
+    public int getPriorityByTransition(Transition transition) {
+        return priorityMap.get(transition);
+    }
+    public void setPriorityMap(HashMap<Transition, Integer> priorityMap) {
+        this.priorityMap = priorityMap;
+        priorityMap = new HashMap<>();
+    }
 
     /**
      * this method check all the differnt case in  a Petri's Net in order to decide which transitions can work

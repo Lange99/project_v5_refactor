@@ -54,7 +54,8 @@ public class IO {
     public static final String NO_NORMAL_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
     public static final String JSON_FILE = "src/main/java/JsonFile";
     public static final String JSON_PETRI_FILE = "src/main/java/JsonPetri/";
-   // public static final String HOW_MANY_TOKEN = "How many tokens do you want this place to have?\n(if you don't want tokens enter 0)";
+    public static final String JSON_PRIORITY_PETRI_FILE = "src/main/java/JsonPriority/";
+    // public static final String HOW_MANY_TOKEN = "How many tokens do you want this place to have?\n(if you don't want tokens enter 0)";
     public final static String WHAT_PLACE_YOU_WANT_CHANGE = "What place you want change?";
     private final static String ERROR_FORMAT = "Warning: the entered data are in the wrong format.";
     private final static String MINIMUM_ERROR = "Warning: the value must to be grater or equal to ";
@@ -69,7 +70,11 @@ public class IO {
     public static final String INSERT_THE_NUMBER_OF_TOKENS = "Insert the number of tokens: ";
     public static final String THE_WEIGHT_HAS_BEEN_ADDED = "The weight has been added";
     public static final String THE_PLACE_DOESN_T_EXIST = "The place doesn't exist";
-
+    public static final String INSERT_PRIORITY_OF_TRANSITION = "Insert the priority value of the transition: ";
+    public static final String WHICH_TRANSITION_ADD_PRIORITY = "Chose the transition to add the priority: ";
+    public static final String PRIORITY_ADDEN = "The priority has been added.";
+    public static final String TRANSITION_DOESNT_EXIST = "The transition doesn't exist";
+    public static final String DO_YOU_WANT_SAVE_PRIORITY_NET = "Do you want to save the net with priority?";
 
     private static Scanner reader = scannerBuild();
 
@@ -365,7 +370,83 @@ public class IO {
         IO.print("");
 
     }
+    public static void showPriorityPetriNet(PriorityPetriNet net) {
+        //get name and if of the net
+        String nameNet = net.getName();
+        //initialize the places and transitions arraylist
+        ArrayList<String> places = new ArrayList<String>();
+        ArrayList<String> transitions = new ArrayList<String>();
+        ArrayList<String> tokens = new ArrayList<>();
+        ArrayList<String> weights = new ArrayList<>();
+        ArrayList<Integer> directions = new ArrayList<>();
 
+        //for every pair in the net get the name of place and name of transition
+        for (Pair p : net.getNet()) {
+            String place = p.getPlace().getName();
+            String trans = p.getTrans().getName();
+            String tokenPlace = Integer.toString(p.getPlace().getNumberOfToken());
+            int direction = p.getTrans().getInputOutput(p.getPlace().getName());
+            String weightPair = Integer.toString(p.getWeight());
+            //add place to arraylist of places
+            places.add(place);
+            //add transition to arraylist of transitions
+            transitions.add(trans);
+            directions.add(direction);
+            tokens.add(tokenPlace);
+            weights.add(weightPair);
+        }
+        ArrayList<Integer> order = new ArrayList<>();
+        //initialize hashmap that contains the index of place that have the same transition in common
+        HashMap<Integer, Integer> index = new HashMap<Integer, Integer>();
+        //for every transition in the arraylist check if there are other transition equal
+        for (int i = 0; i < transitions.size(); i++) {
+            for (int j = 0; j < transitions.size(); j++) {
+                //if index i and j are different, check
+                if (i != j) {
+                    //if the transition in i position is equal to the transition in j position, put the index i and j put the index i and j in the hashmap of index
+                    if (transitions.get(i).equals(transitions.get(j))) {
+                        int dir = directions.get(i);
+                        if (dir == 1) {
+                            if (!JsonManager.existAlready(index, i, j)) {
+                                index.put(i, j);
+                                order.add(0);
+                            }
+                        } else {
+                            if (!JsonManager.existAlready(index, i, j)) {
+                                index.put(i, j);
+                                order.add(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //initialize new hashmap of index without the copies of the same reference
+        //HashMap<Integer, Integer> indexUpdate = checkDuplicate(index);
+        //initialize new Arraylist of couples
+        ArrayList<String> couples = new ArrayList<String>();
+        //for every element in indexUpdate initialize a String that contains the two place and the transition in common
+        int i = 0;
+        String couple = "";
+        for (Map.Entry<Integer, Integer> entry : index.entrySet()) {
+            if (order.get(i) == 0) {
+                couple = places.get(entry.getKey()) + " <" + tokens.get(i) + "> ----------<" + weights.get(i) + ">----------▶ " + transitions.get(entry.getValue()) + "\tPriority: ";
+            } else {
+                couple = places.get(entry.getKey()) + " <" + tokens.get(i) + "> ◀︎----------<" + weights.get(i) + ">---------- " + transitions.get(entry.getValue());
+            }
+            //add the string to the arraylist
+            couples.add(couple);
+            i++;
+        }
+
+        //print the name and id and print all the pairs with their transition
+        IO.print("\nName net: " + nameNet );
+        IO.print("List pairs:");
+        for (String s : couples) {
+            IO.print("\t" + s);
+        }
+        IO.print("");
+    }
     /**
      * method to view the net
      *
