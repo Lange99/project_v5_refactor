@@ -18,7 +18,7 @@ public class User {
      */
      public void operation(NetManager netM) throws FileNotFoundException {
         ArrayList<PetriNet> loadNetPetri=new ArrayList<>();
-         ArrayList<PriorityPetriNet> loadPriorityNetPetri=new ArrayList<>();
+        ArrayList<PriorityPetriNet> loadPriorityNetPetri=new ArrayList<>();
         int select;
         PetriNet selected;
 
@@ -26,7 +26,7 @@ public class User {
          int choise = 0;
        //this switch manage the operations
          do {
-             choise=IO.readInteger(IO.WHAT_DO_YOU_WANT_DO_0_EXIT_1_START_SIMULATION,0,2 );
+             choise=IO.readInteger(IO.WHAT_DO_YOU_WANT_DO_0_EXIT_1_START_SIMULATION,0,4 );
 
 
              switch(choise) {
@@ -72,8 +72,7 @@ public class User {
 
                  case 3:
                      //caricare rete con priorità
-
-
+                     loadPriorityNetPetri.addAll(netM.getPrioritynetList());
                      break;
                  case 4:
                      //simulation of Petri's Net with Priority
@@ -82,10 +81,12 @@ public class User {
                      } else {
                          //the user have to choosen one net
                          IO.printPriorityPetriNets(loadPriorityNetPetri);
-                         select = IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_NET_THAT_YOU_WANT_TO_USE, 1, loadNetPetri.size());
+                         select = IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_NET_THAT_YOU_WANT_TO_USE, 0, loadNetPetri.size());
 
                          //qua ci va load PriorityPetriNet
-                         selected = loadNetPetri.get(select - 1);
+
+                         selected = loadNetPetri.get(select);
+
                          //we shows the net
                          //dobbiamo mostrare le reti anche con le priorità
                          IO.showPetriNet(selected);
@@ -198,12 +199,7 @@ public class User {
     }
 
 
-
-
     private int getWeightTotal( ArrayList<Pair> temp) {
-
-
-
         int weightTotal=0;
 
         for(Pair p: temp){

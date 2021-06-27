@@ -72,7 +72,7 @@ public class NetManager {
                     }
                     break;
 
-                case 4:
+                case 4: //this chose allows to the user to create a new Petri's net with Priority
                     PetriNet newNet = JsonManager.loadPetriNet();
                     createPriorityPetriNet(newNet);
 
@@ -404,8 +404,8 @@ public class NetManager {
         return sha1;
     }
 
-    public ArrayList<Net> getNetList(){
-        return netList;
+    public ArrayList<PriorityPetriNet> getPrioritynetList(){
+        return priorityPetriNetsList;
     }
 
     public void createPriorityPetriNet(PetriNet pN){
@@ -425,7 +425,7 @@ public class NetManager {
         for(i=0; i< tempArr.size(); i++){
             IO.print(i + ") " + tempArr.get(i).getName());
         }
-        int choise = IO.readInteger("Which transition do you want to prioritize?", 0, i);
+        int choise = IO.readInteger("Which transition do you want to prioritize?", 0, tempArr.size()-1);
         int priorityNumber = IO.readNumber("What priority do you want to assign?\n" +
                 "(the higher the number, the higher the priority of the transition)");
         pnp.addPriority(tempArr.get(choise).getName(), priorityNumber);

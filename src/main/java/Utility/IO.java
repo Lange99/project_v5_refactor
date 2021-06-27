@@ -44,7 +44,7 @@ public class IO {
     private static final String petriPath = new File("src/main/java/JsonPetri").getAbsolutePath();
     public static final String ANOTHER_NET = "You want add another Net?";
     public static final String NAME_OF_NET = "Add the name of Net:";
-    public static final String MENU = "What do you want do?\n0)EXIT\n1)Add new Net\n2)Load net\n3)Create a new Petri's Net";
+    public static final String MENU = "What do you want do?\n0)EXIT\n1)Add new Net\n2)Load net\n3)Create a new Petri's Net\n4)Create a new Petri's Net with Priority";
     public static final String WANT_TO_DO_ANOTHER_OPERATION = "you want to do another operation ";
     public static final String SAVE_NET = "Do you want to save the net that you have already made? ";
     public static final String DIGIT_YOUR_CHOISE = "Digit your choise ";
@@ -464,7 +464,7 @@ public class IO {
 
     }
     public static void printPriorityPetriNets(ArrayList<PriorityPetriNet> nets) {
-        int i=1;
+        int i=0;
         for (Net n: nets){
             IO.print(i+") " + n.getName());
             i++;
