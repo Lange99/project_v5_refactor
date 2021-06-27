@@ -15,6 +15,7 @@ import java.security.MessageDigest;
 import java.util.ArrayList;
 
 public class NetManager {
+
     private ArrayList<Net> netList = new ArrayList<>();
     private ArrayList<PetriNet> petriNetList = new ArrayList<>();
     private ArrayList<PriorityPetriNet> priorityPetriNetList = new ArrayList<>();
@@ -465,9 +466,9 @@ public class NetManager {
 
     public void createPriorityPetriNet(PetriNet pN){
         PriorityPetriNet newNet = new PriorityPetriNet(pN);
-        String name = IO.ReadString("What is the Priority Petri's net called?");
+        String name = IO.ReadString(IO.WHAT_IS_THE_PRIORITY_PETRI_S_NET_CALLED);
         newNet.setName(name);
-        while(IO.yesOrNo("Do you want add priorities")){
+        while(IO.yesOrNo(IO.DO_YOU_WANT_ADD_PRIORITIES)){
             assignPriority(newNet);
         }
         priorityPetriNetList.add(newNet);
@@ -480,9 +481,8 @@ public class NetManager {
         for(i=0; i< tempArr.size(); i++){
             IO.print(i + ") " + tempArr.get(i).getName());
         }
-        int choise = IO.readInteger("Which transition do you want to prioritize?", 0, tempArr.size()-1);
-        int priorityNumber = IO.readNumber("What priority do you want to assign?\n" +
-                "(the higher the number, the higher the priority of the transition)");
+        int choise = IO.readInteger(IO.WHICH_TRANSITION_DO_YOU_WANT_TO_PRIORITIZE, 0, tempArr.size()-1);
+        int priorityNumber = IO.readNumber(IO.WHAT_PRIORITY_DO_YOU_WANT_ASSIGN);
         pnp.addPriority(tempArr.get(choise).getName(), priorityNumber);
     }
     public boolean existsAlreadyPriorityPetriNet(PriorityPetriNet newPriorityPetriNetToCheck) throws FileNotFoundException {
