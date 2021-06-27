@@ -168,21 +168,14 @@ public class User {
      */
     private Transition whichPostisChosen(Set<Transition> temp) {
         assert temp!=null;
+        ArrayList<Transition> elementAvaible=new ArrayList(temp);
         IO.print(IO.THE_FOLLOWING_TRANSITION_ARE_AVAILABLE);
         //we print the transition
         IO.printTransition(temp);
        // IO.print(IO.STOP);
 //the user inserts the number of the transition that he wants to use
       int choise=IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_TRANSITION_YOU_WANT_TO_USE, 1, temp.size()) - 1;
-     int i=0;
-      for(Transition t: temp){
-          if(i==choise){
-              return t;
-          }
-
-      }
-
-    return null;
+        return elementAvaible.get(choise);
     }
 
     /**
@@ -197,23 +190,7 @@ public class User {
         }
     }
 
-    /**
-     * this method allows us to calculate the new situation
-     * @param pN the petri net that we use
-     * @param newInit the array where we put the element
-     */
-    private void calculateNewInitialSituation(PetriNet pN, ArrayList<Pair> newInit) {
-        assert pN!=null;
-        assert newInit!=null;
-        ArrayList<Place> temporaryPlace= new ArrayList<>();
-        for (Pair p: pN.getPairs()){
-            //ew check if the place has some tokens and we don't want to add place more than once
-            if(p.getPlace().getNumberOfToken()!=0 ){
-                newInit.add(p);
-                temporaryPlace.add(p.getPlace());
-            }
-        }
-    }
+
 
 
 }
