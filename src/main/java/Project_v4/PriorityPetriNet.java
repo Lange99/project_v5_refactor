@@ -8,9 +8,16 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
 
     private HashMap<Transition, Integer> priorityMap;
 
+    public void initMap(){
+        for(Transition n: getSetOfTrans()){
+            priorityMap.put(n, 1);
+        }
+    }
+
     public PriorityPetriNet(PetriNet p){
         super(p);
         priorityMap = new HashMap<>();
+        initMap();
     }
 
     public void addPriority(String tName, int n){

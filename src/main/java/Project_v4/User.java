@@ -81,18 +81,19 @@ public class User {
                      } else {
                          //the user have to choosen one net
                          IO.printPriorityPetriNets(loadPriorityNetPetri);
-                         select = IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_NET_THAT_YOU_WANT_TO_USE, 0, loadNetPetri.size());
+                         select = IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_NET_THAT_YOU_WANT_TO_USE, 0, loadPriorityNetPetri.size());
 
                          //qua ci va load PriorityPetriNet
 
-                         selected = loadNetPetri.get(select);
+                         PriorityPetriNet sel = loadPriorityNetPetri.get(select);
+
 
                          //we shows the net
                          //dobbiamo mostrare le reti anche con le priorità
-                         IO.showPetriNet(selected);
-                         selected.saveInitialMark();
+                         //IO.showPetriNet(selected);
+                         sel.saveInitialMark();
                          //we start the simulation
-                         simulation(selected, loadNetPetri.get(select - 1).getInitialMark());
+                         simulation(sel, sel.getInitialMark());
                      }
                      check = IO.yesOrNo("Do you want close the program?\n");
 
