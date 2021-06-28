@@ -79,7 +79,6 @@ public class User {
 
 
                  case 3:
-                     //caricare rete con priorità
                      PriorityPetriNet netToAdd = JsonManager.loadPriorityPetriNet();
                      loadPriorityNetPetri.add(netToAdd);
                      //loadPriorityNetPetri.addAll(netM.getPrioritynetList());
