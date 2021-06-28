@@ -192,9 +192,4 @@ public class User {
             p.getPlace().differenceToken(p.getWeight());
         }
     }
-
-    //VERSION 5
-    private void
-
-
 }

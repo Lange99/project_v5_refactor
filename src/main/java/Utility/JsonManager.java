@@ -191,7 +191,7 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         }
     }
 
-    public void
+    //public void
 
     private static boolean findInTheFile(String wordToFind, String pathnameFile) {
         BufferedReader reader;
