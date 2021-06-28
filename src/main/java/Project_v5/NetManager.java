@@ -11,15 +11,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NetManager {
 
-    private ArrayList<Net> netList = new ArrayList<>();
-    private ArrayList<PetriNet> petriNetList = new ArrayList<>();
-    private ArrayList<PriorityPetriNet> priorityPetriNetList = new ArrayList<>();
+    private final ArrayList<Net> netList = new ArrayList<>();
+    private final ArrayList<PetriNet> petriNetList = new ArrayList<>();
+    private final ArrayList<PriorityPetriNet> priorityPetriNetList = new ArrayList<>();
 
     /**
      * this method handles the interface with the user
@@ -49,27 +50,40 @@ public class NetManager {
                     break;
 
                 case 2: //this chose allows to the user to load a net
-                    int typeNet = IO.readInteger(IO.TYPE_OF_NET, 1, 2);
-                    switch (typeNet){
+                    int typeNet = IO.readInteger(IO.TYPE_OF_NET, 1, 3);
+                    switch (typeNet) {
 
                         case 1:
-                        Net newNet = JsonManager.loadNet();
-                        if (newNet != null) {
-                            netList.add(newNet);
-                            IO.showNet(newNet);
-                        }
+                            Net newNet = JsonManager.loadNet();
+                            if (newNet != null) {
+                                netList.add(newNet);
+                                IO.showNet(newNet);
+                            }
+                            break;
 
                         case 2:
-                        PetriNet newPetriNet = JsonManager.loadPetriNet();
-                        if (newPetriNet != null) {
-                            if(checkLoadPetriNet(newPetriNet)){
-                                petriNetList.add(newPetriNet);
-                                IO.showPetriNet(newPetriNet);
-                            }else{
-                                IO.print(IO.YOU_CANNOT_ADD_THIS_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED);
+                            PetriNet newPetriNet = JsonManager.loadPetriNet();
+                            if (newPetriNet != null) {
+                                if (checkLoadPetriNet(newPetriNet)) {
+                                    petriNetList.add(newPetriNet);
+                                    IO.showPetriNet(newPetriNet);
+                                } else {
+                                    IO.print(IO.YOU_CANNOT_ADD_THIS_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED);
+                                }
                             }
+                            break;
 
-                        }
+                        case 3:
+                            PriorityPetriNet newPriorityPetriNet = JsonManager.loadPriorityPetriNet();
+                            if (newPriorityPetriNet != null){
+                                if(checkLoadPetriNet(newPriorityPetriNet)) {
+                                    priorityPetriNetList.add(newPriorityPetriNet);
+                                    IO.showPriorityPetriNet(newPriorityPetriNet);
+                                }else{
+                                    IO.print(IO.YOU_CANNOT_ADD_THIS_PRIORITY_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED);
+                                }
+                            }
+                            break;
                     }
                     check = IO.yesOrNo(IO.WANT_TO_DO_ANOTHER_OPERATION);
                     break;
@@ -83,9 +97,9 @@ public class NetManager {
                     break;
 
                 case 4: //this chose allows to the user to create a new Petri's net with Priority
-                    if(petriNetList.size()==0){
+                    if (petriNetList.size() == 0) {
                         IO.print(IO.NO_PETRI_NET);
-                    }else {
+                    } else {
                         PetriNet newNet = JsonManager.loadPetriNet();
                         addPriorityPetriNet(newNet);
                     }
@@ -102,9 +116,9 @@ public class NetManager {
      * @param net is the net to check;
      * @return false if two net are equal
      */
-    public boolean checkPetriNet(PetriNet net)  {
+    public boolean checkPetriNet(PetriNet net) {
         try {
-            if(existsAlreadyPetriNet(net)){
+            if (existsAlreadyPetriNet(net)) {
                 return false;
             }
         } catch (FileNotFoundException e) {
@@ -117,6 +131,7 @@ public class NetManager {
         }
         return true;
     }
+
     public boolean checkPriorityPetriNet(PriorityPetriNet net) {
         try {
             if (existsAlreadyPriorityPetriNet(net)) {
@@ -132,6 +147,7 @@ public class NetManager {
         }
         return true;
     }
+
     /**
      * this method allows to the user to create a new Petri's net
      */
@@ -139,7 +155,7 @@ public class NetManager {
         PetriNet newPetriNet = new PetriNet(loadOneNet());
         IO.showPetriNet(newPetriNet);
         newPetriNet.setName(IO.ReadString(IO.NAME_OF_NET));
-        while (!checkPetriNetName(newPetriNet.getName())){
+        while (!checkPetriNetName(newPetriNet.getName())) {
             IO.print(IO.SET_NEW_NAME);
             newPetriNet.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
         }
@@ -167,12 +183,11 @@ public class NetManager {
         int choise = IO.readInteger(IO.WHICH_TRANSITION_ADD_PRIORITY, 1, tempTransition.size());
         int priority = IO.readIntegerWithMin(IO.INSERT_PRIORITY_OF_TRANSITION, 1);
 
-        String transitionId = tempTransition.get(choise-1).getName();
+        String transitionId = tempTransition.get(choise - 1).getName();
 
         if (priorityNet.addPriority(transitionId, priority)) {
             IO.print(IO.PRIORITY_ADDEN);
-        }
-        else {
+        } else {
             IO.print(IO.TRANSITION_DOESNT_EXIST);
         }
     }
@@ -229,7 +244,7 @@ public class NetManager {
 
         do {
             Net n = new Net(IO.readNotEmptyString(IO.NAME_OF_NET));
-            while (!checkNetName(n.getName())){
+            while (!checkNetName(n.getName())) {
                 IO.print(IO.SET_NEW_NAME);
                 n.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
             }
@@ -277,6 +292,7 @@ public class NetManager {
 
     /**
      * method that prints all the nets in the netlist and returns a choice from the user
+     *
      * @return the net choice
      */
     public Net loadOneNet() {
@@ -288,6 +304,7 @@ public class NetManager {
         int choise = IO.readInteger("choose the network number ", 0, netList.size());
         return netList.get(choise);
     }
+
     private PetriNet loadOnePetriNet() {
         for (int i = 0; i < petriNetList.size(); i++) {
             IO.print(i + ") " + petriNetList.get(i).getName());
@@ -296,6 +313,7 @@ public class NetManager {
         int choise = IO.readInteger("choose the network number ", 0, petriNetList.size());
         return petriNetList.get(choise);
     }
+
     /**
      * this method check if the net already exists and that can't be saved
      *
@@ -355,6 +373,7 @@ public class NetManager {
 
     /**
      * Method to check if the petri net insert exist already or is new and it is possible add it
+     *
      * @param newPetriNetToCheck
      * @return true if there is already the same net, false if there isn't
      * @throws FileNotFoundException
@@ -368,15 +387,15 @@ public class NetManager {
         ArrayList<String> pairsNetToCheck = getStringPairsFromPetriNet(newPetriNetToCheck);
         int sizePairsNetToCheck = pairsNetToCheck.size();
 
-        for (String pathnameOfFileToCheck: pathname) {
-            PetriNet existingNet = JsonReader.readPetriJson(IO.JSON_PETRI_FILE+pathnameOfFileToCheck);
+        for (String pathnameOfFileToCheck : pathname) {
+            PetriNet existingNet = JsonReader.readPetriJson(IO.JSON_PETRI_FILE + pathnameOfFileToCheck);
             ArrayList<String> pairsExistingNet = getStringPairsFromPetriNet(existingNet);
             int counter = 0;
             int sizeArrayPairsExistingNet = pairsExistingNet.size();
 
             if (sizePairsNetToCheck == sizeArrayPairsExistingNet) {
-                for (String toCheck: pairsNetToCheck) {
-                    for (String existing: pairsExistingNet) {
+                for (String toCheck : pairsNetToCheck) {
+                    for (String existing : pairsExistingNet) {
                         if (toCheck.equals(existing)) {
                             counter = counter + 1;
                             continue;
@@ -386,14 +405,16 @@ public class NetManager {
                 if (counter == sizePairsNetToCheck) {
                     return true;
                 }
-            }
-            else {
+            } else {
                 continue;
             }
         }
         return false;
     }
-    /** Method that allows you to check that the name of a network is not the same as the existing networks
+
+    /**
+     * Method that allows you to check that the name of a network is not the same as the existing networks
+     *
      * @param netName is the name of the Net
      * @return true if there are no networks with this name
      */
@@ -405,8 +426,10 @@ public class NetManager {
         }
         return true;
     }
+
     /**
      * Method that allows you to check that the name of a Petri's network is not the same as the existing Petri's networks
+     *
      * @param petriNetName is the name of the Petri's Net
      * @return true if there are no Petri's net with this name
      */
@@ -422,7 +445,7 @@ public class NetManager {
     private ArrayList<String> getStringPairsFromPetriNet(PetriNet net) {
         int i = 0;
         ArrayList<String> stringPair = new ArrayList<>();
-        for (Pair pair: net.getNet()) {
+        for (Pair pair : net.getNet()) {
             String placeName = pair.getPlaceName();
             String tokenNumber = String.valueOf(pair.getNumberOfToken());
             String transitionName = pair.getTransName();
@@ -446,19 +469,19 @@ public class NetManager {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-1");
             digest.reset();
-            digest.update(stringToEncrypt.getBytes("utf8"));
+            digest.update(stringToEncrypt.getBytes(StandardCharsets.UTF_8));
             sha1 = String.format("%040x", new BigInteger(1, digest.digest()));
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return sha1;
     }
 
-    public void addPriorityPetriNet(PetriNet pN){
+    public void addPriorityPetriNet(PetriNet pN) {
         PriorityPetriNet newNet = new PriorityPetriNet(pN);
         String name = IO.ReadString(IO.WHAT_IS_THE_PRIORITY_PETRI_S_NET_CALLED);
         newNet.setName(name);
-        while(IO.yesOrNo(IO.DO_YOU_WANT_ADD_PRIORITIES)){
+        while (IO.yesOrNo(IO.DO_YOU_WANT_ADD_PRIORITIES)) {
             assignPriority(newNet);
         }
         //priorityPetriNetList.add(newNet);
@@ -473,13 +496,13 @@ public class NetManager {
 
     }
 
-    public void assignPriority(PriorityPetriNet pnp){
+    public void assignPriority(PriorityPetriNet pnp) {
         ArrayList<Transition> tempArr = new ArrayList<>(pnp.getSetOfTrans());
-        int i=0;
-        for(i=0; i< tempArr.size(); i++){
+        int i = 0;
+        for (i = 0; i < tempArr.size(); i++) {
             IO.print(i + ") " + tempArr.get(i).getName());
         }
-        int choise = IO.readInteger(IO.WHICH_TRANSITION_DO_YOU_WANT_TO_PRIORITIZE, 0, tempArr.size()-1);
+        int choise = IO.readInteger(IO.WHICH_TRANSITION_DO_YOU_WANT_TO_PRIORITIZE, 0, tempArr.size() - 1);
         int priorityNumber = IO.readIntegerWithMin(IO.WHAT_PRIORITY_DO_YOU_WANT_ASSIGN, 0);
         pnp.addPriority(tempArr.get(choise).getName(), priorityNumber);
     }
@@ -522,38 +545,45 @@ public class NetManager {
      * *********************************************************************/
 
 
+    /**
+     * @param net
+     * @return
+     * @throws FileNotFoundException
+     */
     public boolean checkLoadPetriNet(PetriNet net) throws FileNotFoundException {
         List<Net> netToCheck = JsonManager.loadAllSimpleNet();
-        for (Net simpleNet: netToCheck) {
-            if(net.checkFatherNet(simpleNet)){
+        for (Net simpleNet : netToCheck) {
+            if (net.checkFatherNet(simpleNet)) {
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * @param petriNetToCheck
+     * @return
+     * @throws FileNotFoundException
+     */
     public boolean checkLoadPriorityPetriNet(PriorityPetriNet petriNetToCheck) throws FileNotFoundException {
         List<PetriNet> petriNetList = JsonManager.loadAllPetriNet();
-        for (PetriNet net: petriNetList){
-                if(petriNetToCheck.checkFatherPetriNet(net)){
-                    return true;
-                }
+        for (PetriNet net : petriNetList) {
+            if (petriNetToCheck.checkFatherPetriNet(net)) {
+                return true;
+            }
         }
         return false;
     }
 
     public void handleNet(String pathOfFile) throws FileNotFoundException {
         Net net = JsonManager.loadFileFromAnyPath(pathOfFile);
-        if ( net instanceof PriorityPetriNet) {
+        if (net instanceof PriorityPetriNet) {
             priorityPetriNetList.add((PriorityPetriNet) net);
-        }
-        else if (net instanceof PetriNet) {
+        } else if (net instanceof PetriNet) {
             petriNetList.add((PetriNet) net);
-        }
-        else if (net instanceof Net) {
+        } else if (net instanceof Net) {
             netList.add(net);
-        }
-        else if (net == null) {
+        } else if (net == null) {
             IO.print(IO.THE_NET_IS_INCORRECT_IT_CAN_T_BE_SAVED);
         }
     }

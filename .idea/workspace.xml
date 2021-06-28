@@ -4,43 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2021_11_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2021_11_16__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="fix metodo father">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_IS_v3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project_IS_v3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Configurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Net.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Net.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Transition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Configurator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Manager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Net.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/NetManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Pair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/PetriNet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Place.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/PriorityPetriNet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Simulation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/Transition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonWriter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1624636205620</updated>
       <workItem from="1624890843128" duration="2472000" />
-      <workItem from="1624901566175" duration="3483000" />
+      <workItem from="1624901566175" duration="4114000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>
@@ -177,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624897567619</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix metodo father">
+      <created>1624905178384</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1624905178384</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +178,8 @@
     <MESSAGE value="aggiustato un metodo per la simulazione" />
     <MESSAGE value="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò" />
     <MESSAGE value="aggiunto salvataggio priority list con controllo di duplicati" />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiunto salvataggio priority list con controllo di duplicati" />
+    <MESSAGE value="fix metodo father" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix metodo father" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

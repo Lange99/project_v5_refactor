@@ -36,7 +36,7 @@ public class IO {
     public static final String YOU_CAN_T_ADD_THIS_PAIR_BECAUSE_ALREADY_EXISTS = "You can't Add this pair because it already exists";
     public static final String YOU_WANT_ADD_ANOTHER_PAIR = "You want add another Pair?";
     public static final String WRITING_FILE_ERROR = "writing file error.";
-    public static final String TYPE_OF_NET = "Do you want load:\n1) simple net\n2) Petri Net\n" ;
+    public static final String TYPE_OF_NET = "Do you want load:\n1) simple net\n2) Petri Net\n3) Petri's Net with Priority" ;
     public static final String FILE_IS_LOADED = "File is loaded";
     public static final String VISUALIZE_THE_LIST = "Visualize the list";
     public static final String ADD_WEIGHT = "Do you want to add weight to the transition? If you say no we insert the default value";
@@ -85,6 +85,8 @@ public class IO {
     public static final String SAVE_PRIORITY_PETRI_NET = "Do you want to save the new Petri Net with priority?";
     public static final String FILE_NOT_CORRECT = "The file that you are trying to load is in the wrong format.";
     public static final String YOU_CANNOT_ADD_THIS_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED = "You cannot add this petri net because its description is not saved";
+    public static final String YOU_CANNOT_ADD_THIS_PRIORITY_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED = "You cannot add this Petri's net with Priority because the normal Petri's net is not saved";
+
     private static Scanner reader = scannerBuild();
 
     /**

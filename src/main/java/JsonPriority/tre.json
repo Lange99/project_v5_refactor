@@ -80,26 +80,6 @@
       },
       "@weight": 1,
       "@transition": "t3"
-    },
-    {
-      "@priority": 2,
-      "@direction": "1",
-      "@place": {
-        "@name": "n2",
-        "@token": 1
-      },
-      "@weight": 1,
-      "@transition": "t4"
-    },
-    {
-      "@priority": 2,
-      "@direction": "0",
-      "@place": {
-        "@name": "n1",
-        "@token": 3
-      },
-      "@weight": 1,
-      "@transition": "t4"
     }
   ]
 }
