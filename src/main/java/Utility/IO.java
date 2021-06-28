@@ -307,17 +307,6 @@ public class IO {
      * @param net
      */
     public static void showPetriNet(PetriNet net) {
-        /**
-         * 1) ciclo le transizioni
-         * 2) ciclo i PRE
-         *      3) prendo il nome del posto
-         *      4) lo trovo nel set dei posti per prendere i n.token
-         *      5) cerco la coppia per la relazione di flusso
-         * 6) ciclo i POST
-         *       7) prendo il nome del posto
-         *       8) lo trovo nel set dei posti per prendere i n.token
-         *       9) cerco la coppia per la relazione di flusso
-         */
         StringBuffer buffer = new StringBuffer();
         for(Transition t: net.getSetOfTrans()){
             for(String nPlace: t.getIdPre()){
@@ -337,6 +326,11 @@ public class IO {
     }
 
 
+    /**
+     * method to view the Priority Petri's net
+     *
+     * @param net
+     */
     public static void showPriorityPetriNet(PriorityPetriNet net) {
         StringBuffer buffer = new StringBuffer();
         for(Transition t: net.getSetOfTrans()){
@@ -362,75 +356,20 @@ public class IO {
      * @param net
      */
     public static void showNet(Net net) {
-        //get name and if of the net
-        String nameNet = net.getName();
-        //initialize the places and transitions arraylist
-        ArrayList<String> places = new ArrayList<String>();
-        ArrayList<String> transitions = new ArrayList<String>();
-        ArrayList<Integer> directions = new ArrayList<>();
-
-        //for every pair in the net get the name of place and name of transition
-        for (Pair p : net.getNet()) {
-            String place = p.getPlace().getName();
-            String trans = p.getTrans().getName();
-            int direction = p.getTrans().getInputOutput(p.getPlace().getName());
-            //add place to arraylist of places
-            places.add(place);
-            //add transition to arraylist of transitions
-            transitions.add(trans);
-            directions.add(direction);
-        }
-        ArrayList<Integer> order = new ArrayList<>();
-        //initialize hashmap that contains the index of place that have the same transition in common
-        HashMap<Integer, Integer> index = new HashMap<Integer, Integer>();
-        //for every transition in the arraylist check if there are other transition equal
-        for (int i = 0; i < transitions.size(); i++) {
-            for (int j = 0; j < transitions.size(); j++) {
-                //if index i and j are different, check
-                if (i != j) {
-                    //if the transition in i position is equal to the transition in j position, put the index i and j put the index i and j in the hashmap of index
-                    if (transitions.get(i).equals(transitions.get(j))) {
-                        int dir = directions.get(i);
-                        if (dir == 1) {
-                            if (!JsonManager.existAlready(index, i, j)) {
-                                index.put(i, j);
-                                order.add(0);
-                            }
-                        } else {
-                            if (!JsonManager.existAlready(index, i, j)) {
-                                index.put(i, j);
-                                order.add(1);
-                            }
-                        }
-                    }
-                }
+        StringBuffer buffer = new StringBuffer();
+        for(Transition t: net.getSetOfTrans()){
+            for(String nPlace: t.getIdPre()){
+                Place p = net.getPlace(nPlace);
+                String temp = p.getName()+ "\t------>\t" + t.getName() +"\n";
+                buffer.append(temp);
+            }
+            for(String nPlace: t.getIdPost()){
+                Place p = net.getPlace(nPlace);
+                String temp = p.getName() + "\t<------\t" + t.getName() +"\n";
+                buffer.append(temp);
             }
         }
-        //initialize new hashmap of index without the copies of the same reference
-        //HashMap<Integer, Integer> indexUpdate = checkDuplicate(index);
-        //initialize new Arraylist of couples
-        ArrayList<String> couples = new ArrayList<String>();
-        //for every element in indexUpdate initialize a String that contains the two place and the transition in common
-        int i = 0;
-        String couple = "";
-        for (Map.Entry<Integer, Integer> entry : index.entrySet()) {
-            if (order.get(i) == 0) {
-                couple = places.get(entry.getKey()) + "----->" + transitions.get(entry.getValue());
-            } else {
-                couple = places.get(entry.getKey()) + "<-----" + transitions.get(entry.getValue());
-            }
-            //add the string to the arraylist
-            couples.add(couple);
-            i++;
-        }
-
-        //print the name and id and print all the pairs with their transition
-        IO.print("\nName net: " + nameNet );
-        IO.print("List pairs:");
-        for (String s : couples) {
-            IO.print("\t" + s);
-        }
-        System.out.println();
+        IO.print(buffer.toString());
     }
 
     public static void printElementWithToken(ArrayList<Pair> initialMark) {
