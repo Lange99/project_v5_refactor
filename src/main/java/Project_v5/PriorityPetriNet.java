@@ -134,7 +134,11 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
 
         }
     }
-
+    /**
+     * this method creates all the structures necessary for the simulation
+     * @param initialMark the initial situation when the method is called
+     * @return a structure that contain the transitions which are avaible and their pair
+     */
     public HashMap<Transition, ArrayList<Pair>> simulation(ArrayList<Pair> initialMark) {
 
         //in the we put the transition that can be chosen
