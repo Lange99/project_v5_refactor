@@ -68,8 +68,8 @@ public class User {
                         // simulation(selected, loadNetPetri.get(select - 1).getInitialMark());
                          boolean canContinue;
                          do{
-
-                            canContinue= startSimulation(selected, selected.getInitialMark());
+                             selected.saveInitialMarkCurretly();
+                             canContinue=   startSimulation(selected, selected.getInitialMarkCurrenly());
 
                          }while (canContinue==true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
                      }
@@ -118,6 +118,12 @@ public class User {
              }
          } while (!check );
     }
+    /**this method call the method that give the initial situation and then it
+     * asks to the user to choose a transition avabile
+     * @param sel the Petri Net which we are made the simulation
+     * @param initialMark the initial situazion in that moment
+     * @return true if there are some transitions avaibile, false if there aren't any
+     */
 
     private boolean startSimulationPriority(PriorityPetriNet sel, ArrayList<Pair> initialMark) {
         HashMap<Transition, ArrayList<Pair>> finalTrans = sel.simulation( initialMark);
@@ -139,6 +145,13 @@ public class User {
         }
         return  true;
     }
+
+    /**this method call the method that give the initial situation and then it
+     * asks to the user to choose a transition avabile
+     * @param pN the Petri Net which we are made the simulation
+     * @param initialMark the initial situazion in that moment
+     * @return true if there are some transitions avaibile, false if there aren't any
+     */
     public boolean startSimulation(PetriNet pN, ArrayList<Pair> initialMark) {
 
         HashMap<Transition, ArrayList<Pair>> finalTrans = pN.simulation(initialMark);

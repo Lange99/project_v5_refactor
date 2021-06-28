@@ -1,0 +1,169 @@
+@startuml
+@startuml
+@startuml
+
+Main -- Manager
+Manager -Left- User
+Manager -- NetManager
+Manager -Right- Configurator
+NetManager -Right- Net
+Net o-Down- Pair
+Pair o-- Transition
+Pair o-- Place
+User -- PetriNet
+user -- PriorityPetriNet
+package Utility <<frame>>{
+NetManager <-- JsonReader
+NetManager <-- JsonWriter
+NetManager <- JsonManager
+NetManager <-Left- IO
+}
+class Main {
++ {static} main(args: String[])
+}
+
+class Net {
+- net: ArrayList<Pair>
+- ID: String
+- name: String
+- i: int
+- setOfPlace: HashSet<Place>
+- setOfTrans: HashSet<Transition>
++ getNet(): ArrayList<Pair>
++ getID(): String
++ getName(): String
++ addPair()
++ addPairFromJson()
++ checkPair(): boolean
++ checkPendantNode(): boolean
++ getSetOfPlace() : HashSet<Place>
++ getSetofTrans(): HashSet<Transition>
++ Net(String s)
++ checkConnect() : boolean
++ recursion(Hasmap<String, ArrayList<String>> m, Hasmap<String, Boolean> b, String k) :void
++ checkTrans(): boolean
+}
+
+class NetManager {
+- netList: ArrayList<Net>
++ manageOption()
++ addNet()
++ checkNet(Net n)
++ loadNet()
++ showNet(Net n)
+- existAlread(Hasmap<int, int> h, int i, int j)
++ addPriorityPetriNet(PetriNet pN)
++ assignPriority(PriorityPetriNet pnp)
++ existsAlreadyPriorityPetriNet(PriorityPetriNet newPriorityPetriNetToCheck): boolean
++ isValidPath(String path): boolean
++ checkLoadPetriNet(PetriNet net): boolean
++ handleNet(String pathOfFile) : void
+}
+
+class Pair {
+- place: Place
+- trans: Transition
++ getPlace(): Place
++ getTrans(): Transition
++ compare(): boolean
+}
+
+class Place {
+- id: String
++ Place()
++ getID(): String
+}
+
+class Transition {
+- id: String
+-pre: ArrayList<String>
+-post: ArrayList<String>
++ getID(): String
++ Transition
++ getIDPre: ArrayList<String>
++ getIDPost: ArrayList<String>
++ addPre:void
++ addPost: void
++ getSizePre: int
++ getSizePost: int
++ getInputOutput
+}
+
+class JsonReader {
++ {static} readJson()
+}
+
+class JsonWriter {
++ {static} writeJson()
++ {static} stringNer(Net n): String
++ {static} makeFile() : String
+}
+
+class PetriNet extends Net  implements Simulation{
+- initalMark: ArrayList<Pair>
+- initalMarkCurrently: ArrayList<Pair>
+- initalMarking: HashMap<Pair,Integer>
++ PetriNet(Net)
++ addToken(String, int): boolean
++ addWeight(String, String, int): void
++ checkTheElementMultipleCase(ArrayList<Pair>, boolean[], ArrayList<Pair>, int): boolean
++ equals(Object): boolean
++ getInitialMark(): ArrayList<Pair>
++ getInitialMarking(): HashMap<Pair,Integer>
++ initialSituationInTheNet(ArrayList<Pair>,ArrayList<Transition>,HashMap<Transition,ArrayList<Pair>>): void
++ saveInitialMark(): void
++ checkFatherNet(Net netToCheck):boolean
+
+}
+class PriorityPetriNet extends PetriNet implements Simulation{
++ PriorityPetriNet(PetriNet)
++ checkTheElementMultipleCase(ArrayList<Pair>, boolean[], ArrayList<Pair>, int): boolean
++ initialSituationInTheNet(ArrayList<Pair>,ArrayList<Transition>,HashMap<Transition,ArrayList<Pair>>): void
++ saveInitialMark(): void
++ simulation(ArrayList<Pair> initialMark): HashMap<Transition, ArrayList<Pair>>
++ initMap
++ addPriority(String nameTransitionToAddPriority, int priorityValue):boolean
++ addPriorityToNetList(PriorityPetriNet genericNet):void
++ getPriorityByTransition(Transition transition): int
++ checkFatherPetriNet(PetriNet netToCheck): boolean
++ checkToken(PetriNet toCheck): boolean
+}
+
+interface Simulation {
++ checkTheElementMultipleCase(ArrayList<Pair>, boolean[], ArrayList<Pair>, int): boolean
++ initialSituationInTheNet(ArrayList<Pair>,ArrayList<Transition>,HashMap<Transition,ArrayList<Pair>>): void
+}
+
+class Manager {
+- config: Configurator
+- manager: NetManager
+- user: User
++ start(): void
+}
+
+class User {
++ modifyThePrePair(ArrayList<Pair>): void
++ operation(NetManager): void
++ startSimulation(PetriNet, ArrayList<Pair>): boolean
++ startSimulationPriority(PriorityPetriNet, ArrayList<Pair>): boolean
++ whichPostisChosen(Transition): Transition
+}
+
+class IO {
+}
+
+class JsonManager {
++ checkNumFile(String[]): int
++ existAlready(HashMap<Integer, Integer>, int, int): boolean
++ getPath(String): String
++ getPathname(String): String[]
++ loadNet(): Net
++ loadPetriNet(): PetriNet
+}
+
+class Configurator {
++ operation(NetManager): void
+}
+
+@enduml
+@enduml

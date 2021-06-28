@@ -248,33 +248,30 @@ public class PetriNet extends Net implements Simulation {
         //ho meno elementi di quelli che dovrei avere passo oltre o se un elemento non era corretto
         return elementOfTrans < initialMark.get(i).getTrans().sizePre() || checkIfTheTransitionCanWork == false;
     }
-
+    /**
+     * this method creates all the structures necessary for the simulation
+     * @param initialMark the initial situation when the method is called
+     * @return a structure that contain the transitions which are avaible and their pair
+     */
     public HashMap<Transition, ArrayList<Pair>> simulation(ArrayList<Pair> initialMark) {
 
         //in the we put the transition that can be chosen
         ArrayList<Transition> transitionThatCanWork = new ArrayList<Transition>();
         //visit avoid to check elements that we have already checked
 
-        ArrayList<Pair> pairInTheTrans = new ArrayList<>();
         HashMap<Transition, ArrayList<Pair>> finalTrans = new HashMap<>();
         initialSituationInTheNet(initialMark, transitionThatCanWork, finalTrans);
         return finalTrans;
     }
-
+    /**
+     * this method modify the token in the post transition
+     * @param transitionThatWeHaveToModify the transition that the user has choseen to be modify
+     */
     public void setPreandPost(Transition transitionThatWeHaveToModify) {
-        //aggiorno tutti i post della transizione modificando il valore dei loro pesi
+        //we have to update all the post element of the transitions, we add a token in the post
         if (transitionThatWeHaveToModify.sizePost() == 1) {
-            //al post ci metto la somma degli elementi dei pesi dei pre, è nelle coppie
-
             getPair(getPlace(transitionThatWeHaveToModify.getIdPost().get(0)), transitionThatWeHaveToModify).getPlace().updateToken();
         } else {
-
-
-            IO.print(IO.THIS_TRANSITIONS_WILL_BE_UPDATED);
-            IO.printString(transitionThatWeHaveToModify.getIdPost());
-
-            //elemento è il post che devo modificare
-            //int elem=IO.readInteger(IO.WHERE_DO_YOU_WANT_TO_PUT_THE_TOKEN, 1, transitionThatWeHaveToModify.get(risp).sizePost() )-1;
             for (int i = 0; i < transitionThatWeHaveToModify.getIdPost().size(); i++) {
                 getPair(getPlace(transitionThatWeHaveToModify.getIdPost().get(i)), transitionThatWeHaveToModify).getPlace().updateToken();
             }
