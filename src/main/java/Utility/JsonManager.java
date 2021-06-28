@@ -1,9 +1,8 @@
 package main.java.Utility;
 
-import main.java.Project_v4.Net;
-import main.java.Project_v4.PetriNet;
-import main.java.Project_v4.PriorityPetriNet;
-import org.json.JSONObject;
+import main.java.Project_v5.Net;
+import main.java.Project_v5.PetriNet;
+import main.java.Project_v5.PriorityPetriNet;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -142,7 +141,7 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         String[] listOfAllFile = getPathname(IO.JSON_FILE);
         for (String pathnameSingleFile: listOfAllFile) {
             if (pathnameSingleFile != null) {
-                Net newNetToLoad = JsonReader.readJson(pathnameSingleFile);
+                Net newNetToLoad = JsonReader.readJson(IO.JSON_FILE+"/"+pathnameSingleFile);
                 listOfNet.add(newNetToLoad);
             }
         }

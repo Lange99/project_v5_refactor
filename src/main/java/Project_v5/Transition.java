@@ -1,4 +1,4 @@
-package main.java.Project_v4;
+package main.java.Project_v5;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -139,13 +139,22 @@ public class Transition {
         assert obj instanceof Transition;
         Transition t = (Transition) obj;
         if (name.equals(t.getName())) {
-            if(t.getIdPost().contains(idPost) && t.getIdPre().contains(idPre)){
                 return true;
-            }
         }
         return false;
     }
 
+    /**
+     * this metod return true if two transition have the same list of Pre and Post
+     * @param t is the transition to check
+     * @return true if two transition have the same list of Pre and Post
+     */
+    public boolean checkArray(Transition t){
+        if(idPost.containsAll(t.getIdPost()) && idPre.containsAll(t.getIdPre())){
+            return true;
+        }
+        return false;
+    }
 
     public String getIdPreviusPlaceByIndex(int i) {
         return idPre.get(i);

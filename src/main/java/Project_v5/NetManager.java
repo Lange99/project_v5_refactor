@@ -1,4 +1,4 @@
-package main.java.Project_v4;
+package main.java.Project_v5;
 
 
 import main.java.Utility.IO;
@@ -50,17 +50,25 @@ public class NetManager {
 
                 case 2: //this chose allows to the user to load a net
                     int typeNet = IO.readInteger(IO.TYPE_OF_NET, 1, 2);
-                    if (typeNet == 1) {
+                    switch (typeNet){
+
+                        case 1:
                         Net newNet = JsonManager.loadNet();
                         if (newNet != null) {
                             netList.add(newNet);
                             IO.showNet(newNet);
                         }
-                    } else {
-                        PetriNet newNet = JsonManager.loadPetriNet();
-                        if (newNet != null) {
-                            petriNetList.add(newNet);
-                            IO.showPetriNet(newNet);
+
+                        case 2:
+                        PetriNet newPetriNet = JsonManager.loadPetriNet();
+                        if (newPetriNet != null) {
+                            if(checkLoadPetriNet(newPetriNet)){
+                                petriNetList.add(newPetriNet);
+                                IO.showPetriNet(newPetriNet);
+                            }else{
+                                IO.print(IO.YOU_CANNOT_ADD_THIS_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED);
+                            }
+
                         }
                     }
                     check = IO.yesOrNo(IO.WANT_TO_DO_ANOTHER_OPERATION);
@@ -151,26 +159,7 @@ public class NetManager {
             petriNetList.add(newPetriNet);
         }
     }
-    /*
-    public void addPriorityPetriNet() {
-        PriorityPetriNet newPriorityPetriNet = new PriorityPetriNet(loadOnePetriNet());
-        IO.showPriorityPetriNet(newPriorityPetriNet);
-        newPriorityPetriNet.setName(IO.ReadString(IO.NAME_OF_NET));
-        while (!checkPetriNetName(newPriorityPetriNet.getName())) {
-            IO.print(IO.SET_NEW_NAME);
-            newPriorityPetriNet.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
-        }
-        while (IO.yesOrNo(IO.DO_YOU_WANT_TO_ADD_TOKEN_TO_PLACE)) {
-            addPrioritysToTheNet(newPriorityPetriNet);
-        }
 
-        if (checkPriorityPetriNet(newPriorityPetriNet)) {
-            if (IO.yesOrNo(IO.DO_YOU_WANT_SAVE_PRIORITY_NET)) {
-                JsonWriter.writeJsonPriorityPetriNet(newPriorityPetriNet);
-            }
-            priorityPetriNetList.add(newPriorityPetriNet);
-        }
-    }*/
     private void addPrioritysToTheNet(PriorityPetriNet priorityNet) {
         ArrayList<Transition> tempTransition = new ArrayList<>(priorityNet.getSetOfTrans());
 
@@ -533,29 +522,24 @@ public class NetManager {
      * *********************************************************************/
 
 
-    public void loadAllPetriNetWithFather() throws FileNotFoundException {
+    public boolean checkLoadPetriNet(PetriNet net) throws FileNotFoundException {
         List<Net> netToCheck = JsonManager.loadAllSimpleNet();
-        List<PetriNet> petriNetToLoad = JsonManager.loadAllPetriNet();
-
-        for (PetriNet net: petriNetToLoad){
-            for (Net simpleNet: netToCheck) {
-                if(net.checkFatherNet(simpleNet)){
-                    petriNetList.add(net);
-                }
+        for (Net simpleNet: netToCheck) {
+            if(net.checkFatherNet(simpleNet)){
+                return true;
             }
         }
+        return false;
     }
 
-    public void loadAllPriorityPetriNetWithFather(ArrayList<PetriNet> petriNetToCheck) throws FileNotFoundException {
-        List<PriorityPetriNet> priorityPetriNetToLoad = JsonManager.loadAllPriorityPetriNet();
-
-        for (PriorityPetriNet net: priorityPetriNetToLoad){
-            for (PetriNet petriNet: petriNetToCheck) {
-                if(net.checkFatherPetriNet(petriNet)){
-                    priorityPetriNetList.add(net);
+    public boolean checkLoadPriorityPetriNet(PriorityPetriNet petriNetToCheck) throws FileNotFoundException {
+        List<PetriNet> petriNetList = JsonManager.loadAllPetriNet();
+        for (PetriNet net: petriNetList){
+                if(petriNetToCheck.checkFatherPetriNet(net)){
+                    return true;
                 }
-            }
         }
+        return false;
     }
 
     public void handleNet(String pathOfFile) throws FileNotFoundException {

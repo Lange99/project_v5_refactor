@@ -1,6 +1,5 @@
-package main.java.Project_v4;
+package main.java.Project_v5;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -213,10 +212,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
      * @return true if the Petri net with priority comes from netToCheck
      */
     public boolean checkFatherPetriNet(PetriNet netToCheck) {
-        if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace()) ||
-                !super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
-            return false;
-        }
+        super.checkFatherNet(netToCheck);
         if (!checkToken(netToCheck)) {
             return false;
         }

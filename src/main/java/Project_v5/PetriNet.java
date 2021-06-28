@@ -1,4 +1,4 @@
-package main.java.Project_v4;
+package main.java.Project_v5;
 
 import main.java.Utility.IO;
 
@@ -304,8 +304,20 @@ public class PetriNet extends Net implements Simulation {
      ******************************/
 
     public boolean checkFatherNet(Net netToCheck) {
-        if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace()) ||
-                !super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
+        if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace())) {
+            return false;
+        }
+        if(super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())){
+            for(Transition t: super.getSetOfTrans()){
+                for(Transition t2: netToCheck.getSetOfTrans()){
+                    if (t.getName().equals(t2.getName())) {
+                        if(!t.checkArray(t2)){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }else{
             return false;
         }
         return true;

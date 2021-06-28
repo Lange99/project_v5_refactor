@@ -1,7 +1,7 @@
 package main.java.Utility;
 
 
-import main.java.Project_v4.*;
+import main.java.Project_v5.*;
 
 import java.io.File;
 import java.util.*;
@@ -84,6 +84,7 @@ public class IO {
     public static final String WHAT_PRIORITY_DO_YOU_WANT_ASSIGN = "What priority do you want to assign?\nThe higher the number, the higher the priority of the transition)";
     public static final String SAVE_PRIORITY_PETRI_NET = "Do you want to save the new Petri Net with priority?";
     public static final String FILE_NOT_CORRECT = "The file that you are trying to load is in the wrong format.";
+    public static final String YOU_CANNOT_ADD_THIS_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED = "You cannot add this petri net because its description is not saved";
     private static Scanner reader = scannerBuild();
 
     /**
