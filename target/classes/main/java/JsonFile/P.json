@@ -1,0 +1,60 @@
+{
+  "@name": "RETEAAAAA",
+  "@pairs": [
+    {
+      "@direction": "1",
+      "@place": "A",
+      "@transition": "T1"
+    },
+    {
+      "@direction": "1",
+      "@place": "B",
+      "@transition": "T1"
+    },
+    {
+      "@direction": "1",
+      "@place": "C",
+      "@transition": "T1"
+    },
+    {
+      "@direction": "1",
+      "@place": "D",
+      "@transition": "T2"
+    },
+    {
+      "@direction": "0",
+      "@place": "F",
+      "@transition": "T1"
+    },
+    {
+      "@direction": "0",
+      "@place": "E",
+      "@transition": "T2"
+    },
+    {
+      "@direction": "1",
+      "@place": "E",
+      "@transition": "T3"
+    },
+    {
+      "@direction": "1",
+      "@place": "F",
+      "@transition": "T3"
+    },
+    {
+      "@direction": "1",
+      "@place": "F",
+      "@transition": "T4"
+    },
+    {
+      "@direction": "0",
+      "@place": "G",
+      "@transition": "T3"
+    },
+    {
+      "@direction": "0",
+      "@place": "H",
+      "@transition": "T4"
+    }
+  ]
+}
