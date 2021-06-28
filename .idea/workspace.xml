@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="fix bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" afterDir="false" />
+    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="migliorato showNet">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1624636205620</updated>
       <workItem from="1624890843128" duration="2472000" />
-      <workItem from="1624901566175" duration="10462000" />
+      <workItem from="1624901566175" duration="10845000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>
@@ -174,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624911174294</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="migliorato showNet">
+      <created>1624912266115</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624912266115</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +209,8 @@
     <MESSAGE value="metodi father funzionanti" />
     <MESSAGE value="Quasi completata manca la javadoc" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="migliorato showNet" />
+    <option name="LAST_COMMIT_MESSAGE" value="migliorato showNet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

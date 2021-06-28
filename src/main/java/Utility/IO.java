@@ -372,18 +372,10 @@ public class IO {
         IO.print(buffer.toString());
     }
 
-    public static void printElementWithToken(ArrayList<Pair> initialMark) {
-        print(MARKING_WITH_TOKEN);
-        printPair(initialMark);
-    }
-    public static void printPair(Iterable<Pair> pairs) {
-        for (Pair p: pairs){
-            IO.print(p.getPlace().getName() + WHERE_THERE_ARE + p.getPlace().getNumberOfToken());
-
-        }
-
-    }
-
+    /**
+     * Method used for print a list of Petri's net
+     * @param nets
+     */
     public static void printPetriNets(Iterable<PetriNet> nets) {
         int i=1;
         for (Net n: nets){
@@ -393,6 +385,10 @@ public class IO {
 
     }
 
+    /**
+     * Method used for print a list of Petri's net with Priority
+     * @param nets
+     */
     public static void printPriorityPetriNets(ArrayList<PriorityPetriNet> nets) {
         int i=0;
         for (Net n: nets){
@@ -401,25 +397,5 @@ public class IO {
         }
 
     }
-    //NUOVO METODO SHOW PETRI NET
-    /*
-    public static void showPetriNet(PetriNet net) {
-        ArrayList<Pair> pairs = net.getNet();
-        String stringToPrint = "";
-        for (Pair pair: pairs) {
-            Transition transition = pair.getTrans();
-            ArrayList<String> idPre = transition.getIdPre();
-            ArrayList<String> idPost = transition.getIdPost();
-            for (int i = 0; i < idPre.size(); i++) {
-                for (int j = 0; j < idPost.size(); j++) {
-                    stringToPrint = stringToPrint + idPre.get(i) + "(" + net.researchPlace(idPre.get(i)) + ") -----("
-                            + pair.getWeight() + ")-----> (" + net.researchPlace(idPost.get(i)) + ")" + idPost.get(i) +"\n";
-                }
-            }
-        }
-        IO.print("Name net: "+net.getName());
-        IO.print("List pairs:\n\n");
-        IO.print(stringToPrint);
-    }
-*/
+
 }
