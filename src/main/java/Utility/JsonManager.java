@@ -6,6 +6,7 @@ import main.java.Project_v4.PriorityPetriNet;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,6 +53,30 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
             return newNet;
         }
         return null;
+    }
+
+    public static ArrayList<Net> loadAllSimpleNet(String pathnameOfTypeNet) throws FileNotFoundException {
+        ArrayList<Net> listOfNet = new ArrayList<>();
+        String[] listOfAllFile = getPathname(pathnameOfTypeNet);
+        for (String pathnameSingleFile: listOfAllFile) {
+            if (pathnameSingleFile != null) {
+                Net newNetToLoad = JsonReader.readJson(pathnameSingleFile);
+                listOfNet.add(newNetToLoad);
+            }
+        }
+        return listOfNet;
+    }
+
+    public static ArrayList<PetriNet> loadAllPetriNet(String pathnameOfTypeNet) throws FileNotFoundException {
+        ArrayList<PetriNet> listOfNet = new ArrayList<>();
+        String[] listOfAllFile = getPathname(pathnameOfTypeNet);
+        for (String pathnameSingleFile: listOfAllFile) {
+            if (pathnameSingleFile != null) {
+                PetriNet newNetToLoad = JsonReader.readPetriJson(pathnameSingleFile);
+                listOfNet.add(newNetToLoad);
+            }
+        }
+        return listOfNet;
     }
 
     /**
