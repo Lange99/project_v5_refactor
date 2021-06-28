@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.*;
 
 public class IO {
-    public static final String WHAT_DO_YOU_WANT_DO_0_EXIT_1_START_SIMULATION = "What do you want do?\n0)EXIT\n1)Load the net \n2) Simulation ";
+    public static final String WHAT_DO_YOU_WANT_DO_0_EXIT_1_START_SIMULATION = "What do you want do?\n0)EXIT\n1)Load the net \n2) Simulation of Petri net\n3) Load Petri net with priority\n4) Simulation of Petri net with priority ";
     public static final String THERE_AREN_T_ANY_NETS_LOADED_YOU_HAVE_TO_LOAD_ONE_NET_BEFORE_THE_SIMULATION = "There aren't any nets loaded, you have to load one net before the simulation";
     public static final String DO_YOU_WANT_CLOSE_THE_PROGRAM = "Do you want close the program?\n";
     public static final String STOP = "If you want to stop the simulatoin press 0";
@@ -53,6 +53,8 @@ public class IO {
     public static final String THE_NET_IS_INCORRECT_IT_CAN_T_BE_SAVED = "The net is incorrect, it can't be saved";
     public static final String THE_NET_IS_CORRECT_WE_ARE_GOING_TO_SAVE_IT = "The net is correct, we are going to save it";
     public static final String NO_NORMAL_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
+    public static final String NO_PETRI_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
+
     public static final String JSON_FILE = "src/main/java/JsonFile";
     public static final String JSON_PETRI_FILE = "src/main/java/JsonPetri/";
     public static final String JSON_PRIORITY_PETRI_FILE = "src/main/java/JsonPriority/";
@@ -357,9 +359,9 @@ public class IO {
         String couple = "";
         for (Map.Entry<Integer, Integer> entry : index.entrySet()) {
             if (order.get(i) == 0) {
-                couple = places.get(entry.getKey()) + " <" + tokens.get(i) + "> ----------<" + weights.get(i) + ">----------▶ " + transitions.get(entry.getValue());
+                couple = places.get(entry.getKey()) + " (" + tokens.get(i) + ") ----------(" + weights.get(i) + ")----------> " + transitions.get(entry.getValue());
             } else {
-                couple = places.get(entry.getKey()) + " <" + tokens.get(i) + "> ◀︎----------<" + weights.get(i) + ">---------- " + transitions.get(entry.getValue());
+                couple = places.get(entry.getKey()) + " (" + tokens.get(i) + ") <----------(" + weights.get(i) + ")---------- " + transitions.get(entry.getValue());
             }
             //add the string to the arraylist
             couples.add(couple);
@@ -379,16 +381,18 @@ public class IO {
         //get name and if of the net
         String nameNet = net.getName();
         //initialize the places and transitions arraylist
-        ArrayList<String> places = new ArrayList<String>();
-        ArrayList<String> transitions = new ArrayList<String>();
+        ArrayList<String> places = new ArrayList<>();
+        ArrayList<String> transitions = new ArrayList<>();
         ArrayList<String> tokens = new ArrayList<>();
         ArrayList<String> weights = new ArrayList<>();
         ArrayList<Integer> directions = new ArrayList<>();
+        ArrayList<Integer> priorities = new ArrayList<>();
 
         //for every pair in the net get the name of place and name of transition
         for (Pair p : net.getNet()) {
             String place = p.getPlace().getName();
             String trans = p.getTrans().getName();
+            int priority = net.getPriorityByTransitionName(trans);
             String tokenPlace = Integer.toString(p.getPlace().getNumberOfToken());
             int direction = p.getTrans().getInputOutput(p.getPlace().getName());
             String weightPair = Integer.toString(p.getWeight());
@@ -396,6 +400,7 @@ public class IO {
             places.add(place);
             //add transition to arraylist of transitions
             transitions.add(trans);
+            priorities.add(priority);
             directions.add(direction);
             tokens.add(tokenPlace);
             weights.add(weightPair);
@@ -435,9 +440,9 @@ public class IO {
         String couple = "";
         for (Map.Entry<Integer, Integer> entry : index.entrySet()) {
             if (order.get(i) == 0) {
-                couple = places.get(entry.getKey()) + " <" + tokens.get(i) + "> ----------<" + weights.get(i) + ">----------▶ " + transitions.get(entry.getValue()) + "\tPriority: ";
+                couple = places.get(entry.getKey()) + " (" + tokens.get(i) + ") ----------(" + weights.get(i) + ")----------> " + transitions.get(entry.getValue()) + "\tPriority: "+ priorities.get(entry.getValue());
             } else {
-                couple = places.get(entry.getKey()) + " <" + tokens.get(i) + "> ◀︎----------<" + weights.get(i) + ">---------- " + transitions.get(entry.getValue());
+                couple = places.get(entry.getKey()) + " (" + tokens.get(i) + ") <----------(" + weights.get(i) + ")---------- " + transitions.get(entry.getValue()) + "\tPriority: "+ priorities.get(entry.getValue());
             }
             //add the string to the arraylist
             couples.add(couple);

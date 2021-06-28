@@ -52,6 +52,11 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
         priorityMap = new HashMap<>();
     }
 
+    public int getPriorityByTransitionName(String transitionName) {
+        Transition transitionToFound = new Transition(transitionName);
+        return getPriorityByTransition(transitionToFound);
+    }
+
     /**
      * this method check all the differnt case in  a Petri's Net in order to decide which transitions can work
      * @param initialMark, this parameter identify the initial situazion in that moment and it doesn't always indicate che initial mark of the net
