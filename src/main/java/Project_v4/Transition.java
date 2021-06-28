@@ -139,10 +139,13 @@ public class Transition {
         assert obj instanceof Transition;
         Transition t = (Transition) obj;
         if (name.equals(t.getName())) {
-            return true;
+            if(t.getIdPost().contains(idPost) && t.getIdPre().contains(idPre)){
+                return true;
+            }
         }
         return false;
     }
+
 
     public String getIdPreviusPlaceByIndex(int i) {
         return idPre.get(i);

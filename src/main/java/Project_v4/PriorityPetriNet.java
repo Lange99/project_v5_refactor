@@ -188,4 +188,44 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
         return false;
     }
 
+    /********************************
+     * VERSIONE 5
+     ********************************/
+
+    /**
+     * Method that allows you to determine if the Petri net with priority comes from netToCheck
+     * @param netToCheck
+     * @return true if the Petri net with priority comes from netToCheck
+     */
+    public boolean checkFatherPetriNet(PetriNet netToCheck) {
+        if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace()) ||
+                !super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
+            return false;
+        }
+        if (!checkToken(netToCheck)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Methode to check tokens in a petri net
+     * @param toCheck is the net to check
+     * @return true if the two networks contain the same number of tokens in all places
+     */
+    private boolean checkToken(PetriNet toCheck){
+        assert getSetOfPlace().containsAll(toCheck.getSetOfPlace());
+
+        for(Place p: getSetOfPlace()){
+            for (Place placeToCheck: toCheck.getSetOfPlace()){
+                if (p.equals(placeToCheck)) {
+                    if(p.getNumberOfToken()!=placeToCheck.getNumberOfToken()){
+                        return false;
+
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }

@@ -4,12 +4,11 @@ import main.java.Utility.IO;
 
 import java.util.*;
 
-public class PetriNet extends Net implements  Simulation{
+public class PetriNet extends Net implements Simulation {
 
 
-
-    private HashMap<Pair, Integer> initialMarking = new HashMap<>();
-    private ArrayList<Pair> initialMark=new ArrayList<>();
+    private final HashMap<Pair, Integer> initialMarking = new HashMap<>();
+    private final ArrayList<Pair> initialMark = new ArrayList<>();
 
 
     public HashMap<Pair, Integer> getInitialMarking() {
@@ -21,15 +20,17 @@ public class PetriNet extends Net implements  Simulation{
         saveInitialMark();
     }
 
-    public PetriNet(String name){
+    public PetriNet(String name) {
         super(name);
 
     }
+
     /**
      * this method allows to add the weight to the pair
+     *
      * @param nameTrans name of the trans
-     * @param placeMod name of the place
-     * @param weight the quantity of weight
+     * @param placeMod  name of the place
+     * @param weight    the quantity of weight
      */
     public void addWeight(String nameTrans, String placeMod, int weight) {
         //we research the transition and the place that the user wants to change
@@ -44,8 +45,9 @@ public class PetriNet extends Net implements  Simulation{
 
     /**
      * method for adding tokens in the network
+     *
      * @param placeId is the place where i want add token
-     * @param token is the number of token
+     * @param token   is the number of token
      * @return false if the place doesn't exist, true if I add it correctly
      */
     public boolean addToken(String placeId, int token) {
@@ -67,22 +69,22 @@ public class PetriNet extends Net implements  Simulation{
             if (p.getPlace().getNumberOfToken() != 0)
                 initialMarking.put(p, p.getPlace().getNumberOfToken());
         }
-        for (Pair p: super.getPairs()){
-            if(p.getPlace().getNumberOfToken()!=0){
+        for (Pair p : super.getPairs()) {
+            if (p.getPlace().getNumberOfToken() != 0) {
                 initialMark.add(p);
             }
         }
     }
 
 
-    public ArrayList<Pair> getInitialMark(){
+    public ArrayList<Pair> getInitialMark() {
         return initialMark;
     }
 
 
-
     /**
      * Override of the equals method which allows me to check if two petri nets are equal
+     *
      * @param obj is element to check
      * @return true if two Petri's Net are equals
      */
@@ -93,27 +95,27 @@ public class PetriNet extends Net implements  Simulation{
         assert obj != null;
         int tokenNumber;
         PetriNet pt = (PetriNet) obj;
-        int numberOfPlace= pt.getSetOfPlace().size() ;
+        int numberOfPlace = pt.getSetOfPlace().size();
         int numberOfTrans = pt.getSetOfTrans().size();
 
         //If they have a different number of places and transitions I know they are two different networks
-        if (numberOfPlace != super.getSetOfPlace().size() || numberOfTrans != super.getSetOfTrans().size()){
+        if (numberOfPlace != super.getSetOfPlace().size() || numberOfTrans != super.getSetOfTrans().size()) {
             return false;
         }
 
         //Check if the sets of transitions and places are the same, if they are different the two networks are different
-        if(!super.getSetOfPlace().containsAll(pt.getSetOfPlace())){
+        if (!super.getSetOfPlace().containsAll(pt.getSetOfPlace())) {
             return false;
         }
-        if(!super.getSetOfTrans().containsAll(pt.getSetOfTrans())){
+        if (!super.getSetOfTrans().containsAll(pt.getSetOfTrans())) {
             return false;
         }
 
         //At this point I check the initial marking,
         // if two places have a different number of tokens it means that the initial marking of the two networks is different
-        for (Pair p: super.getNet()) {
+        for (Pair p : super.getNet()) {
             tokenNumber = (pt.getInitialMarking().get(p));
-            if (tokenNumber!=initialMarking.get(p)) {
+            if (tokenNumber != initialMarking.get(p)) {
                 return false;
             }
         }
@@ -122,14 +124,15 @@ public class PetriNet extends Net implements  Simulation{
 
     /**
      * this method check all the differnt case in  a Petri's Net in order to decide which transitions can work
+     *
      * @param initialMark, this parameter identify the initial situazion in that moment and it doesn't always indicate che initial mark of the net
-     * @param temp the arraylist where we put the transition that can be moved
-     * @param finalTrans we put the element that will be shows to the user, who has to choose which one has to work
+     * @param temp         the arraylist where we put the transition that can be moved
+     * @param finalTrans   we put the element that will be shows to the user, who has to choose which one has to work
      */
-    public void initialSituationInTheNet( ArrayList<Pair> initialMark, ArrayList<Transition> temp, HashMap<Transition, ArrayList<Pair>> finalTrans) {
-        assert initialMark!=null;
-        assert temp!=null;
-        assert finalTrans!=null;
+    public void initialSituationInTheNet(ArrayList<Pair> initialMark, ArrayList<Transition> temp, HashMap<Transition, ArrayList<Pair>> finalTrans) {
+        assert initialMark != null;
+        assert temp != null;
+        assert finalTrans != null;
         //this array avoid to check pair that we have already checked
         boolean[] visit = new boolean[initialMark.size()];
 
@@ -179,23 +182,23 @@ public class PetriNet extends Net implements  Simulation{
             }
 
 
-
         }
     }
 
     /**
      * this method dies all the actions necessary for the case where there are more than pair connected to the transition, so we have to check if all the pair are correct
-     * @param initialMark contains all the pair that has token
-     * @param visit this array allows to check only the element that we haven't checked
+     *
+     * @param initialMark    contains all the pair that has token
+     * @param visit          this array allows to check only the element that we haven't checked
      * @param pairInTheTrans this arrayList contains or it will contain the pair connected to the transition that we are checking
-     * @param i give us the indication about which element we are checking
+     * @param i              give us the indication about which element we are checking
      * @return
      */
     public boolean checkTheElementMultipleCase(ArrayList<Pair> initialMark, boolean[] visit, ArrayList<Pair> pairInTheTrans, int i) {
-        assert initialMark!=null;
-        assert visit!=null;
-        assert pairInTheTrans!=null;
-        assert i>-1;
+        assert initialMark != null;
+        assert visit != null;
+        assert pairInTheTrans != null;
+        assert i > -1;
         //this variable contains the number of the elements in the initial markink which refer the current transition
         int elementOfTrans = 1;
         boolean checkIfTheTransitionCanWork = true;
@@ -235,25 +238,22 @@ public class PetriNet extends Net implements  Simulation{
         //if the element of trans has less element than the element in the pre of the transition, we can't add the transition to the final check
         //also if the check in the transition can work is false the addition can be made. The second check is redundant
         //ho meno elementi di quelli che dovrei avere passo oltre o se un elemento non era corretto
-        if (elementOfTrans < initialMark.get(i).getTrans().sizePre() || checkIfTheTransitionCanWork == false) {
-            return true;
-        }
-        return false;
+        return elementOfTrans < initialMark.get(i).getTrans().sizePre() || checkIfTheTransitionCanWork == false;
     }
 
-    public HashMap<Transition, ArrayList<Pair>> simulation(){
+    public HashMap<Transition, ArrayList<Pair>> simulation() {
 
         //in the we put the transition that can be chosen
         ArrayList<Transition> transitionThatCanWork = new ArrayList<Transition>();
         //visit avoid to check elements that we have already checked
 
         ArrayList<Pair> pairInTheTrans = new ArrayList<>();
-        HashMap<Transition, ArrayList<Pair>> finalTrans= new HashMap<>();
+        HashMap<Transition, ArrayList<Pair>> finalTrans = new HashMap<>();
         initialSituationInTheNet(initialMark, transitionThatCanWork, finalTrans);
-    return finalTrans;
+        return finalTrans;
     }
 
-    public void setPreandPost( Transition transitionThatWeHaveToModify) {
+    public void setPreandPost(Transition transitionThatWeHaveToModify) {
         //aggiorno tutti i post della transizione modificando il valore dei loro pesi
         if (transitionThatWeHaveToModify.sizePost() == 1) {
             //al post ci metto la somma degli elementi dei pesi dei pre, è nelle coppie
@@ -275,20 +275,32 @@ public class PetriNet extends Net implements  Simulation{
 
     /**
      * this method allows us to calculate the new situation
-
+     *
      * @param newInit the array where we put the element
      */
     public void calculateNewInitialSituation(ArrayList<Pair> newInit) {
 
-        assert newInit!=null;
-        ArrayList<Place> temporaryPlace= new ArrayList<>();
-        for (Pair p: getPairs()){
+        assert newInit != null;
+        ArrayList<Place> temporaryPlace = new ArrayList<>();
+        for (Pair p : getPairs()) {
             //ew check if the place has some tokens and we don't want to add place more than once
-            if(p.getPlace().getNumberOfToken()!=0 ){
+            if (p.getPlace().getNumberOfToken() != 0) {
                 newInit.add(p);
                 temporaryPlace.add(p.getPlace());
             }
         }
+    }
+
+    /*******************************
+     * VERSIONE 5
+     ******************************/
+
+    public boolean checkFatherNet(Net netToCheck) {
+        if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace()) ||
+                !super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
+            return false;
+        }
+        return true;
     }
 }
 

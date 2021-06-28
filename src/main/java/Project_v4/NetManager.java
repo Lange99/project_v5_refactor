@@ -461,10 +461,6 @@ public class NetManager {
         return sha1;
     }
 
-    public ArrayList<PriorityPetriNet> getPrioritynetList(){
-        return priorityPetriNetList;
-    }
-
     public void createPriorityPetriNet(PetriNet pN){
         PriorityPetriNet newNet = new PriorityPetriNet(pN);
         String name = IO.ReadString(IO.WHAT_IS_THE_PRIORITY_PETRI_S_NET_CALLED);
@@ -521,4 +517,16 @@ public class NetManager {
         }
         return false;
     }
+
+    /***********************************************************************
+     * VERSIONE 5
+     * *********************************************************************/
+
+
+    public void loadAllPetriNetWithFather(){
+
+    }
+
+
+
 }
