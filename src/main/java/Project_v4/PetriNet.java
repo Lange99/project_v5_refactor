@@ -9,7 +9,7 @@ public class PetriNet extends Net implements Simulation {
 
     private final HashMap<Pair, Integer> initialMarking = new HashMap<>();
     private final ArrayList<Pair> initialMark = new ArrayList<>();
-
+    private final ArrayList<Pair> initialMarkCurretly = new ArrayList<>();
 
     public HashMap<Pair, Integer> getInitialMarking() {
         return initialMarking;
@@ -75,7 +75,15 @@ public class PetriNet extends Net implements Simulation {
             }
         }
     }
+    public void saveInitialMarkCurretly() {
+        initialMarkCurretly.clear();
 
+        for (Pair p : super.getPairs()) {
+            if (p.getPlace().getNumberOfToken() != 0) {
+                initialMarkCurretly.add(p);
+            }
+        }
+    }
 
     public ArrayList<Pair> getInitialMark() {
         return initialMark;
@@ -165,7 +173,7 @@ public class PetriNet extends Net implements Simulation {
 
             //we check if there are enough token in the transition, in the opposite case there the transition can't work
             //significa che la transazione non potrà mai scattare
-            if (initialMark.get(i).getNumberOfToken() > initialMark.get(i).getWeight()) {
+            if (initialMark.get(i).getNumberOfToken() >= initialMark.get(i).getWeight()) {
 
                 pairInTheTrans = new ArrayList<>();
 
@@ -241,7 +249,7 @@ public class PetriNet extends Net implements Simulation {
         return elementOfTrans < initialMark.get(i).getTrans().sizePre() || checkIfTheTransitionCanWork == false;
     }
 
-    public HashMap<Transition, ArrayList<Pair>> simulation() {
+    public HashMap<Transition, ArrayList<Pair>> simulation(ArrayList<Pair> initialMark) {
 
         //in the we put the transition that can be chosen
         ArrayList<Transition> transitionThatCanWork = new ArrayList<Transition>();
@@ -301,6 +309,10 @@ public class PetriNet extends Net implements Simulation {
             return false;
         }
         return true;
+    }
+
+    public ArrayList<Pair> getInitialMarkCurrenly() {
+   return initialMarkCurretly;
     }
 }
 

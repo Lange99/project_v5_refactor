@@ -102,12 +102,12 @@ public class User {
                          //we shows the net
                          //dobbiamo mostrare le reti anche con le priorità
                          IO.showPriorityPetriNet(sel);
-                         sel.saveInitialMark();
+
                          //we start the simulation
                          boolean canContinue;
                          do{
-
-                              canContinue=   startSimulationPriority(sel, sel.getInitialMark());
+                             sel.saveInitialMarkCurretly();
+                              canContinue=   startSimulationPriority(sel, sel.getInitialMarkCurrenly());
 
                           }while (canContinue==true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
 
@@ -121,7 +121,7 @@ public class User {
     }
 
     private boolean startSimulationPriority(PriorityPetriNet sel, ArrayList<Pair> initialMark) {
-        HashMap<Transition, ArrayList<Pair>> finalTrans = sel.simulation();
+        HashMap<Transition, ArrayList<Pair>> finalTrans = sel.simulation( initialMark);
 //we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
         //ho fatto i controlli possibili in pairInTheTrans ho le transazioni che possono scattare
         if (finalTrans.size() == 0) {
@@ -136,16 +136,13 @@ public class User {
             sel.setPreandPost(transitionChosen);
             modifyThePrePair(finalTrans.get(transitionChosen));
             //we have to remove the token in the pre pairs
-            ArrayList<Pair> newInit = new ArrayList<>();
-            //we have to calculate the new situation
-            sel.calculateNewInitialSituation(newInit);
-            IO.showPetriNet(sel);
+            IO.showPriorityPetriNet(sel);
         }
         return  true;
     }
     public boolean startSimulation(PetriNet pN, ArrayList<Pair> initialMark) {
 
-        HashMap<Transition, ArrayList<Pair>> finalTrans = pN.simulation();
+        HashMap<Transition, ArrayList<Pair>> finalTrans = pN.simulation(initialMark);
 //we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
         //ho fatto i controlli possibili in pairInTheTrans ho le transazioni che possono scattare
         if (finalTrans.size() == 0) {
@@ -162,7 +159,6 @@ public class User {
             //we have to remove the token in the pre pairs
             ArrayList<Pair> newInit=new ArrayList<>();
             //we have to calculate the new situation
-            pN.calculateNewInitialSituation(newInit);
             IO.showPetriNet(pN);
         }
         return true;

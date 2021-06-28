@@ -96,6 +96,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
                     temp.clear();
                     finalTrans.clear();
                 }
+
             }
             maxPriority=priorityMap.get(initialMark.get(i).getTrans());
             //if there is only and there are enough token the transition is add to temp and to th other elemet
@@ -110,7 +111,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
 
             //we check if there are enough token in the transition, in the opposite case there the transition can't work
             //significa che la transazione non potrà mai scattare
-            if (initialMark.get(i).getNumberOfToken() > initialMark.get(i).getWeight()) {
+            if (initialMark.get(i).getNumberOfToken() >= initialMark.get(i).getWeight()) {
 
                 pairInTheTrans = new ArrayList<>();
 
@@ -133,7 +134,17 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
 
         }
     }
+    public HashMap<Transition, ArrayList<Pair>> simulation(ArrayList<Pair> initialMark) {
 
+        //in the we put the transition that can be chosen
+        ArrayList<Transition> transitionThatCanWork = new ArrayList<Transition>();
+        //visit avoid to check elements that we have already checked
+
+        ArrayList<Pair> pairInTheTrans = new ArrayList<>();
+        HashMap<Transition, ArrayList<Pair>> finalTrans = new HashMap<>();
+        initialSituationInTheNet(initialMark, transitionThatCanWork, finalTrans);
+        return finalTrans;
+    }
     /**
      * this method dies all the actions necessary for the case where there are more than pair connected to the transition, so we have to check if all the pair are correct
      * @param initialMark contains all the pair that has token
@@ -163,7 +174,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
             }
 
             // we want the elements that has the same transition of the pair that we are checking
-            if (initialMark.get(i).getTrans().equals(initialMark.get(j).getTrans())) {
+            if (initialMark.get(i).getTrans().getName().equals(initialMark.get(j).getTrans().getName())) {
 
                 //se non rispetta questa condizione significa che non si hanno abbastanza elementi totali, non continuo a fare controlli ma pongo gli altri elementi in modo
                 //non ci siano ulteriori controlli
