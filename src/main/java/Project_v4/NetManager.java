@@ -558,7 +558,21 @@ public class NetManager {
         }
     }
 
-
+    public void handleNet(String pathOfFile) throws FileNotFoundException {
+        Net net = JsonManager.loadFileFromAnyPath(pathOfFile);
+        if ( net instanceof PriorityPetriNet) {
+            priorityPetriNetList.add((PriorityPetriNet) net);
+        }
+        else if (net instanceof PetriNet) {
+            petriNetList.add((PetriNet) net);
+        }
+        else if (net instanceof Net) {
+            netList.add(net);
+        }
+        else if (net == null) {
+            IO.print(IO.THE_NET_IS_INCORRECT_IT_CAN_T_BE_SAVED);
+        }
+    }
 
 
 }
