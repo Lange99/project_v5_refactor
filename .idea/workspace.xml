@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v4/PetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v4/PriorityPetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v4/User.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1uRlIqocElT4tnZZWOji4dwIp3k" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Project_IS_v3_jar.xml" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.13157892" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.Project_v4.Main" />
+      <module name="Project_IS_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.Project_v4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="" />
+      <created>1624636205620</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624636205620</updated>
+    </task>
+    <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
+      <created>1624726504562</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1624726504562</updated>
+    </task>
+    <task id="LOCAL-00002" summary="c'è un errore ma ho inserito le robe che servivano, l'errore è in JsonRea">
+      <created>1624805770185</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1624805770185</updated>
+    </task>
+    <task id="LOCAL-00003" summary="JSON QUALCOSA COMMENTATO, modifica del metodo per la simulazione">
+      <created>1624828054612</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1624828054612</updated>
+    </task>
+    <task id="LOCAL-00004" summary="json aggiustato, elmenti modificati, possibile problema stampa">
+      <created>1624831709838</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1624831709838</updated>
+    </task>
+    <task id="LOCAL-00005" summary="aggiustato un metodo per la simulazione">
+      <created>1624833869671</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624833869671</updated>
+    </task>
+    <task id="LOCAL-00006" summary="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò">
+      <created>1624876466743</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624876466743</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modificato metodo di simulazione, e elementi in user" />
+    <MESSAGE value="c'è un errore ma ho inserito le robe che servivano, l'errore è in JsonRea" />
+    <MESSAGE value="JSON QUALCOSA COMMENTATO, modifica del metodo per la simulazione" />
+    <MESSAGE value="json aggiustato, elmenti modificati, possibile problema stampa" />
+    <MESSAGE value="aggiustato un metodo per la simulazione" />
+    <MESSAGE value="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Project_v4/User.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Project_v4/User.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Project_v4/PetriNet.java</url>
+          <line>259</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
