@@ -53,6 +53,8 @@ public class IO {
     public static final String THE_NET_IS_INCORRECT_IT_CAN_T_BE_SAVED = "The net is incorrect, it can't be saved";
     public static final String THE_NET_IS_CORRECT_WE_ARE_GOING_TO_SAVE_IT = "The net is correct, we are going to save it";
     public static final String NO_NORMAL_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
+    public static final String NO_PETRI_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
+
     public static final String JSON_FILE = "src/main/java/JsonFile";
     public static final String JSON_PETRI_FILE = "src/main/java/JsonPetri/";
     public static final String JSON_PRIORITY_PETRI_FILE = "src/main/java/JsonPriority/";

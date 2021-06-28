@@ -74,9 +74,12 @@ public class NetManager {
                     break;
 
                 case 4: //this chose allows to the user to create a new Petri's net with Priority
-                    PetriNet newNet = JsonManager.loadPetriNet();
-                    createPriorityPetriNet(newNet);
-
+                    if(petriNetList.size()==0){
+                        IO.print(IO.NO_PETRI_NET);
+                    }else {
+                        PetriNet newNet = JsonManager.loadPetriNet();
+                        createPriorityPetriNet(newNet);
+                    }
 
             }
         } while (check);
