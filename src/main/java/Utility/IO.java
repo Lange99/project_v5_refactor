@@ -41,11 +41,14 @@ public class IO {
     public static final String VISUALIZE_THE_LIST = "Visualize the list";
     public static final String ADD_WEIGHT = "Do you want to add weight to the transition? If you say no we insert the default value";
     public static final String TRANSITION_CHOOSE = "These are the transition in the Net, do you have to choose which one modify: (insert the number)" ;
+    public static final String INSERT_PATHNAME = "Insert the pathname of the file to load";
+    public static final String ERROR_PATH = "The pathname is wrong";
+    public static final String PATH_CORRECT = "The pathname is correct";
     private static final String path = new File("src/main/java/JsonFile").getAbsolutePath();
     private static final String petriPath = new File("src/main/java/JsonPetri").getAbsolutePath();
     public static final String ANOTHER_NET = "You want add another Net?";
     public static final String NAME_OF_NET = "Add the name of Net:";
-    public static final String MENU = "What do you want do?\n0)EXIT\n1)Add new Net\n2)Load net\n3)Create a new Petri's Net\n4)Create a new Petri's Net with Priority";
+    public static final String MENU = "What do you want do?\n0)EXIT\n1)Add new Net\n2)Load net\n3)Create a new Petri's Net\n4)Create a new Petri's Net with Priority\n5)import from a different Path name";
     public static final String WANT_TO_DO_ANOTHER_OPERATION = "you want to do another operation ";
     public static final String SAVE_NET = "Do you want to save the net that you have already made? ";
     public static final String DIGIT_YOUR_CHOISE = "Digit your choise ";
@@ -54,7 +57,7 @@ public class IO {
     public static final String THE_NET_IS_CORRECT_WE_ARE_GOING_TO_SAVE_IT = "The net is correct, we are going to save it";
     public static final String NO_NORMAL_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
     public static final String NO_PETRI_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
-
+    public static final String THE_NET_IS_NOT_VALID = "The file doesn't contain any net!";
     public static final String JSON_FILE = "src/main/java/JsonFile";
     public static final String JSON_PETRI_FILE = "src/main/java/JsonPetri/";
     public static final String JSON_PRIORITY_PETRI_FILE = "src/main/java/JsonPriority/";

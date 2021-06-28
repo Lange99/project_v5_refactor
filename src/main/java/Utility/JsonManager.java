@@ -173,10 +173,10 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
     }
 
     //VERSIONE 5
-    public static Net loadFileFromAnyPath(String pathSelected) throws FileNotFoundException {
-        String pathOfFile = getPath(pathSelected);
+    public static Net loadFileFromAnyPath(String pathOfFile) throws FileNotFoundException {
+        //String pathOfFile = getPath(pathSelected);
         assert pathOfFile != null;
-        if (pathOfFile.substring(pathOfFile.length()-5).equals(".json")) {
+        if (!pathOfFile.substring(pathOfFile.length()-5).equals(".json")) {
             return null;
         }
         String[] tagNet = {"@name", "@pairs", "@direction", "@place", "@transition"};
@@ -185,46 +185,44 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
 
         Net newNet = null;
         int ctrl = 0, i;
-        if (pathOfFile != null) {
-            for (i = 0; i < tagPriorityPetriNet.length; i++) {
-                if (findInTheFile(tagPriorityPetriNet[i], pathOfFile)) {
-                    ctrl++;
-                }
-                else {
-                    ctrl = 0;
-                    break;
-                }
+        for (i = 0; i < tagPriorityPetriNet.length; i++) {
+            if (findInTheFile(tagPriorityPetriNet[i], pathOfFile)) {
+                ctrl++;
             }
-            if (ctrl == tagPriorityPetriNet.length) {
-                newNet = JsonReader.readPetriJson(pathOfFile);
-                return newNet;
+            else {
+                ctrl = 0;
+                break;
             }
-            for (i = 0; i < tagPetriNet.length; i++) {
-                if (findInTheFile(tagPetriNet[i], pathOfFile)) {
-                    ctrl++;
-                }
-                else {
-                    ctrl = 0;
-                    break;
-                }
+        }
+        if (ctrl == tagPriorityPetriNet.length) {
+            newNet = JsonReader.readPriorityPetriNet(pathOfFile);
+            return newNet;
+        }
+        for (i = 0; i < tagPetriNet.length; i++) {
+            if (findInTheFile(tagPetriNet[i], pathOfFile)) {
+                ctrl++;
             }
-            if (ctrl == tagPetriNet.length) {
-                newNet = JsonReader.readPetriJson(pathOfFile);
-                return newNet;
+            else {
+                ctrl = 0;
+                break;
             }
-            for (i = 0; i < tagNet.length; i++) {
-                if (findInTheFile(tagNet[i], pathOfFile)) {
-                    ctrl++;
-                }
-                else {
-                    ctrl = 0;
-                    break;
-                }
+        }
+        if (ctrl == tagPetriNet.length) {
+            newNet = JsonReader.readPetriJson(pathOfFile);
+            return newNet;
+        }
+        for (i = 0; i < tagNet.length; i++) {
+            if (findInTheFile(tagNet[i], pathOfFile)) {
+                ctrl++;
             }
-            if (ctrl == tagNet.length) {
-                newNet = JsonReader.readJson(pathOfFile);
-                return newNet;
+            else {
+                ctrl = 0;
+                break;
             }
+        }
+        if (ctrl == tagNet.length) {
+            newNet = JsonReader.readJson(pathOfFile);
+            return newNet;
         }
         return newNet;
     }
@@ -237,7 +235,7 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
             String line = reader.readLine();
             while (line != null) {
                 line = reader.readLine();
-                if (line.contains(wordToFind)) {
+                if (line!=null && line.contains(wordToFind)) {
                     return true;
                 }
             }

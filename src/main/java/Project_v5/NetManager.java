@@ -12,6 +12,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +36,7 @@ public class NetManager {
         do {
             IO.print(IO.MENU);
             choise = IO.readNumber(IO.DIGIT_YOUR_CHOISE);
-            while (choise < 0 || choise > 4) {
+            while (choise < 0 || choise > 5) {
                 IO.print(IO.DIGIT_VALID_CHOISE);
                 choise = IO.readNumber(IO.DIGIT_YOUR_CHOISE);
             }
@@ -75,11 +78,11 @@ public class NetManager {
 
                         case 3:
                             PriorityPetriNet newPriorityPetriNet = JsonManager.loadPriorityPetriNet();
-                            if (newPriorityPetriNet != null){
-                                if(checkLoadPetriNet(newPriorityPetriNet)) {
+                            if (newPriorityPetriNet != null) {
+                                if (checkLoadPetriNet(newPriorityPetriNet)) {
                                     priorityPetriNetList.add(newPriorityPetriNet);
                                     IO.showPriorityPetriNet(newPriorityPetriNet);
-                                }else{
+                                } else {
                                     IO.print(IO.YOU_CANNOT_ADD_THIS_PRIORITY_PETRI_NET_BECAUSE_ITS_DESCRIPTION_IS_NOT_SAVED);
                                 }
                             }
@@ -103,10 +106,35 @@ public class NetManager {
                         PetriNet newNet = JsonManager.loadPetriNet();
                         addPriorityPetriNet(newNet);
                     }
+                    break;
 
+                case 5: //this chose allow to the user to build a net from an existing file from pathname
+                    String path = IO.readNotEmptyString(IO.INSERT_PATHNAME);
+                    if (isValidPath(path)) {
+                        IO.print(IO.PATH_CORRECT);
+                        handleNet(path);
+                    } else {
+                        IO.print(IO.ERROR_PATH);
+                    }
+                    break;
             }
         } while (check);
 
+    }
+
+    /**
+     * method to check if the input path is correct or not
+     *
+     * @param path
+     * @return true if is correct, false if is wrong
+     */
+    private boolean isValidPath(String path) {
+        try {
+            Paths.get(path);
+        } catch (InvalidPathException e) {
+            return false;
+        }
+        return true;
     }
 
 
@@ -575,16 +603,20 @@ public class NetManager {
         return false;
     }
 
+
     public void handleNet(String pathOfFile) throws FileNotFoundException {
         Net net = JsonManager.loadFileFromAnyPath(pathOfFile);
         if (net instanceof PriorityPetriNet) {
             priorityPetriNetList.add((PriorityPetriNet) net);
+            IO.showPriorityPetriNet((PriorityPetriNet) net);
         } else if (net instanceof PetriNet) {
             petriNetList.add((PetriNet) net);
+            IO.showPetriNet((PetriNet) net);
         } else if (net instanceof Net) {
             netList.add(net);
+            IO.showNet(net);
         } else if (net == null) {
-            IO.print(IO.THE_NET_IS_INCORRECT_IT_CAN_T_BE_SAVED);
+            IO.printError(IO.THE_NET_IS_NOT_VALID);
         }
     }
 
