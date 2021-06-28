@@ -172,4 +172,9 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         }
         return listOfNet;
     }
+
+    //VERSIONE 5
+    public static void loadFileFromAnyPath(String pathSelected) {
+        loa
+    }
 }
