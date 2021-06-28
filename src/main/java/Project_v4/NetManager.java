@@ -540,6 +540,18 @@ public class NetManager {
         }
     }
 
+    public void loadAllPriorityPetriNetWithFather(ArrayList<PetriNet> petriNetToCheck) throws FileNotFoundException {
+        List<PriorityPetriNet> priorityPetriNetToLoad = JsonManager.loadAllPriorityPetriNet();
+
+        for (PriorityPetriNet net: priorityPetriNetToLoad){
+            for (PetriNet petriNet: petriNetToCheck) {
+                if(net.checkFatherPetriNet(petriNet)){
+                    priorityPetriNetList.add(net);
+                }
+            }
+        }
+    }
+
 
 
 }

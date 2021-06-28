@@ -55,30 +55,6 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         return null;
     }
 
-    public static ArrayList<Net> loadAllSimpleNet() throws FileNotFoundException {
-        ArrayList<Net> listOfNet = new ArrayList<>();
-        String[] listOfAllFile = getPathname(IO.JSON_FILE);
-        for (String pathnameSingleFile: listOfAllFile) {
-            if (pathnameSingleFile != null) {
-                Net newNetToLoad = JsonReader.readJson(pathnameSingleFile);
-                listOfNet.add(newNetToLoad);
-            }
-        }
-        return listOfNet;
-    }
-
-    public static ArrayList<PetriNet> loadAllPetriNet() throws FileNotFoundException {
-        ArrayList<PetriNet> listOfNet = new ArrayList<>();
-        String[] listOfAllFile = getPathname(IO.JSON_PETRI_FILE);
-        for (String pathnameSingleFile: listOfAllFile) {
-            if (pathnameSingleFile != null) {
-                PetriNet newNetToLoad = JsonReader.readPetriJson(pathnameSingleFile);
-                listOfNet.add(newNetToLoad);
-            }
-        }
-        return listOfNet;
-    }
-
     /**
      * Method allowing to load a net
      * @return the loaded network
@@ -155,5 +131,45 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
             }
         }
         return ctrl;
+    }
+
+    /**
+     * VERSIONE 5
+     */
+
+    public static ArrayList<Net> loadAllSimpleNet() throws FileNotFoundException {
+        ArrayList<Net> listOfNet = new ArrayList<>();
+        String[] listOfAllFile = getPathname(IO.JSON_FILE);
+        for (String pathnameSingleFile: listOfAllFile) {
+            if (pathnameSingleFile != null) {
+                Net newNetToLoad = JsonReader.readJson(pathnameSingleFile);
+                listOfNet.add(newNetToLoad);
+            }
+        }
+        return listOfNet;
+    }
+
+    public static ArrayList<PetriNet> loadAllPetriNet() throws FileNotFoundException {
+        ArrayList<PetriNet> listOfNet = new ArrayList<>();
+        String[] listOfAllFile = getPathname(IO.JSON_PETRI_FILE);
+        for (String pathnameSingleFile: listOfAllFile) {
+            if (pathnameSingleFile != null) {
+                PetriNet newNetToLoad = JsonReader.readPetriJson(pathnameSingleFile);
+                listOfNet.add(newNetToLoad);
+            }
+        }
+        return listOfNet;
+    }
+
+    public static ArrayList<PriorityPetriNet> loadAllPriorityPetriNet() throws FileNotFoundException {
+        ArrayList<PriorityPetriNet> listOfNet = new ArrayList<>();
+        String[] listOfAllFile = getPathname(IO.JSON_PRIORITY_PETRI_FILE);
+        for (String pathnameSingleFile: listOfAllFile) {
+            if (pathnameSingleFile != null) {
+                PriorityPetriNet newNetToLoad = JsonReader.readPriorityPetriNet(pathnameSingleFile);
+                listOfNet.add(newNetToLoad);
+            }
+        }
+        return listOfNet;
     }
 }
