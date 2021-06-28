@@ -75,6 +75,7 @@ public class PetriNet extends Net implements Simulation {
             }
         }
     }
+
     public void saveInitialMarkCurretly() {
         initialMarkCurretly.clear();
 
@@ -281,24 +282,13 @@ public class PetriNet extends Net implements Simulation {
         }
     }
 
+
     /**
-     * this method allows us to calculate the new situation
+     * Method that allows me to check if a net is the topology of a petri net
      *
-     * @param newInit the array where we put the element
+     * @param netToCheck
+     * @return true if netToCheck is the topology of my net
      */
-    public void calculateNewInitialSituation(ArrayList<Pair> newInit) {
-
-        assert newInit != null;
-        ArrayList<Place> temporaryPlace = new ArrayList<>();
-        for (Pair p : getPairs()) {
-            //ew check if the place has some tokens and we don't want to add place more than once
-            if (p.getPlace().getNumberOfToken() != 0) {
-                newInit.add(p);
-                temporaryPlace.add(p.getPlace());
-            }
-        }
-    }
-
     public boolean checkFatherNet(Net netToCheck) {
         int nPlace = getSetOfPlace().size();
         int nPlace2 = netToCheck.getSetOfPlace().size();
@@ -310,24 +300,24 @@ public class PetriNet extends Net implements Simulation {
         if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace())) {
             return false;
         }
-        if(super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())){
-            for(Transition t: super.getSetOfTrans()){
-                for(Transition t2: netToCheck.getSetOfTrans()){
+        if (super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
+            for (Transition t : super.getSetOfTrans()) {
+                for (Transition t2 : netToCheck.getSetOfTrans()) {
                     if (t.getName().equals(t2.getName())) {
-                        if(!t.checkArray(t2)){
+                        if (!t.checkArray(t2)) {
                             return false;
                         }
                     }
                 }
             }
-        }else{
+        } else {
             return false;
         }
         return true;
     }
 
     public ArrayList<Pair> getInitialMarkCurrenly() {
-   return initialMarkCurretly;
+        return initialMarkCurretly;
     }
 }
 

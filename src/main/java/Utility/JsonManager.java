@@ -69,6 +69,11 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         return null;
     }
 
+    /**
+     * Method used to load a priority petry net
+     * @return
+     * @throws FileNotFoundException
+     */
     public static PriorityPetriNet loadPriorityPetriNet() throws FileNotFoundException {
         String pathFile = getPath(IO.JSON_PRIORITY_PETRI_FILE);
         if (pathFile != null) {
@@ -133,9 +138,10 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
     }
 
     /**
-     * VERSIONE 5
+     * Method that allows you to load all the nets into Json files
+     * @return the petriNets loaded
+     * @throws FileNotFoundException
      */
-
     public static ArrayList<Net> loadAllSimpleNet() throws FileNotFoundException {
         ArrayList<Net> listOfNet = new ArrayList<>();
         String[] listOfAllFile = getPathname(IO.JSON_FILE);
@@ -148,6 +154,11 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         return listOfNet;
     }
 
+    /**
+     * Method that allows you to load all the petri nets into Json files
+     * @return the petriNets loaded
+     * @throws FileNotFoundException
+     */
     public static ArrayList<PetriNet> loadAllPetriNet() throws FileNotFoundException {
         ArrayList<PetriNet> listOfNet = new ArrayList<>();
         String[] listOfAllFile = getPathname(IO.JSON_PETRI_FILE);
@@ -160,19 +171,12 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         return listOfNet;
     }
 
-    public static ArrayList<PriorityPetriNet> loadAllPriorityPetriNet() throws FileNotFoundException {
-        ArrayList<PriorityPetriNet> listOfNet = new ArrayList<>();
-        String[] listOfAllFile = getPathname(IO.JSON_PRIORITY_PETRI_FILE);
-        for (String pathnameSingleFile: listOfAllFile) {
-            if (pathnameSingleFile != null) {
-                PriorityPetriNet newNetToLoad = JsonReader.readPriorityPetriNet(pathnameSingleFile);
-                listOfNet.add(newNetToLoad);
-            }
-        }
-        return listOfNet;
-    }
-
-    //VERSIONE 5
+    /**
+     * Method that allows me to read a file from each Path
+     * @param pathOfFile
+     * @return the net read
+     * @throws FileNotFoundException
+     */
     public static Net loadFileFromAnyPath(String pathOfFile) throws FileNotFoundException {
         //String pathOfFile = getPath(pathSelected);
         assert pathOfFile != null;
@@ -227,7 +231,12 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         return newNet;
     }
 
-
+    /**
+     * Method used to understand what kind of net I am reading from Json files
+     * @param wordToFind
+     * @param pathnameFile
+     * @return true if the passed tags are present in the file
+     */
     private static boolean findInTheFile(String wordToFind, String pathnameFile) {
         BufferedReader reader;
         try {

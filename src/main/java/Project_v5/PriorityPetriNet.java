@@ -203,10 +203,6 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
         return elementOfTrans < initialMark.get(i).getTrans().sizePre() || checkIfTheTransitionCanWork == false;
     }
 
-    /********************************
-     * VERSIONE 5
-     ********************************/
-
     /**
      * Method that allows you to determine if the Petri net with priority comes from netToCheck
      *
