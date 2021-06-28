@@ -147,6 +147,7 @@ public class NetManager {
             petriNetList.add(newPetriNet);
         }
     }
+    /*
     public void addPriorityPetriNet() {
         PriorityPetriNet newPriorityPetriNet = new PriorityPetriNet(loadOnePetriNet());
         IO.showPriorityPetriNet(newPriorityPetriNet);
@@ -165,7 +166,7 @@ public class NetManager {
             }
             priorityPetriNetList.add(newPriorityPetriNet);
         }
-    }
+    }*/
     private void addPrioritysToTheNet(PriorityPetriNet priorityNet) {
         ArrayList<Transition> tempTransition = new ArrayList<>(priorityNet.getSetOfTrans());
 
@@ -472,6 +473,9 @@ public class NetManager {
             assignPriority(newNet);
         }
         priorityPetriNetList.add(newNet);
+        if (IO.yesOrNo(IO.SAVE_PRIORITY_PETRI_NET)) {
+            JsonWriter.writeJsonPriorityPetriNet(newNet);
+        }
 
     }
 

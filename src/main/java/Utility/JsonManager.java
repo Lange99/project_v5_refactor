@@ -2,6 +2,7 @@ package main.java.Utility;
 
 import main.java.Project_v4.Net;
 import main.java.Project_v4.PetriNet;
+import main.java.Project_v4.PriorityPetriNet;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -48,7 +49,6 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         if (pathFile != null) {
             PetriNet newNet = JsonReader.readPetriJson(pathFile);
             System.out.println(FILE_IS_LOADED);
-            System.out.println(SHOW_THE_NET);
             return newNet;
         }
         return null;
@@ -64,7 +64,16 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         if (pathFile != null) {
             Net newNet = JsonReader.readJson(pathFile);
             System.out.println(FILE_IS_LOADED);
-            System.out.println(SHOW_THE_NET);
+            return newNet;
+        }
+        return null;
+    }
+
+    public static PriorityPetriNet loadPriorityPetriNet() throws FileNotFoundException {
+        String pathFile = getPath(IO.JSON_PRIORITY_PETRI_FILE);
+        if (pathFile != null) {
+            PriorityPetriNet newNet = JsonReader.readPriorityPetriNet(pathFile);
+            System.out.println(FILE_IS_LOADED);
             return newNet;
         }
         return null;

@@ -7,6 +7,7 @@ import java.util.Set;
 
 import main.java.Utility.IO;
 import main.java.Utility.JsonManager;
+import main.java.Utility.JsonReader;
 
 public class User {
 
@@ -79,7 +80,9 @@ public class User {
 
                  case 3:
                      //caricare rete con priorità
-                     loadPriorityNetPetri.addAll(netM.getPrioritynetList());
+                     PriorityPetriNet netToAdd = JsonManager.loadPriorityPetriNet();
+                     loadPriorityNetPetri.add(netToAdd);
+                     //loadPriorityNetPetri.addAll(netM.getPrioritynetList());
                      break;
                  case 4:
                      //simulation of Petri's Net with Priority

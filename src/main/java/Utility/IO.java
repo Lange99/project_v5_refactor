@@ -80,6 +80,7 @@ public class IO {
     public static final String DO_YOU_WANT_ADD_PRIORITIES = "Do you want add priorities?";
     public static final String WHICH_TRANSITION_DO_YOU_WANT_TO_PRIORITIZE = "Which transition do you want to prioritize?";
     public static final String WHAT_PRIORITY_DO_YOU_WANT_ASSIGN = "What priority do you want to assign?\nThe higher the number, the higher the priority of the transition)";
+    public static final String SAVE_PRIORITY_PETRI_NET = "Do you want to save the new Petri Net with priority?";
     private static Scanner reader = scannerBuild();
 
     /**
