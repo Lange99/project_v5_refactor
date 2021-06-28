@@ -67,11 +67,12 @@ public class User {
                          //we start the simulation
                          //selected.simulation();
                         // simulation(selected, loadNetPetri.get(select - 1).getInitialMark());
+                         boolean canContinue;
                          do{
 
-                             startSimulation(selected, selected.getInitialMark());
+                            canContinue= startSimulation(selected, selected.getInitialMark());
 
-                         }while (IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
+                         }while (canContinue==true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
                      }
                      check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
 
@@ -103,11 +104,12 @@ public class User {
                          IO.showPriorityPetriNet(sel);
                          sel.saveInitialMark();
                          //we start the simulation
-                          do{
+                         boolean canContinue;
+                         do{
 
-                                startSimulationPriority(sel, sel.getInitialMark());
+                              canContinue=   startSimulationPriority(sel, sel.getInitialMark());
 
-                          }while (IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
+                          }while (canContinue==true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
 
                      }
                      check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
@@ -118,14 +120,14 @@ public class User {
          } while (!check );
     }
 
-    private void startSimulationPriority(PriorityPetriNet sel, ArrayList<Pair> initialMark) {
+    private boolean startSimulationPriority(PriorityPetriNet sel, ArrayList<Pair> initialMark) {
         HashMap<Transition, ArrayList<Pair>> finalTrans = sel.simulation();
 //we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
         //ho fatto i controlli possibili in pairInTheTrans ho le transazioni che possono scattare
         if (finalTrans.size() == 0) {
             //In this case there aren't any transitions avaible
             IO.print(IO.THERE_AREN_T_ANY_TRANSITION_AVAILABLE);
-
+    return  false;
         } else {
 
 
@@ -139,8 +141,9 @@ public class User {
             sel.calculateNewInitialSituation(newInit);
             IO.showPetriNet(sel);
         }
+        return  true;
     }
-    public void startSimulation(PetriNet pN, ArrayList<Pair> initialMark) {
+    public boolean startSimulation(PetriNet pN, ArrayList<Pair> initialMark) {
 
         HashMap<Transition, ArrayList<Pair>> finalTrans = pN.simulation();
 //we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
@@ -148,7 +151,7 @@ public class User {
         if (finalTrans.size() == 0) {
             //In this case there aren't any transitions avaible
             IO.print(IO.THERE_AREN_T_ANY_TRANSITION_AVAILABLE);
-
+    return false;
         } else {
 
 
@@ -162,6 +165,7 @@ public class User {
             pN.calculateNewInitialSituation(newInit);
             IO.showPetriNet(pN);
         }
+        return true;
     }
 
     /**
