@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.List;
 
 public class NetManager {
 
@@ -526,8 +527,17 @@ public class NetManager {
      * *********************************************************************/
 
 
-    public void loadAllPetriNetWithFather(){
+    public void loadAllPetriNetWithFather() throws FileNotFoundException {
+        List<Net> netToCheck = JsonManager.loadAllSimpleNet();
+        List<PetriNet> petriNetToLoad = JsonManager.loadAllPetriNet();
 
+        for (PetriNet net: petriNetToLoad){
+            for (Net simpleNet: netToCheck) {
+                if(net.checkFatherNet(simpleNet)){
+                    petriNetList.add(net);
+                }
+            }
+        }
     }
 
 
