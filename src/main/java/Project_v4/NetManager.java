@@ -486,7 +486,7 @@ public class NetManager {
             IO.print(i + ") " + tempArr.get(i).getName());
         }
         int choise = IO.readInteger(IO.WHICH_TRANSITION_DO_YOU_WANT_TO_PRIORITIZE, 0, tempArr.size()-1);
-        int priorityNumber = IO.readNumber(IO.WHAT_PRIORITY_DO_YOU_WANT_ASSIGN);
+        int priorityNumber = IO.readIntegerWithMin(IO.WHAT_PRIORITY_DO_YOU_WANT_ASSIGN, 0);
         pnp.addPriority(tempArr.get(choise).getName(), priorityNumber);
     }
     public boolean existsAlreadyPriorityPetriNet(PriorityPetriNet newPriorityPetriNetToCheck) throws FileNotFoundException {
