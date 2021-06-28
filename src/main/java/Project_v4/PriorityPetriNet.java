@@ -53,8 +53,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
     }
 
     public int getPriorityByTransitionName(String transitionName) {
-        Transition transitionToFound = new Transition(transitionName);
-        return getPriorityByTransition(transitionToFound);
+        return getPriorityByTransition(super.getTrans(transitionName));
     }
 
     /**
