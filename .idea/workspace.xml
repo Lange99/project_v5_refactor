@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v4/PetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v4/PriorityPetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v4/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v4/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2021_11_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2021_11_16__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/NetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Project_v4/NetManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Project_v4/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Project_v4/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +39,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Project_IS_v3_jar.xml" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.13157892" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -53,6 +64,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -67,6 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1624636205620</updated>
+      <workItem from="1624890843128" duration="2472000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>
@@ -113,6 +136,9 @@
     <option name="localTasksCounter" value="7" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -133,26 +159,5 @@
     <MESSAGE value="aggiustato un metodo per la simulazione" />
     <MESSAGE value="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò" />
     <option name="LAST_COMMIT_MESSAGE" value="modificato valore di ritorno in modo che sia un booleab e l'utente non continui a ciclare quando non uò" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Project_v4/User.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Project_v4/User.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Project_v4/PetriNet.java</url>
-          <line>259</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
