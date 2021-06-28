@@ -79,7 +79,7 @@ public class NetManager {
                         IO.print(IO.NO_PETRI_NET);
                     }else {
                         PetriNet newNet = JsonManager.loadPetriNet();
-                        createPriorityPetriNet(newNet);
+                        addPriorityPetriNet(newNet);
                     }
 
             }
@@ -465,16 +465,21 @@ public class NetManager {
         return sha1;
     }
 
-    public void createPriorityPetriNet(PetriNet pN){
+    public void addPriorityPetriNet(PetriNet pN){
         PriorityPetriNet newNet = new PriorityPetriNet(pN);
         String name = IO.ReadString(IO.WHAT_IS_THE_PRIORITY_PETRI_S_NET_CALLED);
         newNet.setName(name);
         while(IO.yesOrNo(IO.DO_YOU_WANT_ADD_PRIORITIES)){
             assignPriority(newNet);
         }
-        priorityPetriNetList.add(newNet);
-        if (IO.yesOrNo(IO.SAVE_PRIORITY_PETRI_NET)) {
-            JsonWriter.writeJsonPriorityPetriNet(newNet);
+        //priorityPetriNetList.add(newNet);
+        if (checkPriorityPetriNet(newNet)) {
+            if (IO.yesOrNo(IO.SAVE_PRIORITY_PETRI_NET)) {
+                JsonWriter.writeJsonPriorityPetriNet(newNet);
+                //IO.print(IO.SET_NEW_NAME);
+                //newNet.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
+            }
+            priorityPetriNetList.add(newNet);
         }
 
     }
@@ -489,6 +494,7 @@ public class NetManager {
         int priorityNumber = IO.readIntegerWithMin(IO.WHAT_PRIORITY_DO_YOU_WANT_ASSIGN, 0);
         pnp.addPriority(tempArr.get(choise).getName(), priorityNumber);
     }
+
     public boolean existsAlreadyPriorityPetriNet(PriorityPetriNet newPriorityPetriNetToCheck) throws FileNotFoundException {
         assert newPriorityPetriNetToCheck != null;
         // bulld array String of the list of all file in JsonPetri directory
@@ -551,6 +557,7 @@ public class NetManager {
             }
         }
     }
+
 
 
 

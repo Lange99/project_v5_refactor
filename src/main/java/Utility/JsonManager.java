@@ -4,8 +4,7 @@ import main.java.Project_v4.Net;
 import main.java.Project_v4.PetriNet;
 import main.java.Project_v4.PriorityPetriNet;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -174,7 +173,42 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
     }
 
     //VERSIONE 5
-    public static void loadFileFromAnyPath(String pathSelected) {
-        loa
+    public static void loadFileFromAnyPath(String pathSelected) throws FileNotFoundException {
+        String pathOfFile = getPath(pathSelected);
+        if (pathOfFile != null) {
+            if (findInTheFile("@priority", pathSelected)) {
+                PriorityPetriNet newNet = JsonReader.readPriorityPetriNet(pathSelected);
+
+            }
+            else if (findInTheFile("@token", pathSelected)) {
+                PetriNet newNet = JsonReader.readPetriJson(pathSelected);
+
+            }
+            else {
+                PetriNet newNet = JsonReader.readPetriJson(pathSelected);
+            }
+            System.out.println(FILE_IS_LOADED);
+        }
+    }
+
+    public void
+
+    private static boolean findInTheFile(String wordToFind, String pathnameFile) {
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(pathnameFile));
+            String line = reader.readLine();
+            while (line != null) {
+                line = reader.readLine();
+                if (line.contains(wordToFind)) {
+                    return true;
+                }
+            }
+            reader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
