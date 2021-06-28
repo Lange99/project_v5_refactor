@@ -299,11 +299,14 @@ public class PetriNet extends Net implements Simulation {
         }
     }
 
-    /*******************************
-     * VERSIONE 5
-     ******************************/
-
     public boolean checkFatherNet(Net netToCheck) {
+        int nPlace = getSetOfPlace().size();
+        int nPlace2 = netToCheck.getSetOfPlace().size();
+        int nTrans = getSetOfTrans().size();
+        int nTrans2 = netToCheck.getSetOfTrans().size();
+        if (nPlace != nPlace2 || nTrans != nTrans2) {
+            return false;
+        }
         if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace())) {
             return false;
         }

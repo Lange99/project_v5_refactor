@@ -3,17 +3,17 @@ package main.java.Project_v5;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PriorityPetriNet extends PetriNet implements Simulation{
+public class PriorityPetriNet extends PetriNet implements Simulation {
 
     private HashMap<Transition, Integer> priorityMap;
 
-    public void initMap(){
-        for(Transition n: getSetOfTrans()){
+    public void initMap() {
+        for (Transition n : getSetOfTrans()) {
             priorityMap.put(n, 1);
         }
     }
 
-    public PriorityPetriNet(PetriNet p){
+    public PriorityPetriNet(PetriNet p) {
         super(p);
         priorityMap = new HashMap<>();
         initMap();
@@ -21,6 +21,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
 
     /**
      * method to add priority
+     *
      * @param nameTransitionToAddPriority
      * @param priorityValue
      * @return
@@ -29,8 +30,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
         Transition transitionToAddPriority = researchTrans(nameTransitionToAddPriority);
         if (transitionToAddPriority == null) {
             return false;
-        }
-        else {
+        } else {
             addPriorityToNetList(transitionToAddPriority, priorityValue);
             return true;
         }
@@ -40,12 +40,15 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
         super(genericNet);
         saveInitialMark();
     }
+
     public void addPriorityToNetList(Transition transition, Integer priorityValue) {
         priorityMap.put(transition, priorityValue);
     }
+
     public int getPriorityByTransition(Transition transition) {
         return priorityMap.get(transition);
     }
+
     public void setPriorityMap(HashMap<Transition, Integer> priorityMap) {
         this.priorityMap = priorityMap;
         priorityMap = new HashMap<>();
@@ -57,17 +60,18 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
 
     /**
      * this method check all the differnt case in  a Petri's Net in order to decide which transitions can work
+     *
      * @param initialMark, this parameter identify the initial situazion in that moment and it doesn't always indicate che initial mark of the net
-     * @param temp the arraylist where we put the transition that can be moved
-     * @param finalTrans we put the element that will be shows to the user, who has to choose which one has to work
+     * @param temp         the arraylist where we put the transition that can be moved
+     * @param finalTrans   we put the element that will be shows to the user, who has to choose which one has to work
      */
-    public void initialSituationInTheNet( ArrayList<Pair> initialMark, ArrayList<Transition> temp, HashMap<Transition, ArrayList<Pair>> finalTrans) {
-        assert initialMark!=null;
-        assert temp!=null;
-        assert finalTrans!=null;
+    public void initialSituationInTheNet(ArrayList<Pair> initialMark, ArrayList<Transition> temp, HashMap<Transition, ArrayList<Pair>> finalTrans) {
+        assert initialMark != null;
+        assert temp != null;
+        assert finalTrans != null;
         //this array avoid to check pair that we have already checked
         boolean[] visit = new boolean[initialMark.size()];
-        int maxPriority=1;
+        int maxPriority = 1;
         ArrayList<Pair> pairInTheTrans;
         for (int i = 0; i < initialMark.size(); i++) {
             //first of all we check if the pair has already checked
@@ -86,18 +90,18 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
             }
 
             //if the transition has a priority lower than the highest that will be not checked because that will not added
-            var var=priorityMap.get(initialMark.get(i).getTrans());
-            if(priorityMap.get(initialMark.get(i).getTrans())<maxPriority){
+            var var = priorityMap.get(initialMark.get(i).getTrans());
+            if (priorityMap.get(initialMark.get(i).getTrans()) < maxPriority) {
                 continue;
-            }else {
+            } else {
                 //we chek if the priority is higher that the max because in this case we delete all the element in the finals trans
-                if(priorityMap.get(initialMark.get(i).getTrans())>maxPriority){
+                if (priorityMap.get(initialMark.get(i).getTrans()) > maxPriority) {
                     temp.clear();
                     finalTrans.clear();
                 }
 
             }
-            maxPriority=priorityMap.get(initialMark.get(i).getTrans());
+            maxPriority = priorityMap.get(initialMark.get(i).getTrans());
             //if there is only and there are enough token the transition is add to temp and to th other elemet
             //se si ha un unico pre e si hanno abbastanza token la transizione viene subito aggiunta
             if (initialMark.get(i).getTrans().sizePre() == 1 && initialMark.get(i).getWeight() <= initialMark.get(i).getPlace().getNumberOfToken()) {
@@ -128,11 +132,9 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
             }
 
 
-
-
-
         }
     }
+
     public HashMap<Transition, ArrayList<Pair>> simulation(ArrayList<Pair> initialMark) {
 
         //in the we put the transition that can be chosen
@@ -144,19 +146,21 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
         initialSituationInTheNet(initialMark, transitionThatCanWork, finalTrans);
         return finalTrans;
     }
+
     /**
      * this method dies all the actions necessary for the case where there are more than pair connected to the transition, so we have to check if all the pair are correct
-     * @param initialMark contains all the pair that has token
-     * @param visit this array allows to check only the element that we haven't checked
+     *
+     * @param initialMark    contains all the pair that has token
+     * @param visit          this array allows to check only the element that we haven't checked
      * @param pairInTheTrans this arrayList contains or it will contain the pair connected to the transition that we are checking
-     * @param i give us the indication about which element we are checking
+     * @param i              give us the indication about which element we are checking
      * @return
      */
     public boolean checkTheElementMultipleCase(ArrayList<Pair> initialMark, boolean[] visit, ArrayList<Pair> pairInTheTrans, int i) {
-        assert initialMark!=null;
-        assert visit!=null;
-        assert pairInTheTrans!=null;
-        assert i>-1;
+        assert initialMark != null;
+        assert visit != null;
+        assert pairInTheTrans != null;
+        assert i > -1;
         //this variable contains the number of the elements in the initial markink which refer the current transition
         int elementOfTrans = 1;
         boolean checkIfTheTransitionCanWork = true;
@@ -196,10 +200,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
         //if the element of trans has less element than the element in the pre of the transition, we can't add the transition to the final check
         //also if the check in the transition can work is false the addition can be made. The second check is redundant
         //ho meno elementi di quelli che dovrei avere passo oltre o se un elemento non era corretto
-        if (elementOfTrans < initialMark.get(i).getTrans().sizePre() || checkIfTheTransitionCanWork == false) {
-            return true;
-        }
-        return false;
+        return elementOfTrans < initialMark.get(i).getTrans().sizePre() || checkIfTheTransitionCanWork == false;
     }
 
     /********************************
@@ -208,29 +209,50 @@ public class PriorityPetriNet extends PetriNet implements Simulation{
 
     /**
      * Method that allows you to determine if the Petri net with priority comes from netToCheck
+     *
      * @param netToCheck
      * @return true if the Petri net with priority comes from netToCheck
      */
     public boolean checkFatherPetriNet(PetriNet netToCheck) {
-        super.checkFatherNet(netToCheck);
-        if (!checkToken(netToCheck)) {
+        int nPlace = getSetOfPlace().size();
+        int nPlace2 = netToCheck.getSetOfPlace().size();
+        int nTrans = getSetOfTrans().size();
+        int nTrans2 = netToCheck.getSetOfTrans().size();
+        if (nPlace != nPlace2 || nTrans != nTrans2) {
             return false;
         }
-        return true;
+        if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace())) {
+            return false;
+        }
+        if (super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
+            for (Transition t : super.getSetOfTrans()) {
+                for (Transition t2 : netToCheck.getSetOfTrans()) {
+                    if (t.getName().equals(t2.getName())) {
+                        if (!t.checkArray(t2)) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        } else {
+            return false;
+        }
+        return checkToken(netToCheck);
     }
 
     /**
      * Methode to check tokens in a petri net
+     *
      * @param toCheck is the net to check
      * @return true if the two networks contain the same number of tokens in all places
      */
-    private boolean checkToken(PetriNet toCheck){
+    private boolean checkToken(PetriNet toCheck) {
         assert getSetOfPlace().containsAll(toCheck.getSetOfPlace());
 
-        for(Place p: getSetOfPlace()){
-            for (Place placeToCheck: toCheck.getSetOfPlace()){
+        for (Place p : getSetOfPlace()) {
+            for (Place placeToCheck : toCheck.getSetOfPlace()) {
                 if (p.equals(placeToCheck)) {
-                    if(p.getNumberOfToken()!=placeToCheck.getNumberOfToken()){
+                    if (p.getNumberOfToken() != placeToCheck.getNumberOfToken()) {
                         return false;
 
                     }

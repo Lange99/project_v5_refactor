@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="metodi father funzionanti">
+    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="Quasi completata manca la javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" afterDir="false" />
@@ -96,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1624636205620</updated>
       <workItem from="1624890843128" duration="2472000" />
-      <workItem from="1624901566175" duration="8641000" />
+      <workItem from="1624901566175" duration="9479000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>
@@ -161,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624905935598</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Quasi completata manca la javadoc">
+      <created>1624910383032</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1624910383032</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +197,8 @@
     <MESSAGE value="aggiunto salvataggio priority list con controllo di duplicati" />
     <MESSAGE value="fix metodo father" />
     <MESSAGE value="metodi father funzionanti" />
-    <option name="LAST_COMMIT_MESSAGE" value="metodi father funzionanti" />
+    <MESSAGE value="Quasi completata manca la javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quasi completata manca la javadoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -153,7 +153,7 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         String[] listOfAllFile = getPathname(IO.JSON_PETRI_FILE);
         for (String pathnameSingleFile: listOfAllFile) {
             if (pathnameSingleFile != null) {
-                PetriNet newNetToLoad = JsonReader.readPetriJson(pathnameSingleFile);
+                PetriNet newNetToLoad = JsonReader.readPetriJson(IO.JSON_PETRI_FILE+"/"+pathnameSingleFile);
                 listOfNet.add(newNetToLoad);
             }
         }

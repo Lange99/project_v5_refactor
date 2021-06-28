@@ -79,7 +79,7 @@ public class NetManager {
                         case 3:
                             PriorityPetriNet newPriorityPetriNet = JsonManager.loadPriorityPetriNet();
                             if (newPriorityPetriNet != null) {
-                                if (checkLoadPetriNet(newPriorityPetriNet)) {
+                                if (checkLoadPriorityPetriNet(newPriorityPetriNet)) {
                                     priorityPetriNetList.add(newPriorityPetriNet);
                                     IO.showPriorityPetriNet(newPriorityPetriNet);
                                 } else {
@@ -568,11 +568,6 @@ public class NetManager {
         return false;
     }
 
-    /***********************************************************************
-     * VERSIONE 5
-     * *********************************************************************/
-
-
     /**
      * @param net
      * @return
@@ -603,7 +598,11 @@ public class NetManager {
         return false;
     }
 
-
+    /**
+     * Method that checks the correctness of a network inserted by files with different Paths
+     * @param pathOfFile
+     * @throws FileNotFoundException
+     */
     public void handleNet(String pathOfFile) throws FileNotFoundException {
         Net net = JsonManager.loadFileFromAnyPath(pathOfFile);
         if (net instanceof PriorityPetriNet) {
