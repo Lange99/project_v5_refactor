@@ -5,18 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="Quasi completata manca la javadoc">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Project_v5/BasicNet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Project_v5/CheckNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2021_11_16_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_2021_11_16__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Net.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Net.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonReader.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,15 +80,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,6 +107,7 @@
       <updated>1624636205620</updated>
       <workItem from="1624890843128" duration="2472000" />
       <workItem from="1624901566175" duration="9479000" />
+      <workItem from="1629728090052" duration="8475000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>

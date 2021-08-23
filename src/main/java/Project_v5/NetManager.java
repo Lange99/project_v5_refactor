@@ -146,7 +146,7 @@ public class NetManager {
      */
     public boolean checkPetriNet(PetriNet net) {
         try {
-            if (existsAlreadyPetriNet(net)) {
+            if (CheckExistence.existsAlreadyPetriNet(net)) {
                 return false;
             }
         } catch (FileNotFoundException e) {
@@ -290,7 +290,7 @@ public class NetManager {
                 }
             } while (IO.yesOrNo(IO.YOU_WANT_ADD_ANOTHER_PAIR));
             //if the new net is correct we show it to the user and ask if he wants to save it
-            if (checkNet(n) && n.checkTrans() && n.checkConnect() && checkEqualNet(n)) {
+            if (checkNet(n) && CheckNet.checkTrans(n) && CheckNet.checkConnect(n) && CheckExistence.checkEqualNet(n)) {
                 IO.showNet(n);
                 IO.print(IO.THE_NET_IS_CORRECT_WE_ARE_GOING_TO_SAVE_IT);
 
@@ -315,7 +315,7 @@ public class NetManager {
      */
     public boolean checkNet(Net n) {
         //if there is a problem the method return false
-        return n.checkPendantNode();
+        return CheckNet.checkPendantNode(n);
     }
 
     /**
@@ -341,7 +341,7 @@ public class NetManager {
         int choise = IO.readInteger("choose the network number ", 0, petriNetList.size());
         return petriNetList.get(choise);
     }
-
+/*
     /**
      * this method check if the net already exists and that can't be saved
      *
@@ -349,7 +349,7 @@ public class NetManager {
      * @return true if that net already exists and false if it doesn't
      * @throws FileNotFoundException PRECONDITION: NetToCheck!=null
      */
-    private boolean checkEqualNet(Net netToCheck) throws FileNotFoundException {
+/*private boolean checkEqualNet(Net netToCheck) throws FileNotFoundException {
         assert netToCheck != null;
         //initialize the File object directory
         File directory = new File("src/main/Json");
@@ -398,7 +398,7 @@ public class NetManager {
         }
         return true;
     }
-
+*/
     /**
      * Method to check if the petri net insert exist already or is new and it is possible add it
      *
@@ -406,7 +406,7 @@ public class NetManager {
      * @return true if there is already the same net, false if there isn't
      * @throws FileNotFoundException
      */
-    public boolean existsAlreadyPetriNet(PetriNet newPetriNetToCheck) throws FileNotFoundException {
+  /*  public boolean existsAlreadyPetriNet(PetriNet newPetriNetToCheck) throws FileNotFoundException {
         assert newPetriNetToCheck != null;
         // bulld array String of the list of all file in JsonPetri directory
         String[] pathname = JsonManager.getPathname(IO.JSON_PETRI_FILE);
@@ -439,7 +439,7 @@ public class NetManager {
         }
         return false;
     }
-
+*/
     /**
      * Method that allows you to check that the name of a network is not the same as the existing networks
      *
