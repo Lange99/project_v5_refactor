@@ -7,19 +7,17 @@ import main.java.Utility.JsonReader;
 import main.java.Utility.JsonWriter;
 
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.InvalidPathException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NetManager {
+public class NetManager implements StrategyNetManager {
 
     private final ArrayList<Net> netList = new ArrayList<>();
     private final ArrayList<PetriNet> petriNetList = new ArrayList<>();
@@ -67,7 +65,7 @@ public class NetManager {
                         case 2:
                             PetriNet newPetriNet = JsonManager.loadPetriNet();
                             if (newPetriNet != null) {
-                                if (checkLoadPetriNet(newPetriNet)) {
+                                if (checkLoadGenericNet(newPetriNet)) {
                                     petriNetList.add(newPetriNet);
                                     IO.showPetriNet(newPetriNet);
                                 } else {
@@ -79,7 +77,7 @@ public class NetManager {
                         case 3:
                             PriorityPetriNet newPriorityPetriNet = JsonManager.loadPriorityPetriNet();
                             if (newPriorityPetriNet != null) {
-                                if (checkLoadPriorityPetriNet(newPriorityPetriNet)) {
+                                if (checkLoadGenericNet(newPriorityPetriNet)) {
                                     priorityPetriNetList.add(newPriorityPetriNet);
                                     IO.showPriorityPetriNet(newPriorityPetriNet);
                                 } else {
@@ -176,6 +174,28 @@ public class NetManager {
         return true;
     }
 
+    @Override
+    public boolean checkNetName(Net net) {
+        String netName = net.getName();
+        for (Net n : netList) {
+            if (n.getName().equals(netName)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean checkNetName(PetriNet net) {
+        String netName = net.getName();
+        for (PetriNet n : petriNetList) {
+            if (n.getName().equals(netName)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * this method allows to the user to create a new Petri's net
      */
@@ -183,7 +203,7 @@ public class NetManager {
         PetriNet newPetriNet = new PetriNet(loadOneNet());
         IO.showPetriNet(newPetriNet);
         newPetriNet.setName(IO.ReadString(IO.NAME_OF_NET));
-        while (!checkPetriNetName(newPetriNet)) {
+        while (!checkNetName(newPetriNet)) {
             IO.print(IO.SET_NEW_NAME);
             newPetriNet.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
         }
@@ -446,15 +466,15 @@ public class NetManager {
      * @param net is the Net of the Net
      * @return true if there are no networks with this name
      */
-    public boolean checkNetName(Net net) {
-        String netName = net.getName();
-        for (Net n : netList) {
-            if (n.getName().equals(netName)) {
-                return false;
-            }
-        }
-        return true;
-    }
+//    public boolean checkNetName(Net net) {
+//        String netName = net.getName();
+//        for (Net n : netList) {
+//            if (n.getName().equals(netName)) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
     /**
      * Method that allows you to check that the name of a Petri's network is not the same as the existing Petri's networks
@@ -462,15 +482,15 @@ public class NetManager {
      * @param net is the Net of the Petri's Net
      * @return true if there are no Petri's net with this name
      */
-    public boolean checkPetriNetName(PetriNet net) {
-        String petriNetName = net.getName();
-        for (PetriNet n : petriNetList) {
-            if (n.getName().equals(petriNetName)) {
-                return false;
-            }
-        }
-        return true;
-    }
+//    public boolean checkPetriNetName(PetriNet net) {
+//        String petriNetName = net.getName();
+//        for (PetriNet n : petriNetList) {
+//            if (n.getName().equals(petriNetName)) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
     private ArrayList<String> getStringPairsFromPetriNet(PetriNet net) {
         int i = 0;
@@ -575,7 +595,33 @@ public class NetManager {
      * @return
      * @throws FileNotFoundException
      */
-    public boolean checkLoadPetriNet(PetriNet net) throws FileNotFoundException {
+//    public boolean checkLoadPetriNet(PetriNet net) throws FileNotFoundException {
+//        List<Net> netToCheck = JsonManager.loadAllSimpleNet();
+//        for (Net simpleNet : netToCheck) {
+//            if (net.checkFatherNet(simpleNet)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    /**
+//     * @param petriNetToCheck
+//     * @return
+//     * @throws FileNotFoundException
+//     */
+//    public boolean checkLoadPriorityPetriNet(PriorityPetriNet petriNetToCheck) throws FileNotFoundException {
+//        List<PetriNet> petriNetList = JsonManager.loadAllPetriNet();
+//        for (PetriNet net : petriNetList) {
+//            if (petriNetToCheck.checkFatherPetriNet(net)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+
+    @Override
+    public boolean checkLoadGenericNet(PetriNet net) throws FileNotFoundException {
         List<Net> netToCheck = JsonManager.loadAllSimpleNet();
         for (Net simpleNet : netToCheck) {
             if (net.checkFatherNet(simpleNet)) {
@@ -585,15 +631,11 @@ public class NetManager {
         return false;
     }
 
-    /**
-     * @param petriNetToCheck
-     * @return
-     * @throws FileNotFoundException
-     */
-    public boolean checkLoadPriorityPetriNet(PriorityPetriNet petriNetToCheck) throws FileNotFoundException {
+    @Override
+    public boolean checkLoadGenericNet(PriorityPetriNet petriNet) throws FileNotFoundException {
         List<PetriNet> petriNetList = JsonManager.loadAllPetriNet();
         for (PetriNet net : petriNetList) {
-            if (petriNetToCheck.checkFatherPetriNet(net)) {
+            if (petriNet.checkFatherPetriNet(net)) {
                 return true;
             }
         }
