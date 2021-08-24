@@ -183,7 +183,7 @@ public class NetManager {
         PetriNet newPetriNet = new PetriNet(loadOneNet());
         IO.showPetriNet(newPetriNet);
         newPetriNet.setName(IO.ReadString(IO.NAME_OF_NET));
-        while (!checkPetriNetName(newPetriNet.getName())) {
+        while (!checkPetriNetName(newPetriNet)) {
             IO.print(IO.SET_NEW_NAME);
             newPetriNet.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
         }
@@ -272,7 +272,7 @@ public class NetManager {
 
         do {
             Net n = new Net(IO.readNotEmptyString(IO.NAME_OF_NET));
-            while (!checkNetName(n.getName())) {
+            while (!checkNetName(n)) {
                 IO.print(IO.SET_NEW_NAME);
                 n.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
             }
@@ -443,10 +443,11 @@ public class NetManager {
     /**
      * Method that allows you to check that the name of a network is not the same as the existing networks
      *
-     * @param netName is the name of the Net
+     * @param net is the Net of the Net
      * @return true if there are no networks with this name
      */
-    public boolean checkNetName(String netName) {
+    public boolean checkNetName(Net net) {
+        String netName = net.getName();
         for (Net n : netList) {
             if (n.getName().equals(netName)) {
                 return false;
@@ -458,10 +459,11 @@ public class NetManager {
     /**
      * Method that allows you to check that the name of a Petri's network is not the same as the existing Petri's networks
      *
-     * @param petriNetName is the name of the Petri's Net
+     * @param net is the Net of the Petri's Net
      * @return true if there are no Petri's net with this name
      */
-    public boolean checkPetriNetName(String petriNetName) {
+    public boolean checkPetriNetName(PetriNet net) {
+        String petriNetName = net.getName();
         for (PetriNet n : petriNetList) {
             if (n.getName().equals(petriNetName)) {
                 return false;
