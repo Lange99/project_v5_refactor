@@ -7,4 +7,6 @@ public interface StrategyNetManager {
     boolean checkLoadGenericNet(PriorityPetriNet priorityPetriNet) throws FileNotFoundException;
     boolean checkNetName(Net net);
     boolean checkNetName(PetriNet net);
+    boolean checkGenericNet(PetriNet net);
+    boolean checkGenericNet(PriorityPetriNet net);
 }

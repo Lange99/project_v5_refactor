@@ -20,21 +20,7 @@ public class JsonReader {
      * @throws FileNotFoundException
      */
     public static Net readJson(String pathname) throws FileNotFoundException {
-        //initialize String object that contains absolute pathname of Json directory
-        String path = new File(pathname).getAbsolutePath();
-
-        //initialize StringBuilder object
-        StringBuilder sb = new StringBuilder();
-        //initialize Scanner object
-        Scanner sc = new Scanner(new File(path));
-
-        //while Scanner detect new line append to StringBuilder object the line of json file
-        while (sc.hasNextLine()) {
-            sb.append(sc.nextLine()).append("\n");
-        }
-        //System.out.println(sb.toString());
-        //initialize JsonObject that contains the file Json
-        JSONObject objectJson = new JSONObject(sb.toString());
+        JSONObject objectJson = getJsonObject(pathname);
         //parsing the name and id of the Json file net
         String netName = objectJson.getString("@name");
         //initialize the JsonArray that contains the pairs of the net
@@ -74,6 +60,7 @@ public class JsonReader {
         //the net is built and return
         return net;
     }
+
     /**
      * this method allows to read a Petri's net contain in a file
      *
@@ -82,21 +69,7 @@ public class JsonReader {
      * @throws FileNotFoundException
      */
     public static PetriNet readPetriJson(String pathname) throws FileNotFoundException {
-        //initialize String object that contains absolute pathname of Json directory
-        String path = new File(pathname).getAbsolutePath();
-
-        //initialize StringBuilder object
-        StringBuilder sb = new StringBuilder();
-        //initialize Scanner object
-        Scanner sc = new Scanner(new File(path));
-
-        //while Scanner detect new line append to StringBuilder object the line of json file
-        while (sc.hasNextLine()) {
-            sb.append(sc.nextLine()).append("\n");
-        }
-        //System.out.println(sb.toString());
-        //initialize JsonObject that contains the file Json
-        JSONObject objectJson = new JSONObject(sb.toString());
+        JSONObject objectJson = getJsonObject(pathname);
         //parsing the name and id of the Json file net
         String netName = objectJson.getString("@name");
 
@@ -150,22 +123,8 @@ public class JsonReader {
      * @return
      * @throws FileNotFoundException
      */
-   public static PriorityPetriNet readPriorityPetriNet(String pathname) throws FileNotFoundException {
-        //initialize String object that contains absolute pathname of Json directory
-        String path = new File(pathname).getAbsolutePath();
-
-        //initialize StringBuilder object
-        StringBuilder sb = new StringBuilder();
-        //initialize Scanner object
-        Scanner sc = new Scanner(new File(path));
-
-        //while Scanner detect new line append to StringBuilder object the line of json file
-        while (sc.hasNextLine()) {
-            sb.append(sc.nextLine()).append("\n");
-        }
-        //System.out.println(sb.toString());
-        //initialize JsonObject that contains the file Json
-        JSONObject objectJson = new JSONObject(sb.toString());
+    public static PriorityPetriNet readPriorityPetriNet(String pathname) throws FileNotFoundException {
+        JSONObject objectJson = getJsonObject(pathname);
         //parsing the name and id of the Json file net
         String netName = objectJson.getString("@name");
 
@@ -213,5 +172,23 @@ public class JsonReader {
         }
         //the net is built and return
         return net;
+    }
+
+    private static JSONObject getJsonObject(String pathname) throws FileNotFoundException {
+        //initialize String object that contains absolute pathname of Json directory
+        String path = new File(pathname).getAbsolutePath();
+
+        //initialize StringBuilder object
+        StringBuilder sb = new StringBuilder();
+        //initialize Scanner object
+        Scanner sc = new Scanner(new File(path));
+
+        //while Scanner detect new line append to StringBuilder object the line of json file
+        while (sc.hasNextLine()) {
+            sb.append(sc.nextLine()).append("\n");
+        }
+        //System.out.println(sb.toString());
+        //initialize JsonObject that contains the file Json
+        return new JSONObject(sb.toString());
     }
 }

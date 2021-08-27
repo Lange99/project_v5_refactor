@@ -15,21 +15,21 @@ public class CheckExistence {
     /**
      * Method to check if the petri net insert exist already or is new and it is possible add it
      *
-     * @param newPetriNetToCheck
+     * @param net
      * @return true if there is already the same net, false if there isn't
      * @throws FileNotFoundException
      */
-    public static boolean existsAlreadyPetriNet(PetriNet newPetriNetToCheck) throws FileNotFoundException {
-        assert newPetriNetToCheck != null;
+    public static boolean existsAlreadyGenericNet(PetriNet net, String path) throws FileNotFoundException {
+        assert net != null;
         // bulld array String of the list of all file in JsonPetri directory
-        String[] pathname = JsonManager.getPathname(IO.JSON_PETRI_FILE);
+        String[] pathname = JsonManager.getPathname(path);
 
-        String nameNetToCheck = newPetriNetToCheck.getName();
-        ArrayList<String> pairsNetToCheck = getStringPairsFromPetriNet(newPetriNetToCheck);
+        String nameNetToCheck = net.getName();
+        ArrayList<String> pairsNetToCheck = getStringPairsFromPetriNet(net);
         int sizePairsNetToCheck = pairsNetToCheck.size();
 
         for (String pathnameOfFileToCheck : pathname) {
-            PetriNet existingNet = JsonManager.readPetriJson(IO.JSON_PETRI_FILE + pathnameOfFileToCheck);
+            PetriNet existingNet = JsonManager.readPetriJson(path + pathnameOfFileToCheck);
             ArrayList<String> pairsExistingNet = getStringPairsFromPetriNet(existingNet);
             int counter = 0;
             int sizeArrayPairsExistingNet = pairsExistingNet.size();
@@ -52,6 +52,7 @@ public class CheckExistence {
         }
         return false;
     }
+
     private static ArrayList<String> getStringPairsFromPetriNet(PetriNet net) {
         int i = 0;
         ArrayList<String> stringPair = new ArrayList<>();
@@ -87,38 +88,6 @@ public class CheckExistence {
         return sha1;
     }
 
-    public boolean existsAlreadyPriorityPetriNet(PriorityPetriNet newPriorityPetriNetToCheck) throws FileNotFoundException {
-        assert newPriorityPetriNetToCheck != null;
-        // bulld array String of the list of all file in JsonPetri directory
-        String[] pathname = JsonManager.getPathname(IO.JSON_PRIORITY_PETRI_FILE);
-
-        ArrayList<String> pairsNetToCheck = getStringPairsFromPetriNet(newPriorityPetriNetToCheck);
-        int sizePairsNetToCheck = pairsNetToCheck.size();
-
-        for (String pathnameOfFileToCheck : pathname) {
-            PetriNet existingNet = JsonManager.readPetriJson(IO.JSON_PRIORITY_PETRI_FILE + pathnameOfFileToCheck);
-            ArrayList<String> pairsExistingNet = getStringPairsFromPetriNet(existingNet);
-            int counter = 0;
-            int sizeArrayPairsExistingNet = pairsExistingNet.size();
-
-            if (sizePairsNetToCheck == sizeArrayPairsExistingNet) {
-                for (String toCheck : pairsNetToCheck) {
-                    for (String existing : pairsExistingNet) {
-                        if (toCheck.equals(existing)) {
-                            counter = counter + 1;
-                            continue;
-                        }
-                    }
-                }
-                if (counter == sizePairsNetToCheck) {
-                    return true;
-                }
-            } else {
-                continue;
-            }
-        }
-        return false;
-    }
     /**
      * this method check if the net already exists and that can't be saved
      *
@@ -129,7 +98,7 @@ public class CheckExistence {
     public static boolean checkEqualNet(Net netToCheck) throws FileNotFoundException {
         assert netToCheck != null;
         //initialize the File object directory
-        File directory = new File("src/main/Json");
+        File directory = new File(IO.JSON_FILE);
         //initialize the string that contains the list of name file
         String[] pathname = directory.list();
         int dim;

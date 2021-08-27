@@ -141,9 +141,10 @@ public class NetManager implements StrategyNetManager {
      * @param net is the net to check;
      * @return false if two net are equal
      */
-    public boolean checkPetriNet(PetriNet net) {
+    @Override
+    public boolean checkGenericNet(PetriNet net) {
         try {
-            if (CheckExistence.existsAlreadyPetriNet(net)) {
+            if (CheckExistence.existsAlreadyGenericNet(net, IO.JSON_PETRI_FILE)) {
                 return false;
             }
         } catch (FileNotFoundException e) {
@@ -157,9 +158,10 @@ public class NetManager implements StrategyNetManager {
         return true;
     }
 
-    public boolean checkPriorityPetriNet(PriorityPetriNet net) {
+    @Override
+    public boolean checkGenericNet(PriorityPetriNet net) {
         try {
-            if (existsAlreadyPriorityPetriNet(net)) {
+            if (CheckExistence.existsAlreadyGenericNet(net, IO.JSON_PRIORITY_PETRI_FILE)) {
                 return false;
             }
         } catch (FileNotFoundException e) {
@@ -215,7 +217,7 @@ public class NetManager implements StrategyNetManager {
         addWeightToPetriNet(newPetriNet);
 
 
-        if (checkPetriNet(newPetriNet)) {
+        if (checkGenericNet(newPetriNet)) {
             if (IO.yesOrNo(IO.DO_YOU_WANT_TO_SAVE_THAT_PETRI_S_NET)) {
                 JsonWriter.writeJsonPetri(newPetriNet);
             }
@@ -534,7 +536,7 @@ public class NetManager implements StrategyNetManager {
             assignPriority(newNet);
         }
         //priorityPetriNetList.add(newNet);
-        if (checkPriorityPetriNet(newNet)) {
+        if (checkGenericNet(newNet)) {
             if (IO.yesOrNo(IO.SAVE_PRIORITY_PETRI_NET)) {
                 JsonWriter.writeJsonPriorityPetriNet(newNet);
                 //IO.print(IO.SET_NEW_NAME);

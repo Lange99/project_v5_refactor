@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyNetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyNetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629836965030</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Aggiunta l'interfaccia StrategyNetManager che permette di applicare il pattern Strategy">
+      <created>1630070583167</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1630070583167</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
