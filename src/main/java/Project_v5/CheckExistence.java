@@ -2,7 +2,7 @@ package main.java.Project_v5;
 
 import main.java.Utility.IO;
 import main.java.Utility.JsonManager;
-import main.java.Utility.JsonReader;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,7 +29,7 @@ public class CheckExistence {
         int sizePairsNetToCheck = pairsNetToCheck.size();
 
         for (String pathnameOfFileToCheck : pathname) {
-            PetriNet existingNet = JsonReader.readPetriJson(IO.JSON_PETRI_FILE + pathnameOfFileToCheck);
+            PetriNet existingNet = JsonManager.readPetriJson(IO.JSON_PETRI_FILE + pathnameOfFileToCheck);
             ArrayList<String> pairsExistingNet = getStringPairsFromPetriNet(existingNet);
             int counter = 0;
             int sizeArrayPairsExistingNet = pairsExistingNet.size();
@@ -96,7 +96,7 @@ public class CheckExistence {
         int sizePairsNetToCheck = pairsNetToCheck.size();
 
         for (String pathnameOfFileToCheck : pathname) {
-            PetriNet existingNet = JsonReader.readPetriJson(IO.JSON_PRIORITY_PETRI_FILE + pathnameOfFileToCheck);
+            PetriNet existingNet = JsonManager.readPetriJson(IO.JSON_PRIORITY_PETRI_FILE + pathnameOfFileToCheck);
             ArrayList<String> pairsExistingNet = getStringPairsFromPetriNet(existingNet);
             int counter = 0;
             int sizeArrayPairsExistingNet = pairsExistingNet.size();
@@ -150,7 +150,7 @@ public class CheckExistence {
             //get pathname of the file
             String path = IO.JSON_FILE + "/" + pathname[i];
             //build a net by the file
-            Net net = JsonReader.readJson(path);
+            Net net = JsonManager.readJson(path);
             //get all pairs of the net
             ArrayList<Pair> pairsOldNet = net.getNet();
 

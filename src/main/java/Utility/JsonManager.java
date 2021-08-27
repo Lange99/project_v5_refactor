@@ -255,4 +255,14 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         }
         return false;
     }
+
+    public static Net readJson(String pathname) throws FileNotFoundException {
+        return JsonReader.readJson(pathname);
+    }
+
+    public static PetriNet readPetriJson(String pathname) throws FileNotFoundException {
+        return JsonReader.readPetriJson(pathname);
+    }
+
+
 }

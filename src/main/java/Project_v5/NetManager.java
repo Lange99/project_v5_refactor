@@ -3,7 +3,6 @@ package main.java.Project_v5;
 
 import main.java.Utility.IO;
 import main.java.Utility.JsonManager;
-import main.java.Utility.JsonReader;
 import main.java.Utility.JsonWriter;
 
 
@@ -566,7 +565,7 @@ public class NetManager implements StrategyNetManager {
         int sizePairsNetToCheck = pairsNetToCheck.size();
 
         for (String pathnameOfFileToCheck : pathname) {
-            PetriNet existingNet = JsonReader.readPetriJson(IO.JSON_PRIORITY_PETRI_FILE + pathnameOfFileToCheck);
+            PetriNet existingNet = JsonManager.readPetriJson(IO.JSON_PRIORITY_PETRI_FILE + pathnameOfFileToCheck);
             ArrayList<String> pairsExistingNet = getStringPairsFromPetriNet(existingNet);
             int counter = 0;
             int sizeArrayPairsExistingNet = pairsExistingNet.size();

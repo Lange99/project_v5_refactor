@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +103,7 @@
       <workItem from="1624890843128" duration="2472000" />
       <workItem from="1624901566175" duration="9479000" />
       <workItem from="1629728090052" duration="8475000" />
+      <workItem from="1630056432494" duration="3787000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>
