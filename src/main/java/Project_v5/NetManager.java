@@ -3,7 +3,7 @@ package main.java.Project_v5;
 
 import main.java.Utility.IO;
 import main.java.Utility.JsonManager;
-import main.java.Utility.JsonWriter;
+
 
 
 import java.io.FileNotFoundException;
@@ -219,7 +219,7 @@ public class NetManager implements StrategyNetManager {
 
         if (checkGenericNet(newPetriNet)) {
             if (IO.yesOrNo(IO.DO_YOU_WANT_TO_SAVE_THAT_PETRI_S_NET)) {
-                JsonWriter.writeJsonPetri(newPetriNet);
+                JsonManager.writeJsonPetri(newPetriNet);
             }
             petriNetList.add(newPetriNet);
         }
@@ -318,7 +318,7 @@ public class NetManager implements StrategyNetManager {
                 netList.add(n);
 
                 if (IO.yesOrNo(IO.SAVE_NET)) {
-                    JsonWriter.writeJsonNet(n);
+                    JsonManager.writeJsonNet(n);
                 }
             } else {
                 //if the net is incorrect we inform the user
@@ -538,7 +538,7 @@ public class NetManager implements StrategyNetManager {
         //priorityPetriNetList.add(newNet);
         if (checkGenericNet(newNet)) {
             if (IO.yesOrNo(IO.SAVE_PRIORITY_PETRI_NET)) {
-                JsonWriter.writeJsonPriorityPetriNet(newNet);
+                JsonManager.writeJsonPriorityPetriNet(newNet);
                 //IO.print(IO.SET_NEW_NAME);
                 //newNet.setName(IO.readNotEmptyString(IO.NAME_OF_NET));
             }

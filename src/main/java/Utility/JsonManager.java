@@ -265,4 +265,15 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
     }
 
 
+    public static void writeJsonPetri(PetriNet net)  {
+        JsonWriter.writeJsonPetri(net);
+    }
+
+    public static void writeJsonPriorityPetriNet(PriorityPetriNet net) {
+        JsonWriter.writeJsonPriorityPetriNet(net);
+    }
+
+    public static void writeJsonNet(Net net) {
+        JsonWriter.writeJsonNet(net);
+    }
 }
