@@ -649,7 +649,7 @@ public class NetManager implements StrategyNetManager {
      * @throws FileNotFoundException
      */
     public void handleNet(String pathOfFile) throws FileNotFoundException {
-        Net net = JsonManager.loadFileFromAnyPath(pathOfFile);
+        BasicNet net = JsonManager.loadFileFromAnyPath(pathOfFile);
         if (net instanceof PriorityPetriNet) {
             priorityPetriNetList.add((PriorityPetriNet) net);
             IO.showPriorityPetriNet((PriorityPetriNet) net);
@@ -657,8 +657,8 @@ public class NetManager implements StrategyNetManager {
             petriNetList.add((PetriNet) net);
             IO.showPetriNet((PetriNet) net);
         } else if (net instanceof Net) {
-            netList.add(net);
-            IO.showNet(net);
+            netList.add((Net) net);
+            IO.showNet((Net)net);
         } else if (net == null) {
             IO.printError(IO.THE_NET_IS_NOT_VALID);
         }

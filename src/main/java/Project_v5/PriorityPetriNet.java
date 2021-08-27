@@ -27,7 +27,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
      * @return
      */
     public boolean addPriority(String nameTransitionToAddPriority, int priorityValue) {
-        Transition transitionToAddPriority = researchTrans(nameTransitionToAddPriority);
+        Transition transitionToAddPriority = Research.researchTrans(nameTransitionToAddPriority, getSetOfTrans());
         if (transitionToAddPriority == null) {
             return false;
         } else {

@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Research.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/BasicNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/BasicNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Net.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Net.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyNetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyNetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonReader.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,17 +70,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.Project_v5.Main" />
       <module name="Project_IS_v3" />
@@ -83,6 +79,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,6 +113,7 @@
       <workItem from="1624890843128" duration="2472000" />
       <workItem from="1624901566175" duration="9479000" />
       <workItem from="1629728090052" duration="8475000" />
+      <workItem from="1630091761132" duration="3790000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>
@@ -228,16 +238,5 @@
     <MESSAGE value="Modifica checkNetName per applicare il pattern Strategy" />
     <MESSAGE value="Aggiunta l'interfaccia StrategyNetManager che permette di applicare il pattern Strategy" />
     <option name="LAST_COMMIT_MESSAGE" value="Aggiunta l'interfaccia StrategyNetManager che permette di applicare il pattern Strategy" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Utility/JsonManager.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

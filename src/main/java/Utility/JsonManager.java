@@ -1,5 +1,6 @@
 package main.java.Utility;
 
+import main.java.Project_v5.BasicNet;
 import main.java.Project_v5.Net;
 import main.java.Project_v5.PetriNet;
 import main.java.Project_v5.PriorityPetriNet;
@@ -177,7 +178,7 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
      * @return the net read
      * @throws FileNotFoundException
      */
-    public static Net loadFileFromAnyPath(String pathOfFile) throws FileNotFoundException {
+    public static BasicNet loadFileFromAnyPath(String pathOfFile) throws FileNotFoundException {
         //String pathOfFile = getPath(pathSelected);
         assert pathOfFile != null;
         if (!pathOfFile.substring(pathOfFile.length()-5).equals(".json")) {
@@ -187,7 +188,7 @@ public class JsonManager { public static final String INSERT_THE_ID_OF_THE_FILE_
         String[] tagPetriNet = {"@name", "@pairs", "@direction", "@place", "@transition", "@token", "@weight"};
         String[] tagPriorityPetriNet = {"@name", "@pairs", "@direction", "@place", "@transition", "@token", "@weight"};
 
-        Net newNet = null;
+        BasicNet newNet = null;
         int ctrl = 0, i;
         for (i = 0; i < tagPriorityPetriNet.length; i++) {
             if (findInTheFile(tagPriorityPetriNet[i], pathOfFile)) {

@@ -4,7 +4,7 @@ import java.util.*;
 
 
 
-public class Net {
+public class Net extends BasicNet{
 
     private HashSet<Place> setOfPlace = new HashSet<Place>();
     private HashSet<Transition> setOfTrans = new HashSet<Transition>();
@@ -205,13 +205,13 @@ public class Net {
         }
         return true;
     }
-
+/*
     /**
      * this method research a transition in the net's set of transitions
      *
      * @param nameTrans the name of the transition that we are looking for
      * @return the transition if we find it, or null if the transition doesn't exist
-     */
+     *//*
     public Transition researchTrans(String nameTrans) {
         assert nameTrans != null;
         assert getSetOfTrans().size() != 0;
@@ -222,13 +222,13 @@ public class Net {
         }
         return null;
     }
-
+*//*
     /**
      * this method research a place in the net's set of place
      *
      * @param namePlace the name of the place that we are looking for
      * @return the transition if we find it, or null if the place doesn't exist
-     */
+     *//*
     public Place researchPlace(String namePlace) {
         assert namePlace != null;
         assert getSetOfPlace().size() != 0;
@@ -246,7 +246,7 @@ public class Net {
      * @param t the transition of the pair
      * @param p the place of the pair
      * @return the pair that we are looking for if we find it, else null
-     */
+     *//*
     public Pair researchPair(Transition t, Place p) {
         assert t != null;
         assert p != null;
@@ -257,7 +257,7 @@ public class Net {
             }
         }
         return null;
-    }
+    }*/
 
     public ArrayList<Pair> getPairs(){
         return net;

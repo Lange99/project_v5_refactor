@@ -378,7 +378,7 @@ public class IO {
      */
     public static void printPetriNets(Iterable<PetriNet> nets) {
         int i=1;
-        for (Net n: nets){
+        for (BasicNet n: nets){
             IO.print(i+") " + n.getName());
         i++;
         }
@@ -391,7 +391,7 @@ public class IO {
      */
     public static void printPriorityPetriNets(ArrayList<PriorityPetriNet> nets) {
         int i=0;
-        for (Net n: nets){
+        for (BasicNet n: nets){
             IO.print(i+") " + n.getName());
             i++;
         }
