@@ -2,10 +2,18 @@ package main.java.Project_v5;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
-public class PriorityPetriNet extends PetriNet implements Simulation {
+public class PriorityPetriNet extends BasicNet implements Simulation {
 
     private HashMap<Transition, Integer> priorityMap;
+    private final HashMap<Pair, Integer> initialMarking = new HashMap<>();
+    private final ArrayList<Pair> initialMark = new ArrayList<>();
+    private ArrayList<Pair> initialMarkCurretly = new ArrayList<>();
+    private HashSet<Place> setOfPlace = new HashSet<Place>();
+    private HashSet<Transition> setOfTrans = new HashSet<Transition>();
+    private ArrayList<Pair> net = new ArrayList<Pair>();
+    private String name;
 
     public void initMap() {
         for (Transition n : getSetOfTrans()) {
@@ -14,7 +22,10 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
     }
 
     public PriorityPetriNet(PetriNet p) {
-        super(p);
+        net.addAll(p.getNet());
+        this.setOfPlace.addAll(p.getSetOfPlace());
+        this.setOfTrans.addAll(p.getSetOfTrans());
+        this.name = p.getName();
         priorityMap = new HashMap<>();
         initMap();
     }
@@ -37,7 +48,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
     }
 
     public PriorityPetriNet(PriorityPetriNet genericNet) {
-        super(genericNet);
+
         saveInitialMark();
     }
 
@@ -55,7 +66,7 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
     }
 
     public int getPriorityByTransitionName(String transitionName) {
-        return getPriorityByTransition(super.getTrans(transitionName));
+        return getPriorityByTransition(getTrans(transitionName));
     }
 
     /**
@@ -134,8 +145,10 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
 
         }
     }
+
     /**
      * this method creates all the structures necessary for the simulation
+     *
      * @param initialMark the initial situation when the method is called
      * @return a structure that contain the transitions which are avaible and their pair
      */
@@ -221,11 +234,11 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
         if (nPlace != nPlace2 || nTrans != nTrans2) {
             return false;
         }
-        if (!super.getSetOfPlace().containsAll(netToCheck.getSetOfPlace())) {
+        if (!getSetOfPlace().containsAll(netToCheck.getSetOfPlace())) {
             return false;
         }
-        if (super.getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
-            for (Transition t : super.getSetOfTrans()) {
+        if (getSetOfTrans().containsAll(netToCheck.getSetOfTrans())) {
+            for (Transition t : getSetOfTrans()) {
                 for (Transition t2 : netToCheck.getSetOfTrans()) {
                     if (t.getName().equals(t2.getName())) {
                         if (!t.checkArray(t2)) {
@@ -260,5 +273,168 @@ public class PriorityPetriNet extends PetriNet implements Simulation {
             }
         }
         return true;
+    }
+
+    public void setName(String _name) {
+        assert !_name.equals(null);
+        name = _name;
+    }
+
+    public ArrayList<Pair> getNet() {
+        assert net != null;
+        return net;
+    }
+
+    public String getName() {
+        assert name != null;
+        return name;
+    }
+
+    public HashSet<Place> getSetOfPlace() {
+        assert setOfPlace.size() != 0;
+        return setOfPlace;
+    }
+
+    public HashSet<Transition> getSetOfTrans() {
+        assert setOfTrans.size() != 0;
+        return setOfTrans;
+    }
+
+    /**
+     * this method allow to add a pair in the net
+     *
+     * @param pair
+     */
+    public void addPair(Pair pair) {
+        assert pair != null;
+        net.add(pair);
+    }
+
+    public ArrayList<Pair> getPairs() {
+        return net;
+    }
+
+
+    public Pair getPair(Place p, Transition t) {
+
+        for (Pair pa : net) {
+            if (p.getName().equals(pa.getPlaceName()) && t.getName().equals(pa.getTransName())) {
+                return pa;
+            }
+        }
+        return null;
+
+    }
+
+    /**
+     * This method allow to search Place in SetOfPlace
+     *
+     * @param name this method returns a place from the set knowing the name
+     * @return the place if it finds it, null if the place doesn't exist
+     */
+    public Place getPlace(String name) {
+        assert name != null && setOfPlace != null;
+        for (Place p : setOfPlace) {
+            if (name.compareTo(p.getName()) == 0) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * This method allow to search Transition in SetOfTrans
+     *
+     * @param name this method returns a trans from the set knowing the name
+     * @return the transition if it finds it, null if the transition doesn't exist
+     */
+    public Transition getTrans(String name) {
+        for (Transition t : setOfTrans) {
+            if (name.compareTo(t.getName()) == 0) {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * This method allows you to add a Place in setOfPlace
+     *
+     * @param placeToAdd is the place to add
+     */
+    public void addSetOfPlace(Place placeToAdd) {
+        assert placeToAdd != null;
+        setOfPlace.add(placeToAdd);
+    }
+
+    /**
+     * This method allows you to add a Transition in setOfTrans
+     *
+     * @param transitionToAdd is the transition to add
+     */
+    public void addSetOfTransition(Transition transitionToAdd) {
+        assert transitionToAdd != null;
+        setOfTrans.add(transitionToAdd);
+    }
+
+    /**
+     * this method allows to add the weight to the pair
+     *
+     * @param nameTrans name of the trans
+     * @param placeMod  name of the place
+     * @param weight    the quantity of weight
+     */
+    public void addWeight(String nameTrans, String placeMod, int weight) {
+        //we research the transition and the place that the user wants to change
+        Transition transition = Research.researchTrans(nameTrans, getSetOfTrans());
+        Place place = Research.researchPlace(placeMod, getSetOfPlace());
+
+        //when we have the transition and the place we research the matching pair
+        Pair pair = Research.researchPair(transition, place, net);
+        //we set its weight
+        pair.setWeight(weight);
+    }
+
+    /**
+     * Method that allows you to save the initial marking
+     */
+    public void saveInitialMark() {
+
+        for (Pair p : getNet()) {
+            if (p.getPlace().getNumberOfToken() != 0)
+                initialMarking.put(p, p.getPlace().getNumberOfToken());
+        }
+        for (Pair p : getPairs()) {
+            if (p.getPlace().getNumberOfToken() != 0) {
+                initialMark.add(p);
+            }
+        }
+    }
+
+    public void saveInitialMarkCurretly() {
+        initialMarkCurretly.clear();
+
+        for (Pair p : getPairs()) {
+            if (p.getPlace().getNumberOfToken() != 0) {
+                initialMarkCurretly.add(p);
+            }
+        }
+    }
+    public ArrayList<Pair> getInitialMarkCurrenly() {
+        return initialMarkCurretly;
+    }
+    /**
+     * this method modify the token in the post transition
+     * @param transitionThatWeHaveToModify the transition that the user has choseen to be modify
+     */
+    public void setPreandPost(Transition transitionThatWeHaveToModify) {
+        //we have to update all the post element of the transitions, we add a token in the post
+        if (transitionThatWeHaveToModify.sizePost() == 1) {
+            getPair(getPlace(transitionThatWeHaveToModify.getIdPost().get(0)), transitionThatWeHaveToModify).getPlace().updateToken();
+        } else {
+            for (int i = 0; i < transitionThatWeHaveToModify.getIdPost().size(); i++) {
+                getPair(getPlace(transitionThatWeHaveToModify.getIdPost().get(i)), transitionThatWeHaveToModify).getPlace().updateToken();
+            }
+        }
     }
 }

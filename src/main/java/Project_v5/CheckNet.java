@@ -10,7 +10,7 @@ public class CheckNet {
      *
      * @return true if it is correct, false it isn't
      */
-    public static boolean checkTrans(Net net) {
+    public static boolean checkTrans(BasicNet net) {
         assert !net.getSetOfTrans().isEmpty();
         for (Transition t : net.getSetOfTrans()) {
             if (t.sizePre() == 0 || t.sizePost() == 0) {
@@ -33,7 +33,7 @@ public class CheckNet {
      *
      * @return true if the net is connect
      */
-    public static boolean checkConnect(Net net) {
+    public static boolean checkConnect(BasicNet net) {
         String firstPlace = null;
         //HashMap di bool
         HashMap<String, Boolean> check = new HashMap<>();
@@ -150,7 +150,7 @@ public class CheckNet {
      * @return true if there aren't pendant places
      */
     //controllo dei nodi pendenti, da rivedere e commentare
-    public static boolean checkPendantNode(Net net) {
+    public static boolean checkPendantNode(BasicNet net) {
         assert net != null;
         for (int i = 0; i < net.getNet().size(); i++) {
             boolean check = false;

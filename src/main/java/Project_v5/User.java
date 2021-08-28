@@ -14,7 +14,7 @@ public class User {
 
     /**
      * In this method there are all the action that the user can do. This method allows to do the correct action
-     * @param netM we pass the NetManager because that can load the net which will be use
+     *   we pass the NetManager because that can load the net which will be use
      * @throws FileNotFoundException
      */
      public void operation() throws FileNotFoundException {

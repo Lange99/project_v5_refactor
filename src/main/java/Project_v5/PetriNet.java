@@ -7,9 +7,9 @@ import java.util.*;
 public class PetriNet extends BasicNet implements Simulation {
 
 
-    private final HashMap<Pair, Integer> initialMarking = new HashMap<>();
-    private final ArrayList<Pair> initialMark = new ArrayList<>();
-    private final ArrayList<Pair> initialMarkCurretly = new ArrayList<>();
+    private final  HashMap<Pair, Integer> initialMarking = new HashMap<>();
+    private final  ArrayList<Pair> initialMark = new ArrayList<>();
+    private ArrayList<Pair> initialMarkCurretly = new ArrayList<>();
     private HashSet<Place> setOfPlace = new HashSet<Place>();
     private HashSet<Transition> setOfTrans = new HashSet<Transition>();
     private ArrayList<Pair> net = new ArrayList<Pair>();
@@ -138,7 +138,7 @@ public class PetriNet extends BasicNet implements Simulation {
      *
      * @param nameTrans name of the trans
      * @param placeMod  name of the place
-     * @param weight    the quantity of weight
+     * @param weight    the quantity of wsaeight
      */
     public void addWeight(String nameTrans, String placeMod, int weight) {
         //we research the transition and the place that the user wants to change
