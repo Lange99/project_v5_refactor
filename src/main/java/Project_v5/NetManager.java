@@ -318,7 +318,7 @@ public class NetManager implements Checker {
                 }
             } while (IO.yesOrNo(IO.YOU_WANT_ADD_ANOTHER_PAIR));
             //if the new net is correct we show it to the user and ask if he wants to save it
-            if (checkNet(n) && CheckNet.checkTrans(n) && CheckNet.checkConnect(n) && CheckExistence.checkEqualNet(n)) {
+            if (CheckNet.checkPendantNode(n) && CheckNet.checkTrans(n) && CheckNet.checkConnect(n) && CheckExistence.checkEqualNet(n)) {
                 IO.showNet(n);
                 IO.print(IO.THE_NET_IS_CORRECT_WE_ARE_GOING_TO_SAVE_IT);
 

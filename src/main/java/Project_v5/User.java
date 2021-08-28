@@ -8,22 +8,16 @@ import java.util.Set;
 import main.java.Utility.IO;
 import main.java.Utility.JsonManager;
 
-public class User implements StartOperation {
+public class User {
 
-    private static User user;
 
-    private User() {}
 
-    public static User getUser() {
-        return user;
-    }
     /**
      * In this method there are all the action that the user can do. This method allows to do the correct action
+     *   we pass the NetManager because that can load the net which will be use
      * @throws FileNotFoundException
      */
-    @Override
-     public void operation(NetManager netManager) throws FileNotFoundException {
-        assert netManager == null;
+     public void operation() throws FileNotFoundException {
          ArrayList<PetriNet> loadNetPetri = new ArrayList<>();
          ArrayList<PriorityPetriNet> loadPriorityNetPetri = new ArrayList<>();
          int select;

@@ -39,4 +39,5 @@ public abstract class BasicNet {
      * @param transitionToAdd is the transition to add
      */
     public abstract void addSetOfTransition(Transition transitionToAdd) ;
+    public abstract Transition getTrans(String name);
 }
