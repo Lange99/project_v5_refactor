@@ -16,7 +16,7 @@ import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NetManager implements StrategyNetManager {
+public class NetManager implements Checker {
 
     private final ArrayList<Net> netList = new ArrayList<>();
     private final ArrayList<PetriNet> petriNetList = new ArrayList<>();
