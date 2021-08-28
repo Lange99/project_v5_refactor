@@ -21,6 +21,13 @@ public class NetManager implements StrategyNetManager {
     private final ArrayList<Net> netList = new ArrayList<>();
     private final ArrayList<PetriNet> petriNetList = new ArrayList<>();
     private final ArrayList<PriorityPetriNet> priorityPetriNetList = new ArrayList<>();
+    private static NetManager netManager;
+
+    private NetManager() {}
+
+    public static NetManager getNetManager() {
+        return netManager;
+    }
 
     /**
      * this method handles the interface with the user

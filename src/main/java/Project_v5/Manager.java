@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Manager {
 
-    NetManager manager = new NetManager();
+    NetManager manager = NetManager.getNetManager();
     User user = new User();
     Configurator config = new Configurator();
 
@@ -19,7 +19,7 @@ public class Manager {
                     check=false;
                     break;
                 case 1:
-                    user.operation(manager);
+                    user.operation();
                     check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
                     break;
 

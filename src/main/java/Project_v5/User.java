@@ -17,20 +17,20 @@ public class User {
      * @param netM we pass the NetManager because that can load the net which will be use
      * @throws FileNotFoundException
      */
-     public void operation(NetManager netM) throws FileNotFoundException {
-        ArrayList<PetriNet> loadNetPetri=new ArrayList<>();
-        ArrayList<PriorityPetriNet> loadPriorityNetPetri=new ArrayList<>();
-        int select;
-        PetriNet selected;
+     public void operation() throws FileNotFoundException {
+         ArrayList<PetriNet> loadNetPetri = new ArrayList<>();
+         ArrayList<PriorityPetriNet> loadPriorityNetPetri = new ArrayList<>();
+         int select;
+         PetriNet selected;
 
-         boolean check=false;
+         boolean check = false;
          int choise = 0;
-       //this switch manage the operations
+         //this switch manage the operations
          do {
-             choise=IO.readInteger(IO.WHAT_DO_YOU_WANT_DO_0_EXIT_1_START_SIMULATION,0,4 );
+             choise = IO.readInteger(IO.WHAT_DO_YOU_WANT_DO_0_EXIT_1_START_SIMULATION, 0, 4);
 
 
-             switch(choise) {
+             switch (choise) {
                  case 0:
                      check = true;
                      break;
@@ -65,13 +65,13 @@ public class User {
                          selected.saveInitialMark();
                          //we start the simulation
                          //selected.simulation();
-                        // simulation(selected, loadNetPetri.get(select - 1).getInitialMark());
+                         // simulation(selected, loadNetPetri.get(select - 1).getInitialMark());
                          boolean canContinue;
-                         do{
+                         do {
                              selected.saveInitialMarkCurretly();
-                             canContinue=   startSimulation(selected, selected.getInitialMarkCurrenly());
+                             canContinue = startSimulation(selected, selected.getInitialMarkCurrenly());
 
-                         }while (canContinue==true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
+                         } while (canContinue == true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
                      }
                      check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
 
@@ -103,11 +103,11 @@ public class User {
 
                          //we start the simulation
                          boolean canContinue;
-                         do{
+                         do {
                              sel.saveInitialMarkCurretly();
-                              canContinue=   startSimulationPriority(sel, sel.getInitialMarkCurrenly());
+                             canContinue = startSimulationPriority(sel, sel.getInitialMarkCurrenly());
 
-                          }while (canContinue==true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
+                         } while (canContinue == true && IO.yesOrNo(IO.DO_YOU_WANT_TO_CONTINUE_THE_SIMULATION));
 
                      }
                      check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
@@ -115,8 +115,8 @@ public class User {
                      break;
 
              }
-         } while (!check );
-    }
+         } while (!check);
+     }
     /**this method call the method that give the initial situation and then it
      * asks to the user to choose a transition avabile
      * @param sel the Petri Net which we are made the simulation
@@ -125,14 +125,15 @@ public class User {
      */
 
     private boolean startSimulationPriority(PriorityPetriNet sel, ArrayList<Pair> initialMark) {
-        HashMap<Transition, ArrayList<Pair>> finalTrans = sel.simulation( initialMark);
-//we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
+        HashMap<Transition, ArrayList<Pair>> finalTrans = sel.simulation(initialMark);
+        //we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
         //ho fatto i controlli possibili in pairInTheTrans ho le transazioni che possono scattare
         if (finalTrans.size() == 0) {
             //In this case there aren't any transitions avaible
             IO.print(IO.THERE_AREN_T_ANY_TRANSITION_AVAILABLE);
-    return  false;
-        } else {
+            return false;
+        }
+        else {
 
 
             //we ask to the user which transition he wants to use
@@ -142,7 +143,7 @@ public class User {
             //we have to remove the token in the pre pairs
             IO.showPriorityPetriNet(sel);
         }
-        return  true;
+        return true;
     }
 
     /**this method call the method that give the initial situation and then it
@@ -152,7 +153,6 @@ public class User {
      * @return true if there are some transitions avaibile, false if there aren't any
      */
     public boolean startSimulation(PetriNet pN, ArrayList<Pair> initialMark) {
-
         HashMap<Transition, ArrayList<Pair>> finalTrans = pN.simulation(initialMark);
 //we have made all the checks, so in transitionThatCanWork there are the transitions that  we can use for the simulation
         //ho fatto i controlli possibili in pairInTheTrans ho le transazioni che possono scattare
