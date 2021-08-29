@@ -1,6 +1,4 @@
-package main.java.Project_v5;
-
-import main.java.Utility.IO;
+package main.java.Net;
 
 import java.util.*;
 

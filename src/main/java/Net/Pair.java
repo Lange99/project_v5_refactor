@@ -1,4 +1,4 @@
-package main.java.Project_v5;
+package main.java.Net;
 
 public class Pair {
     private Place place;

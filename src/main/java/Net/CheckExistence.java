@@ -1,7 +1,7 @@
-package main.java.Project_v5;
+package main.java.Net;
 
-import main.java.Utility.IO;
-import main.java.Utility.JsonManager;
+import main.java.IO.IO;
+import main.java.Json.JsonManager;
 
 
 import java.io.File;

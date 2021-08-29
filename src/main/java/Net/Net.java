@@ -1,10 +1,10 @@
-package main.java.Project_v5;
+package main.java.Net;
 
 import java.util.*;
 
 
 
-public class Net extends BasicNet{
+public class Net extends BasicNet {
 
     private HashSet<Place> setOfPlace = new HashSet<Place>();
     private HashSet<Transition> setOfTrans = new HashSet<Transition>();

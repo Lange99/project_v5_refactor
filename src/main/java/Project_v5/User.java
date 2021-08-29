@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import main.java.Utility.IO;
-import main.java.Utility.JsonManager;
+import main.java.IO.IO;
+import main.java.Net.*;
+
 
 public class User implements StartOperation {
 
     private static User user;
 
-    private User() {}
+    private User() {
+    }
 
     public static User getUser() {
         return user;
@@ -49,7 +51,7 @@ public class User implements StartOperation {
 
                     do {
 
-                        loadNetPetri.add(JsonManager.loadPetriNet());
+                        loadNetPetri.add(NetManager.getNetManager().loadPetriNet());
 
                     } while (IO.yesOrNo(IO.DO_YOU_WANT_TO_LOAD_OTHER_NETS));
 
@@ -87,7 +89,7 @@ public class User implements StartOperation {
 
 
                 case 3:
-                    PriorityPetriNet netToAdd = JsonManager.loadPriorityPetriNet();
+                    PriorityPetriNet netToAdd = NetManager.getNetManager().loadPriorityPetriNet();
                     loadPriorityNetPetri.add(netToAdd);
                     //loadPriorityNetPetri.addAll(netM.getPrioritynetList());
                     break;
@@ -167,7 +169,7 @@ public class User implements StartOperation {
         if (finalTrans.size() == 0) {
             //In this case there aren't any transitions avaible
             IO.print(IO.THERE_AREN_T_ANY_TRANSITION_AVAILABLE);
-    return false;
+            return false;
         } else {
 
 
@@ -194,9 +196,9 @@ public class User implements StartOperation {
         IO.print(IO.THE_FOLLOWING_TRANSITION_ARE_AVAILABLE);
         //we print the transition
         IO.printTransition(temp);
-       // IO.print(IO.STOP);
+        // IO.print(IO.STOP);
 //the user inserts the number of the transition that he wants to use
-      int choise=IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_TRANSITION_YOU_WANT_TO_USE, 1, temp.size()) - 1;
+        int choise=IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_TRANSITION_YOU_WANT_TO_USE, 1, temp.size()) - 1;
         return elementAvaible.get(choise);
     }
 

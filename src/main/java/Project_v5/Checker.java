@@ -1,5 +1,9 @@
 package main.java.Project_v5;
 
+import main.java.Net.Net;
+import main.java.Net.PetriNet;
+import main.java.Net.PriorityPetriNet;
+
 import java.io.FileNotFoundException;
 
 public interface Checker {

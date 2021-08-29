@@ -1,4 +1,8 @@
-package main.java.Project_v5;
+package main.java.Net;
+
+import main.java.Net.BasicNet;
+import main.java.Net.Place;
+import main.java.Net.Transition;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -6,7 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/BigPetriNet.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/BigPetriNet.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/lol2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/lol2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/retePetriFinita.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/retePetriFinita.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/retecaaaa.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/retecaaaa.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPriority/aaaarrrrrr.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePriorityPetriNet/aaaarrrrrr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPriority/tre.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePriorityPetriNet/tre.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPriority/y.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePriorityPetriNet/y.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/BasicNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/BasicNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/CheckExistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/CheckNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/CheckNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Checker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Net.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Net.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/PetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/PriorityPetriNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Research.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Research.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StartOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StartOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Transition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +86,9 @@
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="main.java.Utility.IO" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="main.java.Json" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
@@ -78,7 +109,7 @@
       <module name="Project_IS_v3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.Project_v5.*" />
+          <option name="PATTERN" value="main.java.Net.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -228,19 +259,5 @@
     <MESSAGE value="Modifica checkNetName per applicare il pattern Strategy" />
     <MESSAGE value="Aggiunta l'interfaccia StrategyNetManager che permette di applicare il pattern Strategy" />
     <option name="LAST_COMMIT_MESSAGE" value="Aggiunta l'interfaccia StrategyNetManager che permette di applicare il pattern Strategy" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java</url>
-          <line>151</line>
-          <properties class="main.java.Project_v5.NetManager" method="checkGenericNet">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

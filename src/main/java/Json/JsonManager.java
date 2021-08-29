@@ -1,9 +1,10 @@
-package main.java.Utility;
+package main.java.Json;
 
-import main.java.Project_v5.BasicNet;
-import main.java.Project_v5.Net;
-import main.java.Project_v5.PetriNet;
-import main.java.Project_v5.PriorityPetriNet;
+import main.java.Net.BasicNet;
+import main.java.Net.Net;
+import main.java.Net.PetriNet;
+import main.java.Net.PriorityPetriNet;
+import main.java.IO.IO;
 
 import java.io.*;
 import java.util.ArrayList;
