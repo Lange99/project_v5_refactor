@@ -5,36 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_8_0_RC1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_0_RC1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_0_RC1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_0_RC1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_0_RC1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_0_RC1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Net/CheckNetTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/BigPetriNet.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/BigPetriNet.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/lol2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/lol2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/retePetriFinita.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/retePetriFinita.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPetri/retecaaaa.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePetriNet/retecaaaa.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPriority/aaaarrrrrr.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePriorityPetriNet/aaaarrrrrr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPriority/tre.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePriorityPetriNet/tre.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/JsonPriority/y.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFilePriorityPetriNet/y.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/BasicNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/BasicNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/CheckExistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/CheckExistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/CheckNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/CheckNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Checker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Net.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Net.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/PetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/PriorityPetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/PriorityPetriNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Research.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Research.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StartOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StartOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Transition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/JsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_IS_v3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project_IS_v3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Net/CheckExistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/CheckExistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Net/Net.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Net.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Net/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/JsonPetri/BigPetriNet.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/JsonPetri/lol2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/JsonPetri/retePetriFinita.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/JsonPetri/retecaaaa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/JsonPriority/aaaarrrrrr.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/JsonPriority/tre.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/JsonPriority/y.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/IO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/Utility/JsonWriter.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -69,8 +69,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Project_IS_v3_jar.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -83,33 +87,23 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="main.java.Utility.IO" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="main.java.Json" />
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="main.java.Net" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.CheckNetTest.checkTransInorrectTransMore">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.Project_v5.Main" />
       <module name="Project_IS_v3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.java.Net.*" />
+          <option name="PATTERN" value="main.java.Project_v5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,8 +111,86 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckNetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_IS_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.Net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.java.Net" />
+      <option name="MAIN_CLASS_NAME" value="main.java.Net.CheckNetTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckNetTest.checkTransIncorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_IS_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.Net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.java.Net" />
+      <option name="MAIN_CLASS_NAME" value="main.java.Net.CheckNetTest" />
+      <option name="METHOD_NAME" value="checkTransIncorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckNetTest.checkTransInorrectTransMore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_IS_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.Net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.java.Net" />
+      <option name="MAIN_CLASS_NAME" value="main.java.Net.CheckNetTest" />
+      <option name="METHOD_NAME" value="checkTransInorrectTransMore" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckNetTest.checkTransNoTrans" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project_IS_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.Net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="main.java.Net" />
+      <option name="MAIN_CLASS_NAME" value="main.java.Net.CheckNetTest" />
+      <option name="METHOD_NAME" value="checkTransNoTrans" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CheckNetTest.checkTransInorrectTransMore" />
+        <item itemvalue="JUnit.CheckNetTest" />
+        <item itemvalue="JUnit.CheckNetTest.checkTransNoTrans" />
+        <item itemvalue="JUnit.CheckNetTest.checkTransIncorrect" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -259,5 +331,24 @@
     <MESSAGE value="Modifica checkNetName per applicare il pattern Strategy" />
     <MESSAGE value="Aggiunta l'interfaccia StrategyNetManager che permette di applicare il pattern Strategy" />
     <option name="LAST_COMMIT_MESSAGE" value="Aggiunta l'interfaccia StrategyNetManager che permette di applicare il pattern Strategy" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Project_v5/NetManager.java</url>
+          <line>151</line>
+          <properties class="main.java.Project_v5.NetManager">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Net/CheckNetTest.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

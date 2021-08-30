@@ -384,7 +384,7 @@ public class NetManager implements Checker {
         return petriNetList.get(choise);
     }
 
-    private ArrayList<String> getStringPairsFromPetriNet(PetriNet net) {
+    private ArrayList<String> getStringPairsFromPetriNet(BasicNet net) {
         int i = 0;
         ArrayList<String> stringPair = new ArrayList<>();
         for (Pair pair : net.getNet()) {

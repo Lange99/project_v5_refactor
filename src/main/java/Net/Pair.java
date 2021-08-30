@@ -8,7 +8,7 @@ public class Pair {
 
 
     public Pair(Place place, Transition trans){
-        assert !place.equals(null);
+        assert place!=null;
         this.place=place;
         this.trans=trans;
     }
@@ -52,7 +52,7 @@ public class Pair {
      */
 
     public boolean compare(Pair toCompare) {
-        assert !toCompare.compare(null);
+        assert toCompare!=null;
         //check if the place's ID is equal to the toCompare's ID, and then check if the trans'S ID is equal to the toCOmpare'S ID
         if( (place.getName().compareTo(toCompare.getPlaceName()) == 0) &&
                 (trans.getName().compareTo(toCompare.getTransName()) == 0)){

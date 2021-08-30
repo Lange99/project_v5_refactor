@@ -19,7 +19,7 @@ public class CheckExistence {
      * @return true if there is already the same net, false if there isn't
      * @throws FileNotFoundException
      */
-    public static boolean existsAlreadyGenericNet(PetriNet net, String path) throws FileNotFoundException {
+    public static boolean existsAlreadyGenericNet(BasicNet net, String path) throws FileNotFoundException {
         assert net != null;
         // bulld array String of the list of all file in JsonPetri directory
         String[] pathname = JsonManager.getPathname(path);
@@ -53,7 +53,7 @@ public class CheckExistence {
         return false;
     }
 
-    private static ArrayList<String> getStringPairsFromPetriNet(PetriNet net) {
+    private static ArrayList<String> getStringPairsFromPetriNet(BasicNet net) {
         int i = 0;
         ArrayList<String> stringPair = new ArrayList<>();
         for (Pair pair : net.getNet()) {

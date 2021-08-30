@@ -1,8 +1,10 @@
 package main.java.Net;
 
-import java.util.*;
 
 
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Net extends BasicNet {
 
@@ -197,7 +199,7 @@ public class Net extends BasicNet {
      * @return false if Pair are equal
      */
     public boolean checkPair(Pair pairToCheck) {
-        assert pairToCheck.compare(null);
+        assert pairToCheck!=null;
         for (Pair element : net) {
             if (element.compare(pairToCheck) == true) {
                 return false;
