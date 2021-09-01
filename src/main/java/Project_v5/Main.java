@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Manager manager = new Manager();
+        Manager manager = Manager.getManager();
         manager.start();
 
 

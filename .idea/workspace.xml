@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="Aggiunta classe test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Net/CheckNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/CheckNetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IO/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +77,7 @@
       <recent name="main.java.Net" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CheckNetTest">
+  <component name="RunManager" selected="Application.prova">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -79,6 +85,13 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="prova" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.java.Project_v5.Main" />
+      <module name="Project_IS_v3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -162,6 +175,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.prova" />
+      <item itemvalue="JUnit.CheckNetTest" />
+      <item itemvalue="JUnit.CheckNetTest.checkTransCorrectTransMoreTrans" />
+      <item itemvalue="JUnit.CheckNetTest.checkTransInorrectTransMore" />
+      <item itemvalue="JUnit.CheckNetTest.checkTransNoElement" />
+      <item itemvalue="JUnit.CheckNetTest.checkTransNoTrans" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CheckNetTest" />

@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Configurator implements StartOperation {
 
-    private static Configurator configurator;
+    private static Configurator configurator = new Configurator();
 
     private Configurator() {}
 

@@ -6,6 +6,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Manager {
+    private static Manager manager = new Manager();
+
+    private Manager() {}
+
+    public static Manager getManager() {
+        return  manager;
+    }
 
 //    NetManager manager = NetManager.getNetManager();
 //    User user = new User();

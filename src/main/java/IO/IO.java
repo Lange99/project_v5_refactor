@@ -59,8 +59,8 @@ public class IO {
     public static final String NO_PETRI_NET = "There aren't any nets! You have to insert or load a net before adding a Petri Net";
     public static final String THE_NET_IS_NOT_VALID = "The file doesn't contain any net!";
     public static final String JSON_FILE = "src/main/java/JsonFile";
-    public static final String JSON_PETRI_FILE = "src/main/java/JsonPetri/";
-    public static final String JSON_PRIORITY_PETRI_FILE = "src/main/java/JsonPriority/";
+    public static final String JSON_PETRI_FILE = "src/main/java/JsonFilePetriNet/";
+    public static final String JSON_PRIORITY_PETRI_FILE = "src/main/java/JsonFilePriorityPetriNet/";
     // public static final String HOW_MANY_TOKEN = "How many tokens do you want this place to have?\n(if you don't want tokens enter 0)";
     public final static String WHAT_PLACE_YOU_WANT_CHANGE = "What place you want change?";
     private final static String ERROR_FORMAT = "Warning: the entered data are in the wrong format.";

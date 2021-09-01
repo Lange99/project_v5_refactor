@@ -10,16 +10,16 @@ public class StrategyContext {
 
     public void setModalityContext(int choise) {
         if (choise == 1) {
-            modalityContext = User.getUser();
+            this.modalityContext = User.getUser();
             netManager = null;
         }
         else {
-            modalityContext = Configurator.getConfigurator();
+            this.modalityContext = Configurator.getConfigurator();
             netManager = NetManager.getNetManager();
         }
     }
 
     public void beginOperation() throws IOException {
-        modalityContext.operation(netManager);
+        this.modalityContext.operation(netManager);
     }
 }

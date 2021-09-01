@@ -21,7 +21,7 @@ public class NetManager implements Checker {
     private final ArrayList<Net> netList = new ArrayList<>();
     private final ArrayList<PetriNet> petriNetList = new ArrayList<>();
     private final ArrayList<PriorityPetriNet> priorityPetriNetList = new ArrayList<>();
-    private static NetManager netManager;
+    private static NetManager netManager = new NetManager();
 
     /**
      * PATTERN SINGLETON

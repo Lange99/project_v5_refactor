@@ -11,7 +11,7 @@ import main.java.Net.*;
 
 public class User implements StartOperation {
 
-    private static User user;
+    private static User user = new User();
 
     private User() {
     }
@@ -48,14 +48,15 @@ public class User implements StartOperation {
 
                     //the user decides which nets he wants to load
                     IO.print(IO.YOU_HAVE_TO_LOAD_A_NET_WHICH_ONE_DO_YOU_WANT);
-
                     do {
 
                         loadNetPetri.add(NetManager.getNetManager().loadPetriNet());
 
                     } while (IO.yesOrNo(IO.DO_YOU_WANT_TO_LOAD_OTHER_NETS));
 
-                    IO.printPetriNets(loadNetPetri);
+                    if (isNotNull(loadNetPetri)){
+                        IO.printPetriNets(loadNetPetri);
+                    }
                     check = IO.yesOrNo(IO.DO_YOU_WANT_CLOSE_THE_PROGRAM);
 
                     //simulazione(selected, selected.getInitialMark());
@@ -154,6 +155,17 @@ public class User implements StartOperation {
             IO.showPriorityPetriNet(sel);
         }
         return true;
+    }
+
+    private <T extends Object> boolean isNotNull(ArrayList<T> arrayToCheck) {
+        boolean notNull = true;
+        for (T element: arrayToCheck) {
+            if (element==null) {
+                notNull = false;
+                break;
+            }
+        }
+        return notNull;
     }
 
     /**this method call the method that give the initial situation and then it
