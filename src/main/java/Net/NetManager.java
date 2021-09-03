@@ -350,17 +350,6 @@ public class NetManager implements Checker {
     }
 
     /**
-     * the method check if there is only a place connect to a transition
-     *
-     * @param n the net we have to check
-     * @return false if there are some problems and if there is one or more pendant connection
-     */
-    public boolean checkNet(Net n) {
-        //if there is a problem the method return false
-        return CheckNet.checkPendantNode(n);
-    }
-
-    /**
      * method that prints all the nets in the netlist and returns a choice from the user
      *
      * @return the net choice
@@ -382,41 +371,6 @@ public class NetManager implements Checker {
         }
         int choise = IO.readInteger("choose the network number ", 0, petriNetList.size());
         return petriNetList.get(choise);
-    }
-
-    private ArrayList<String> getStringPairsFromPetriNet(BasicNet net) {
-        int i = 0;
-        ArrayList<String> stringPair = new ArrayList<>();
-        for (Pair pair : net.getNet()) {
-            String placeName = pair.getPlaceName();
-            String tokenNumber = String.valueOf(pair.getNumberOfToken());
-            String transitionName = pair.getTransName();
-            String weightNumber = String.valueOf(pair.getWeight());
-            String placeNameOfPrePlace = pair.getIdPreviusPlaceByIndex(i);
-            String placeNameOfPostPlace = pair.getIdPostPlaceByIndex(i);
-            String stringToElaborate = "Name: " + placeName + "\n" +
-                    "Token: " + tokenNumber + "\n" +
-                    "Transition: " + transitionName + "\n" +
-                    "Weight: " + weightNumber + "\n" +
-                    "First place: " + placeNameOfPrePlace + "\n" +
-                    "Second place: " + placeNameOfPostPlace + "\n";
-            String stringToAdd = getHashcode(stringToElaborate);
-            stringPair.add(stringToAdd);
-        }
-        return stringPair;
-    }
-
-    private String getHashcode(String stringToEncrypt) {
-        String sha1 = null;
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-1");
-            digest.reset();
-            digest.update(stringToEncrypt.getBytes(StandardCharsets.UTF_8));
-            sha1 = String.format("%040x", new BigInteger(1, digest.digest()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return sha1;
     }
 
     public void addPriorityPetriNet(PetriNet pN) {
@@ -454,12 +408,12 @@ public class NetManager implements Checker {
         // bulld array String of the list of all file in JsonPetri directory
         String[] pathname = JsonManager.getPathname(IO.JSON_PRIORITY_PETRI_FILE);
 
-        ArrayList<String> pairsNetToCheck = getStringPairsFromPetriNet(newPriorityPetriNetToCheck);
+        ArrayList<String> pairsNetToCheck = CheckExistence.getStringPairsFromPetriNet(newPriorityPetriNetToCheck);
         int sizePairsNetToCheck = pairsNetToCheck.size();
 
         for (String pathnameOfFileToCheck : pathname) {
             PetriNet existingNet = JsonManager.readPetriJson(IO.JSON_PRIORITY_PETRI_FILE + pathnameOfFileToCheck);
-            ArrayList<String> pairsExistingNet = getStringPairsFromPetriNet(existingNet);
+            ArrayList<String> pairsExistingNet = CheckExistence.getStringPairsFromPetriNet(existingNet);
             int counter = 0;
             int sizeArrayPairsExistingNet = pairsExistingNet.size();
 

@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="Aggiunta classe test">
+    <list default="true" id="c2415475-6e64-45ce-a694-0da79e26deaa" name="Default Changelist" comment="finito testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IO/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Net/CheckExistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/CheckExistence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Net/NetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Configurator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/StrategyContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Project_v5/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,21 +73,16 @@
       <recent name="main.java.Net" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.prova">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="prova" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.Project_v5.Main" />
       <module name="Project_IS_v3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.Project_v5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,37 +150,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CheckNetTest.checkTransNoTrans" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project_IS_v3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.java.Net.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="main.java.Net" />
-      <option name="MAIN_CLASS_NAME" value="main.java.Net.CheckNetTest" />
-      <option name="METHOD_NAME" value="checkTransNoTrans" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.prova" />
-      <item itemvalue="JUnit.CheckNetTest" />
-      <item itemvalue="JUnit.CheckNetTest.checkTransCorrectTransMoreTrans" />
-      <item itemvalue="JUnit.CheckNetTest.checkTransInorrectTransMore" />
-      <item itemvalue="JUnit.CheckNetTest.checkTransNoElement" />
-      <item itemvalue="JUnit.CheckNetTest.checkTransNoTrans" />
-    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CheckNetTest" />
         <item itemvalue="JUnit.CheckNetTest.checkTransNoElement" />
         <item itemvalue="JUnit.CheckNetTest.checkTransCorrectTransMoreTrans" />
         <item itemvalue="JUnit.CheckNetTest.checkTransInorrectTransMore" />
-        <item itemvalue="JUnit.CheckNetTest.checkTransNoTrans" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +175,7 @@
       <workItem from="1630324758996" duration="731000" />
       <workItem from="1630325521123" duration="125000" />
       <workItem from="1630325659486" duration="2961000" />
+      <workItem from="1630662959599" duration="1263000" />
     </task>
     <task id="LOCAL-00001" summary="modificato metodo di simulazione, e elementi in user">
       <created>1624726504562</created>
@@ -356,6 +324,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/Net/CheckNetTest.java</url>
           <line>99</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Project_v5/Manager.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

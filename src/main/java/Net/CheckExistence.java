@@ -53,7 +53,7 @@ public class CheckExistence {
         return false;
     }
 
-    private static ArrayList<String> getStringPairsFromPetriNet(BasicNet net) {
+    public static ArrayList<String> getStringPairsFromPetriNet(BasicNet net) {
         int i = 0;
         ArrayList<String> stringPair = new ArrayList<>();
         for (Pair pair : net.getNet()) {
@@ -75,7 +75,7 @@ public class CheckExistence {
         return stringPair;
     }
 
-    private static String getHashcode(String stringToEncrypt) {
+    public static String getHashcode(String stringToEncrypt) {
         String sha1 = null;
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-1");

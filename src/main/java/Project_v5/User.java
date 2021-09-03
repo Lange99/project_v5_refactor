@@ -101,7 +101,7 @@ public class User implements StartOperation {
                     } else {
                         //the user have to choosen one net
                         IO.printPriorityPetriNets(loadPriorityNetPetri);
-                        select = IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_NET_THAT_YOU_WANT_TO_USE, 0, loadPriorityNetPetri.size());
+                        select = IO.readInteger(IO.INSERT_THE_NUMBER_OF_THE_NET_THAT_YOU_WANT_TO_USE, 0, loadPriorityNetPetri.size()-1);
 
                         //qua ci va load PriorityPetriNet
 
